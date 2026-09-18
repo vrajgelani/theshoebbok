@@ -2,60 +2,38 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Thashow Grand Cinema | thashowbook</title>
+    <title>Thashow Grand Cinema - thashowbook</title>
 
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
+    <!-- Header -->
     <header class="site-header">
 
-        <div class="container header-content">
+        <div class="header-container">
 
-            <a href="index.html" class="logo">
+            <div class="logo">
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+            </div>
 
-                <div class="logo">
-    <img src="../assets/images/logo/thashowbook-logo.png" alt="thashowbook Logo">
-
-</div>
-
-
-            </a>
-
-
-            <nav class="main-navigation">
-
-                <a href="index.html" class="nav-link">
-                    Home
-                </a>
-
-                <a href="#" class="nav-link">
-                    Movies
-                </a>
-
-                <a href="index.html#cinemas" class="nav-link active">
-                    Cinemas
-                </a>
-
-                <a href="#" class="nav-link">
-                    My Bookings
-                </a>
-
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#movies">Movies</a>
+                <a href="index.html#cinemas">Cinemas</a>
+                <a href="#">My Bookings</a>
             </nav>
 
-
-            <a href="#" class="login-button">
+            <button class="login-button">
                 Login
-            </a>
+            </button>
 
         </div>
 
@@ -64,357 +42,404 @@
 
     <main>
 
-        <!-- CINEMA HERO -->
-
+        <!-- Cinema Hero -->
         <section class="cinema-detail-hero">
 
-            <div class="container">
-
-                <p class="section-label">
-                    CINEMA HOUSE 01
-                </p>
-
-                <h1>
-                    Thashow Grand Cinema
-                </h1>
-
-                <p>
-                    A premium movie experience with multiple halls,
-                    comfortable seating and cinema food.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- INSIDE IMAGE -->
-
-        <section class="cinema-inside-section">
-
-            <div class="container">
+            <div class="cinema-detail-container">
 
                 <img
-                    class="cinema-inside-image"
                     src="../assets/images/cinema/cinema-house-01-inside.jpg"
-                    alt="Inside view of Thashow Grand Cinema"
+                    alt="Thashow Grand Cinema Interior"
                 >
+
+                <div class="cinema-detail-info">
+
+                    <p class="section-label">
+                        CINEMA HOUSE 01
+                    </p>
+
+                    <h1>
+                        Thashow Grand Cinema
+                    </h1>
+
+                    <p>
+                        Premium movie experience with 5 halls,
+                        comfortable seating and quality cinema facilities.
+                    </p>
+
+                </div>
 
             </div>
 
         </section>
 
 
-        <!-- CINEMA INFORMATION -->
+        <!-- Halls -->
+        <section class="content-section">
 
-        <section class="cinema-information">
+            <div class="section-heading">
 
-            <div class="container">
+                <p class="section-label">
+                    CINEMA HALLS
+                </p>
 
-                <div class="detail-heading">
+                <h2>
+                    Our Halls
+                </h2>
 
-                    <p class="section-label">
-                        CINEMA INFORMATION
-                    </p>
+            </div>
 
-                    <h2>
-                        Thashow Grand Cinema
-                    </h2>
 
+            <div class="hall-grid">
+
+                <div class="hall-card">
+                    <h3>Hall 01</h3>
+                    <p>80 Seats</p>
                 </div>
 
-
-                <div class="cinema-stat-grid">
-
-                    <div class="cinema-stat">
-
-                        <strong>
-                            5
-                        </strong>
-
-                        <span>
-                            Halls
-                        </span>
-
-                    </div>
-
-
-                    <div class="cinema-stat">
-
-                        <strong>
-                            80–100
-                        </strong>
-
-                        <span>
-                            Seats / Hall
-                        </span>
-
-                    </div>
-
-
-                    <div class="cinema-stat">
-
-                        <strong>
-                            6–10
-                        </strong>
-
-                        <span>
-                            Movies
-                        </span>
-
-                    </div>
-
-
-                    <div class="cinema-stat">
-
-                        <strong>
-                            4
-                        </strong>
-
-                        <span>
-                            Food Options
-                        </span>
-
-                    </div>
-
+                <div class="hall-card">
+                    <h3>Hall 02</h3>
+                    <p>90 Seats</p>
                 </div>
 
-
-                <!-- HALLS -->
-
-                <div class="detail-block">
-
-                    <p class="section-label">
-                        HALLS
-                    </p>
-
-                    <h2>
-                        Cinema Halls
-                    </h2>
-
-
-                    <div class="hall-grid">
-
-                        <div class="hall-card">
-                            <h3>Hall 01</h3>
-                            <p>80 Seats</p>
-                        </div>
-
-                        <div class="hall-card">
-                            <h3>Hall 02</h3>
-                            <p>90 Seats</p>
-                        </div>
-
-                        <div class="hall-card">
-                            <h3>Hall 03</h3>
-                            <p>100 Seats</p>
-                        </div>
-
-                        <div class="hall-card">
-                            <h3>Hall 04</h3>
-                            <p>90 Seats</p>
-                        </div>
-
-                        <div class="hall-card">
-                            <h3>Hall 05</h3>
-                            <p>80 Seats</p>
-                        </div>
-
-                    </div>
-
+                <div class="hall-card">
+                    <h3>Hall 03</h3>
+                    <p>100 Seats</p>
                 </div>
 
-
-                <!-- MOVIES -->
-
-                <div class="detail-block">
-
-                    <p class="section-label">
-                        MOVIES
-                    </p>
-
-                    <h2>
-                        Movies Available
-                    </h2>
-
-
-                    <div class="movie-name-list">
-
-                        <span>AAGAAZ</span>
-                        <span>HASO TOH JIVO</span>
-                        <span>RAAZ</span>
-                        <span>APNO GHAR</span>
-                        <span>SAFAR</span>
-                        <span>DIL SE DIL TAK</span>
-
-                    </div>
-
+                <div class="hall-card">
+                    <h3>Hall 04</h3>
+                    <p>90 Seats</p>
                 </div>
 
-
-                <!-- FOOD -->
-
-                <div class="detail-block">
-
-                    <p class="section-label">
-                        CINEMA FOOD
-                    </p>
-
-                    <h2>
-                        Food & Beverages
-                    </h2>
-
-
-                    <div class="food-grid">
-
-
-                        <article class="food-card">
-
-                            <img
-                                src="../assets/images/food/grand-popcorn.jpg"
-                                alt="Classic Popcorn"
-                            >
-
-                            <div class="food-card-content">
-
-                                <h3>
-                                    Classic Popcorn
-                                </h3>
-
-                                <p>
-                                    Fresh cinema popcorn
-                                </p>
-
-                                <strong>
-                                    ₹180
-                                </strong>
-
-                                <button
-                                    type="button"
-                                    class="food-button"
-                                >
-                                    Add to Food Cart
-                                </button>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="food-card">
-
-                            <img
-                                src="../assets/images/food/grand-cold-drink.jpg"
-                                alt="Cold Drink"
-                            >
-
-                            <div class="food-card-content">
-
-                                <h3>
-                                    Cold Drink
-                                </h3>
-
-                                <p>
-                                    Chilled soft drink
-                                </p>
-
-                                <strong>
-                                    ₹120
-                                </strong>
-
-                                <button
-                                    type="button"
-                                    class="food-button"
-                                >
-                                    Add to Food Cart
-                                </button>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="food-card">
-
-                            <img
-                                src="../assets/images/food/grand-nachos.jpg"
-                                alt="Nachos"
-                            >
-
-                            <div class="food-card-content">
-
-                                <h3>
-                                    Nachos
-                                </h3>
-
-                                <p>
-                                    Crispy nachos with dip
-                                </p>
-
-                                <strong>
-                                    ₹160
-                                </strong>
-
-                                <button
-                                    type="button"
-                                    class="food-button"
-                                >
-                                    Add to Food Cart
-                                </button>
-
-                            </div>
-
-                        </article>
-
-
-                        <article class="food-card">
-
-                            <img
-                                src="../assets/images/food/grand-cheese-pizza.jpg"
-                                alt="Cheese Pizza"
-                            >
-
-                            <div class="food-card-content">
-
-                                <h3>
-                                    Cheese Pizza
-                                </h3>
-
-                                <p>
-                                    Fresh cheesy pizza
-                                </p>
-
-                                <strong>
-                                    ₹220
-                                </strong>
-
-                                <button
-                                    type="button"
-                                    class="food-button"
-                                >
-                                    Add to Food Cart
-                                </button>
-
-                            </div>
-
-                        </article>
-
-
-                    </div>
-
+                <div class="hall-card">
+                    <h3>Hall 05</h3>
+                    <p>80 Seats</p>
                 </div>
 
+            </div>
 
-                <!-- BOOKING -->
+        </section>
 
-                <div class="booking-action">
 
-                    <a
-                        href="#"
-                        class="primary-button"
+        <!-- Movie Selection -->
+        <section class="content-section booking-selection-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    BOOK YOUR SHOW
+                </p>
+
+                <h2>
+                    Select Movie
+                </h2>
+
+            </div>
+
+
+            <div class="selection-grid">
+
+                <button class="selection-card movie-selection active"
+                    data-movie="AAGAAZ">
+
+                    <img
+                        src="../assets/images/movies/movie-01.jpg"
+                        alt="AAGAAZ"
                     >
-                        Select Movie & Show
-                    </a>
+
+                    <span>AAGAAZ</span>
+
+                </button>
+
+
+                <button class="selection-card movie-selection"
+                    data-movie="HASO TOH JIVO">
+
+                    <img
+                        src="../assets/images/movies/movie-02.jpg"
+                        alt="HASO TOH JIVO"
+                    >
+
+                    <span>HASO TOH JIVO</span>
+
+                </button>
+
+
+                <button class="selection-card movie-selection"
+                    data-movie="RAAZ">
+
+                    <img
+                        src="../assets/images/movies/movie-03.jpg"
+                        alt="RAAZ"
+                    >
+
+                    <span>RAAZ</span>
+
+                </button>
+
+
+                <button class="selection-card movie-selection"
+                    data-movie="APNO GHAR">
+
+                    <img
+                        src="../assets/images/movies/movie-04.jpg"
+                        alt="APNO GHAR"
+                    >
+
+                    <span>APNO GHAR</span>
+
+                </button>
+
+
+                <button class="selection-card movie-selection"
+                    data-movie="SAFAR">
+
+                    <img
+                        src="../assets/images/movies/movie-05.jpg"
+                        alt="SAFAR"
+                    >
+
+                    <span>SAFAR</span>
+
+                </button>
+
+
+                <button class="selection-card movie-selection"
+                    data-movie="DIL SE DIL TAK">
+
+                    <img
+                        src="../assets/images/movies/movie-06.jpg"
+                        alt="DIL SE DIL TAK"
+                    >
+
+                    <span>DIL SE DIL TAK</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Date Selection -->
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    CHOOSE DATE
+                </p>
+
+                <h2>
+                    Select Date
+                </h2>
+
+            </div>
+
+
+            <div class="date-selection">
+
+                <button class="date-card active" data-date="Today">
+                    <strong>Today</strong>
+                    <span>Show Day</span>
+                </button>
+
+                <button class="date-card" data-date="Tomorrow">
+                    <strong>Tomorrow</strong>
+                    <span>Show Day</span>
+                </button>
+
+                <button class="date-card" data-date="Day 3">
+                    <strong>Day 3</strong>
+                    <span>Show Day</span>
+                </button>
+
+                <button class="date-card" data-date="Day 4">
+                    <strong>Day 4</strong>
+                    <span>Show Day</span>
+                </button>
+
+                <button class="date-card" data-date="Day 5">
+                    <strong>Day 5</strong>
+                    <span>Show Day</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Showtime -->
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    SHOWTIMES
+                </p>
+
+                <h2>
+                    Select Showtime
+                </h2>
+
+            </div>
+
+
+            <div class="showtime-grid">
+
+                <button class="showtime-card" data-time="10:00 AM">
+                    10:00 AM
+                </button>
+
+                <button class="showtime-card" data-time="01:00 PM">
+                    01:00 PM
+                </button>
+
+                <button class="showtime-card" data-time="04:00 PM">
+                    04:00 PM
+                </button>
+
+                <button class="showtime-card" data-time="07:00 PM">
+                    07:00 PM
+                </button>
+
+                <button class="showtime-card" data-time="10:00 PM">
+                    10:00 PM
+                </button>
+
+            </div>
+
+
+            <div class="booking-next-area">
+
+                <p id="selectionMessage">
+                    Select a movie, date and showtime.
+                </p>
+
+                <button
+                    id="continueBookingButton"
+                    class="primary-button"
+                    disabled
+                >
+                    Continue to Seat Selection
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Food -->
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    CINEMA FOOD
+                </p>
+
+                <h2>
+                    Snacks &amp; Drinks
+                </h2>
+
+            </div>
+
+
+            <div class="food-grid">
+
+                <div class="food-card">
+
+                    <img
+                        src="../assets/images/food/grand-popcorn.jpg"
+                        alt="Classic Popcorn"
+                    >
+
+                    <div class="food-card-content">
+
+                        <h3>Classic Popcorn</h3>
+
+                        <p>Fresh cinema popcorn.</p>
+
+                        <strong>₹180</strong>
+
+                        <button class="food-button">
+                            Add to Food Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="../assets/images/food/grand-cold-drink.jpg"
+                        alt="Cold Drink"
+                    >
+
+                    <div class="food-card-content">
+
+                        <h3>Cold Drink</h3>
+
+                        <p>Chilled cinema drink.</p>
+
+                        <strong>₹120</strong>
+
+                        <button class="food-button">
+                            Add to Food Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="../assets/images/food/grand-nachos.jpg"
+                        alt="Nachos"
+                    >
+
+                    <div class="food-card-content">
+
+                        <h3>Nachos</h3>
+
+                        <p>Crispy nachos with cheese dip.</p>
+
+                        <strong>₹160</strong>
+
+                        <button class="food-button">
+                            Add to Food Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="food-card">
+
+                    <img
+                        src="../assets/images/food/grand-cheese-pizza.jpg"
+                        alt="Cheese Pizza"
+                    >
+
+                    <div class="food-card-content">
+
+                        <h3>Cheese Pizza</h3>
+
+                        <p>Fresh cheesy cinema pizza.</p>
+
+                        <strong>₹220</strong>
+
+                        <button class="food-button">
+                            Add to Food Cart
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -425,13 +450,12 @@
     </main>
 
 
-    <!-- FOOTER -->
-
+    <!-- Footer -->
     <footer class="site-footer">
 
-        <div class="container footer-content">
+        <div class="footer-container">
 
-            <div>
+            <div class="footer-brand">
 
                 <h3>
                     thashowbook
@@ -443,10 +467,17 @@
 
             </div>
 
+            <div class="footer-info">
 
-            <p class="copyright">
-                © 2026 thashowbook. All rights reserved.
-            </p>
+                <p>
+                    Customer Movie Booking Platform
+                </p>
+
+                <p>
+                    © 2026 thashowbook
+                </p>
+
+            </div>
 
         </div>
 

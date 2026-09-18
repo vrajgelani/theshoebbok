@@ -607,3 +607,351 @@ body {
     }
 
 }
+
+/* =========================
+   CINEMA DETAILS
+========================= */
+
+.cinema-detail-hero {
+    background: #111;
+    color: white;
+    padding: 60px 20px;
+}
+
+.cinema-detail-container {
+    max-width: 1100px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 55% 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.cinema-detail-container > img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+.cinema-detail-info h1 {
+    font-size: 42px;
+    margin: 10px 0 18px;
+}
+
+.cinema-detail-info p:not(.section-label) {
+    color: #cccccc;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   HALLS
+========================= */
+
+.hall-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.hall-card {
+    background: white;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+.hall-card h3 {
+    margin-bottom: 7px;
+}
+
+.hall-card p {
+    color: #777;
+}
+
+
+/* =========================
+   MOVIE SELECTION
+========================= */
+
+.booking-selection-section {
+    background: #ffffff;
+    max-width: none;
+
+    padding-left: max(20px, calc((100% - 1160px) / 2));
+    padding-right: max(20px, calc((100% - 1160px) / 2));
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+}
+
+.selection-card {
+    border: 2px solid #eeeeee;
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: left;
+}
+
+.selection-card img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    display: block;
+}
+
+.selection-card span {
+    display: block;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.selection-card.active {
+    border-color: #ff6b00;
+    box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.12);
+}
+
+
+/* =========================
+   DATE SELECTION
+========================= */
+
+.date-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.date-card {
+    min-width: 135px;
+    padding: 16px;
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    text-align: center;
+}
+
+.date-card strong,
+.date-card span {
+    display: block;
+}
+
+.date-card strong {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.date-card span {
+    color: #777;
+    font-size: 13px;
+}
+
+.date-card.active {
+    border-color: #ff6b00;
+    background: #fff7f0;
+}
+
+
+/* =========================
+   SHOWTIME
+========================= */
+
+.showtime-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.showtime-card {
+    padding: 14px 25px;
+    border: 2px solid #eeeeee;
+    background: white;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.showtime-card:hover {
+    border-color: #ff6b00;
+}
+
+.showtime-card.active {
+    background: #ff6b00;
+    border-color: #ff6b00;
+    color: white;
+}
+
+.showtime-card:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* =========================
+   BOOKING NEXT
+========================= */
+
+.booking-next-area {
+    margin-top: 35px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#selectionMessage {
+    color: #666;
+    font-size: 14px;
+}
+
+#continueBookingButton:disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   FOOD
+========================= */
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.food-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+}
+
+.food-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.food-card-content {
+    padding: 18px;
+}
+
+.food-card-content h3 {
+    margin-bottom: 7px;
+}
+
+.food-card-content p {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.food-card-content strong {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.food-button {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ff6b00;
+    border-radius: 8px;
+    background: white;
+    color: #ff6b00;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.food-button:hover {
+    background: #ff6b00;
+    color: white;
+}
+
+
+/* =========================
+   CINEMA RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+    .selection-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hall-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .cinema-detail-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cinema-detail-container > img {
+        height: 250px;
+    }
+
+    .cinema-detail-info h1 {
+        font-size: 32px;
+    }
+
+    .selection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hall-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-next-area {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .selection-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .date-card {
+        flex: 1;
+        min-width: 100px;
+    }
+
+}
