@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seat Selection - thashowbook</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <div class="logo">
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+            </div>
+
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#movies">Movies</a>
+                <a href="index.html#cinemas">Cinemas</a>
+                <a href="#">My Bookings</a>
+            </nav>
+
+            <button class="login-button">
+                Login
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- Booking Information -->
+        <section class="seat-page-header">
+
+            <div class="section-container">
+
+                <p class="section-label">
+                    BOOK YOUR SEATS
+                </p>
+
+                <h1>
+                    Select Your Seats
+                </h1>
+
+                <div class="booking-info">
+
+                    <div>
+                        <strong>Movie</strong>
+                        <span id="bookingMovie">AAGAAZ</span>
+                    </div>
+
+                    <div>
+                        <strong>Cinema</strong>
+                        <span id="bookingCinema">
+                            Thashow Grand Cinema
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>Date</strong>
+                        <span id="bookingDate">Today</span>
+                    </div>
+
+                    <div>
+                        <strong>Showtime</strong>
+                        <span id="bookingTime">10:00 AM</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Hall Selection -->
+        <section class="content-section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    SELECT HALL
+                </p>
+
+                <h2>
+                    Choose Hall
+                </h2>
+
+            </div>
+
+
+            <div class="hall-selection-grid">
+
+                <button
+                    class="hall-selection-card active"
+                    data-hall="Hall 01"
+                    data-capacity="80"
+                >
+                    <strong>Hall 01</strong>
+                    <span>80 Seats</span>
+                </button>
+
+
+                <button
+                    class="hall-selection-card"
+                    data-hall="Hall 02"
+                    data-capacity="90"
+                >
+                    <strong>Hall 02</strong>
+                    <span>90 Seats</span>
+                </button>
+
+
+                <button
+                    class="hall-selection-card"
+                    data-hall="Hall 03"
+                    data-capacity="100"
+                >
+                    <strong>Hall 03</strong>
+                    <span>100 Seats</span>
+                </button>
+
+
+                <button
+                    class="hall-selection-card"
+                    data-hall="Hall 04"
+                    data-capacity="90"
+                >
+                    <strong>Hall 04</strong>
+                    <span>90 Seats</span>
+                </button>
+
+
+                <button
+                    class="hall-selection-card"
+                    data-hall="Hall 05"
+                    data-capacity="80"
+                >
+                    <strong>Hall 05</strong>
+                    <span>80 Seats</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Seat Selection -->
+        <section class="content-section seat-section">
+
+            <div class="seat-section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        SEAT MAP
+                    </p>
+
+                    <h2>
+                        Hall 01
+                    </h2>
+
+                </div>
+
+                <p>
+                    ₹250 per seat
+                </p>
+
+            </div>
+
+
+            <!-- Screen -->
+            <div class="cinema-screen">
+                SCREEN
+            </div>
+
+
+            <!-- Seat Layout -->
+            <div
+                id="seatLayout"
+                class="seat-layout"
+            >
+
+            </div>
+
+
+            <!-- Seat Legend -->
+            <div class="seat-legend">
+
+                <div>
+                    <span class="legend-seat available"></span>
+                    Available
+                </div>
+
+                <div>
+                    <span class="legend-seat selected"></span>
+                    Selected
+                </div>
+
+                <div>
+                    <span class="legend-seat booked"></span>
+                    Booked
+                </div>
+
+            </div>
+
+
+            <!-- Booking Summary -->
+            <div class="seat-booking-summary">
+
+                <div>
+
+                    <strong>
+                        Selected Seats
+                    </strong>
+
+                    <span id="selectedSeats">
+                        None
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Total
+                    </strong>
+
+                    <span id="seatTotal">
+                        ₹0
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="continueSeatButton"
+                    class="primary-button"
+                    disabled
+                >
+                    Continue
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <h3>
+                    thashowbook
+                </h3>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+            <div class="footer-info">
+
+                <p>
+                    Customer Movie Booking Platform
+                </p>
+
+                <p>
+                    © 2026 thashowbook
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>

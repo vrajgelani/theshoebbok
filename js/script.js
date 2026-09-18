@@ -7,9 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
        MOVIE SEARCH
     ========================= */
 
-    const searchInput = document.getElementById("movieSearch");
-    const searchButton = document.getElementById("searchButton");
-    const movieCards = document.querySelectorAll(".movie-card");
+    const searchInput =
+        document.getElementById("movieSearch");
+
+    const searchButton =
+        document.getElementById("searchButton");
+
+    const movieCards =
+        document.querySelectorAll(".movie-card");
 
 
     if (searchButton && searchInput) {
@@ -51,7 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const movieSelection =
         document.querySelectorAll(".movie-selection");
 
-    let selectedMovie = "AAGAAZ";
+    let selectedMovie =
+        localStorage.getItem("selectedMovie") || "AAGAAZ";
 
 
     movieSelection.forEach(function (button) {
@@ -81,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const dateCards =
         document.querySelectorAll(".date-card");
 
-    let selectedDate = "Today";
+    let selectedDate =
+        localStorage.getItem("selectedDate") || "Today";
 
 
     dateCards.forEach(function (button) {
@@ -111,7 +118,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const showtimeCards =
         document.querySelectorAll(".showtime-card");
 
-    let selectedTime = "";
+    let selectedTime =
+        localStorage.getItem("selectedTime") || "";
 
 
     showtimeCards.forEach(function (button) {
@@ -141,13 +149,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectionMessage =
         document.getElementById("selectionMessage");
 
-    const continueButton =
+    const continueBookingButton =
         document.getElementById("continueBookingButton");
 
 
     function updateBookingMessage() {
 
-        if (!selectionMessage || !continueButton) {
+        if (!selectionMessage || !continueBookingButton) {
             return;
         }
 
@@ -157,9 +165,10 @@ document.addEventListener("DOMContentLoaded", function () {
             selectionMessage.textContent =
                 "Select a movie, date and showtime.";
 
-            continueButton.disabled = true;
+            continueBookingButton.disabled = true;
 
             return;
+
         }
 
 
@@ -170,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
             " • " +
             selectedTime;
 
-        continueButton.disabled = false;
+        continueBookingButton.disabled = false;
 
     }
 
@@ -179,38 +188,41 @@ document.addEventListener("DOMContentLoaded", function () {
        CONTINUE TO SEAT SELECTION
     ========================= */
 
-    if (continueButton) {
+    if (continueBookingButton) {
 
-        continueButton.addEventListener("click", function () {
+        continueBookingButton.addEventListener(
+            "click",
+            function () {
 
-            if (continueButton.disabled) {
-                return;
+                if (continueBookingButton.disabled) {
+                    return;
+                }
+
+                localStorage.setItem(
+                    "selectedMovie",
+                    selectedMovie
+                );
+
+                localStorage.setItem(
+                    "selectedDate",
+                    selectedDate
+                );
+
+                localStorage.setItem(
+                    "selectedTime",
+                    selectedTime
+                );
+
+                localStorage.setItem(
+                    "selectedCinema",
+                    "Thashow Grand Cinema"
+                );
+
+                window.location.href =
+                    "seat-selection.html";
+
             }
-
-            localStorage.setItem(
-                "selectedMovie",
-                selectedMovie
-            );
-
-            localStorage.setItem(
-                "selectedDate",
-                selectedDate
-            );
-
-            localStorage.setItem(
-                "selectedTime",
-                selectedTime
-            );
-
-            localStorage.setItem(
-                "selectedCinema",
-                "Thashow Grand Cinema"
-            );
-
-            window.location.href =
-                "seat-selection.html";
-
-        });
+        );
 
     }
 
@@ -246,5 +258,360 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+
+    /* =========================
+       SEAT PAGE DATA
+    ========================= */
+
+    const seatLayout =
+        document.getElementById("seatLayout");
+
+
+    if (seatLayout) {
+
+        const bookingMovie =
+            document.getElementById("bookingMovie");
+
+        const bookingCinema =
+            document.getElementById("bookingCinema");
+
+        const bookingDate =
+            document.getElementById("bookingDate");
+
+        const bookingTime =
+            document.getElementById("bookingTime");
+
+
+        if (bookingMovie) {
+            bookingMovie.textContent =
+                localStorage.getItem("selectedMovie") || "AAGAAZ";
+        }
+
+        if (bookingCinema) {
+            bookingCinema.textContent =
+                localStorage.getItem("selectedCinema") ||
+                "Thashow Grand Cinema";
+        }
+
+        if (bookingDate) {
+            bookingDate.textContent =
+                localStorage.getItem("selectedDate") ||
+                "Today";
+        }
+
+        if (bookingTime) {
+            bookingTime.textContent =
+                localStorage.getItem("selectedTime") ||
+                "10:00 AM";
+        }
+
+
+        createSeats();
+
+    }
+
+
+    /* =========================
+       HALL SELECTION
+    ========================= */
+
+    const hallSelectionCards =
+        document.querySelectorAll(".hall-selection-card");
+
+
+    let selectedHall =
+        "Hall 01";
+
+
+    hallSelectionCards.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            hallSelectionCards.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            selectedHall =
+                button.getAttribute("data-hall");
+
+
+            const seatSectionHeading =
+                document.querySelector(
+                    ".seat-section-heading h2"
+                );
+
+
+            if (seatSectionHeading) {
+
+                seatSectionHeading.textContent =
+                    selectedHall;
+
+            }
+
+
+            createSeats();
+
+        });
+
+    });
+
+
+    /* =========================
+       CREATE SEATS
+    ========================= */
+
+    function createSeats() {
+
+        if (!seatLayout) {
+            return;
+        }
+
+
+        seatLayout.innerHTML = "";
+
+
+        const rows = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+        ];
+
+
+        rows.forEach(function (row) {
+
+            const rowContainer =
+                document.createElement("div");
+
+            rowContainer.className =
+                "seat-row";
+
+
+            const rowLabel =
+                document.createElement("span");
+
+            rowLabel.className =
+                "seat-row-label";
+
+            rowLabel.textContent =
+                row;
+
+
+            rowContainer.appendChild(rowLabel);
+
+
+            for (let number = 1; number <= 10; number++) {
+
+                const seat =
+                    document.createElement("button");
+
+                seat.className =
+                    "seat available";
+
+                seat.type =
+                    "button";
+
+                seat.textContent =
+                    number;
+
+                seat.setAttribute(
+                    "data-seat",
+                    row + number
+                );
+
+
+                /*
+                    Demo booked seats.
+                    These are only for frontend UI testing.
+                */
+
+                if (
+                    (row === "A" && number === 4) ||
+                    (row === "A" && number === 5) ||
+                    (row === "C" && number === 7) ||
+                    (row === "D" && number === 3) ||
+                    (row === "F" && number === 8)
+                ) {
+
+                    seat.classList.remove("available");
+
+                    seat.classList.add("booked");
+
+                    seat.disabled = true;
+
+                }
+
+
+                seat.addEventListener(
+                    "click",
+                    function () {
+
+                        if (
+                            seat.classList.contains("booked")
+                        ) {
+                            return;
+                        }
+
+
+                        seat.classList.toggle("selected");
+
+                        updateSeatSummary();
+
+                    }
+                );
+
+
+                rowContainer.appendChild(seat);
+
+            }
+
+
+            seatLayout.appendChild(rowContainer);
+
+        });
+
+
+        updateSeatSummary();
+
+    }
+
+
+    /* =========================
+       SEAT SUMMARY
+    ========================= */
+
+    function updateSeatSummary() {
+
+        const selectedSeatsElement =
+            document.getElementById("selectedSeats");
+
+        const seatTotalElement =
+            document.getElementById("seatTotal");
+
+        const continueSeatButton =
+            document.getElementById("continueSeatButton");
+
+
+        if (
+            !selectedSeatsElement ||
+            !seatTotalElement ||
+            !continueSeatButton
+        ) {
+            return;
+        }
+
+
+        const selectedSeats =
+            document.querySelectorAll(
+                ".seat.selected"
+            );
+
+
+        const seatNames = [];
+
+
+        selectedSeats.forEach(function (seat) {
+
+            seatNames.push(
+                seat.getAttribute("data-seat")
+            );
+
+        });
+
+
+        const total =
+            selectedSeats.length * 250;
+
+
+        if (seatNames.length === 0) {
+
+            selectedSeatsElement.textContent =
+                "None";
+
+        } else {
+
+            selectedSeatsElement.textContent =
+                seatNames.join(", ");
+
+        }
+
+
+        seatTotalElement.textContent =
+            "₹" + total;
+
+
+        continueSeatButton.disabled =
+            selectedSeats.length === 0;
+
+    }
+
+
+    /* =========================
+       CONTINUE AFTER SEATS
+    ========================= */
+
+    const continueSeatButton =
+        document.getElementById("continueSeatButton");
+
+
+    if (continueSeatButton) {
+
+        continueSeatButton.addEventListener(
+            "click",
+            function () {
+
+                const selectedSeats =
+                    document.querySelectorAll(
+                        ".seat.selected"
+                    );
+
+
+                const seatNames = [];
+
+
+                selectedSeats.forEach(function (seat) {
+
+                    seatNames.push(
+                        seat.getAttribute("data-seat")
+                    );
+
+                });
+
+
+                if (seatNames.length === 0) {
+                    return;
+                }
+
+
+                localStorage.setItem(
+                    "selectedHall",
+                    selectedHall
+                );
+
+                localStorage.setItem(
+                    "selectedSeats",
+                    JSON.stringify(seatNames)
+                );
+
+                localStorage.setItem(
+                    "seatTotal",
+                    String(seatNames.length * 250)
+                );
+
+
+                window.location.href =
+                    "booking-summary.html";
+
+            }
+        );
+
+    }
 
 });
