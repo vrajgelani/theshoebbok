@@ -228,39 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       FOOD CART BUTTON
-    ========================= */
-
-    const foodButtons =
-        document.querySelectorAll(".food-button");
-
-
-    foodButtons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const foodCard =
-                button.closest(".food-card");
-
-            if (!foodCard) {
-                return;
-            }
-
-            const foodName =
-                foodCard.querySelector("h3");
-
-            if (!foodName) {
-                return;
-            }
-
-            button.textContent = "Added";
-
-        });
-
-    });
-
-
-    /* =========================
        SEAT PAGE DATA
     ========================= */
 
@@ -284,26 +251,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (bookingMovie) {
+
             bookingMovie.textContent =
-                localStorage.getItem("selectedMovie") || "AAGAAZ";
+                localStorage.getItem("selectedMovie") ||
+                "AAGAAZ";
+
         }
 
+
         if (bookingCinema) {
+
             bookingCinema.textContent =
                 localStorage.getItem("selectedCinema") ||
                 "Thashow Grand Cinema";
+
         }
 
+
         if (bookingDate) {
+
             bookingDate.textContent =
                 localStorage.getItem("selectedDate") ||
                 "Today";
+
         }
 
+
         if (bookingTime) {
+
             bookingTime.textContent =
                 localStorage.getItem("selectedTime") ||
                 "10:00 AM";
+
         }
 
 
@@ -321,7 +300,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     let selectedHall =
-        localStorage.getItem("selectedHall") || "Hall 01";
+        localStorage.getItem("selectedHall") ||
+        "Hall 01";
 
 
     hallSelectionCards.forEach(function (button) {
@@ -407,19 +387,27 @@ document.addEventListener("DOMContentLoaded", function () {
             rowContainer.appendChild(rowLabel);
 
 
-            for (let number = 1; number <= 10; number++) {
+            for (
+                let number = 1;
+                number <= 10;
+                number++
+            ) {
 
                 const seat =
                     document.createElement("button");
 
+
                 seat.className =
                     "seat available";
+
 
                 seat.type =
                     "button";
 
+
                 seat.textContent =
                     number;
+
 
                 seat.setAttribute(
                     "data-seat",
@@ -435,9 +423,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     (row === "F" && number === 8)
                 ) {
 
-                    seat.classList.remove("available");
+                    seat.classList.remove(
+                        "available"
+                    );
 
-                    seat.classList.add("booked");
+                    seat.classList.add(
+                        "booked"
+                    );
 
                     seat.disabled = true;
 
@@ -449,13 +441,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     function () {
 
                         if (
-                            seat.classList.contains("booked")
+                            seat.classList.contains(
+                                "booked"
+                            )
                         ) {
                             return;
                         }
 
 
-                        seat.classList.toggle("selected");
+                        seat.classList.toggle(
+                            "selected"
+                        );
+
 
                         updateSeatSummary();
 
@@ -491,7 +488,9 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("seatTotal");
 
         const continueSeatButton =
-            document.getElementById("continueSeatButton");
+            document.getElementById(
+                "continueSeatButton"
+            );
 
 
         if (
@@ -553,7 +552,9 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================= */
 
     const continueSeatButton =
-        document.getElementById("continueSeatButton");
+        document.getElementById(
+            "continueSeatButton"
+        );
 
 
     if (continueSeatButton) {
@@ -590,14 +591,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     selectedHall
                 );
 
+
                 localStorage.setItem(
                     "selectedSeats",
                     JSON.stringify(seatNames)
                 );
 
+
                 localStorage.setItem(
                     "seatTotal",
-                    String(seatNames.length * 250)
+                    String(
+                        seatNames.length * 250
+                    )
                 );
 
 
@@ -611,7 +616,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       BOOKING SUMMARY PAGE
+       BOOKING SUMMARY
     ========================= */
 
     const summaryMovie =
@@ -621,49 +626,74 @@ document.addEventListener("DOMContentLoaded", function () {
     if (summaryMovie) {
 
         const summaryCinema =
-            document.getElementById("summaryCinema");
+            document.getElementById(
+                "summaryCinema"
+            );
 
         const summaryHall =
-            document.getElementById("summaryHall");
+            document.getElementById(
+                "summaryHall"
+            );
 
         const summaryDate =
-            document.getElementById("summaryDate");
+            document.getElementById(
+                "summaryDate"
+            );
 
         const summaryTime =
-            document.getElementById("summaryTime");
+            document.getElementById(
+                "summaryTime"
+            );
 
         const summarySeats =
-            document.getElementById("summarySeats");
+            document.getElementById(
+                "summarySeats"
+            );
 
         const summaryTicketPrice =
-            document.getElementById("summaryTicketPrice");
+            document.getElementById(
+                "summaryTicketPrice"
+            );
 
         const summarySeatCount =
-            document.getElementById("summarySeatCount");
+            document.getElementById(
+                "summarySeatCount"
+            );
 
         const summaryTotal =
-            document.getElementById("summaryTotal");
+            document.getElementById(
+                "summaryTotal"
+            );
 
 
         const movie =
-            localStorage.getItem("selectedMovie") ||
-            "AAGAAZ";
+            localStorage.getItem(
+                "selectedMovie"
+            ) || "AAGAAZ";
+
 
         const cinema =
-            localStorage.getItem("selectedCinema") ||
-            "Thashow Grand Cinema";
+            localStorage.getItem(
+                "selectedCinema"
+            ) || "Thashow Grand Cinema";
+
 
         const hall =
-            localStorage.getItem("selectedHall") ||
-            "Hall 01";
+            localStorage.getItem(
+                "selectedHall"
+            ) || "Hall 01";
+
 
         const date =
-            localStorage.getItem("selectedDate") ||
-            "Today";
+            localStorage.getItem(
+                "selectedDate"
+            ) || "Today";
+
 
         const time =
-            localStorage.getItem("selectedTime") ||
-            "10:00 AM";
+            localStorage.getItem(
+                "selectedTime"
+            ) || "10:00 AM";
 
 
         let seats = [];
@@ -673,7 +703,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             seats =
                 JSON.parse(
-                    localStorage.getItem("selectedSeats")
+                    localStorage.getItem(
+                        "selectedSeats"
+                    )
                 ) || [];
 
         } catch (error) {
@@ -685,8 +717,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const ticketPrice = 250;
 
+
         const seatCount =
             seats.length;
+
 
         const total =
             seatCount * ticketPrice;
@@ -736,26 +770,253 @@ document.addEventListener("DOMContentLoaded", function () {
         summaryTotal.textContent =
             "₹" + total;
 
-
-        const continueToFoodButton =
-            document.getElementById(
-                "continueToFoodButton"
-            );
+    }
 
 
-        if (continueToFoodButton) {
+    /* =========================
+       FOOD CART
+    ========================= */
 
-            continueToFoodButton.addEventListener(
-                "click",
-                function () {
+    const addFoodButtons =
+        document.querySelectorAll(
+            ".add-food-button"
+        );
 
-                    window.location.href =
-                        "cinema-details.html#food";
+
+    let foodCart = [];
+
+
+    try {
+
+        foodCart =
+            JSON.parse(
+                localStorage.getItem(
+                    "foodCart"
+                )
+            ) || [];
+
+    } catch (error) {
+
+        foodCart = [];
+
+    }
+
+
+    addFoodButtons.forEach(function (button) {
+
+        button.addEventListener(
+            "click",
+            function () {
+
+                const foodName =
+                    button.getAttribute(
+                        "data-food"
+                    );
+
+                const foodPrice =
+                    Number(
+                        button.getAttribute(
+                            "data-price"
+                        )
+                    );
+
+
+                const existingItem =
+                    foodCart.find(
+                        function (item) {
+
+                            return item.name ===
+                                foodName;
+
+                        }
+                    );
+
+
+                if (existingItem) {
+
+                    existingItem.quantity += 1;
+
+                } else {
+
+                    foodCart.push({
+                        name: foodName,
+                        price: foodPrice,
+                        quantity: 1
+                    });
 
                 }
+
+
+                localStorage.setItem(
+                    "foodCart",
+                    JSON.stringify(foodCart)
+                );
+
+
+                button.textContent =
+                    "Added";
+
+
+                renderFoodCart();
+
+            }
+        );
+
+    });
+
+
+    /* =========================
+       RENDER FOOD CART
+    ========================= */
+
+    function renderFoodCart() {
+
+        const foodCartList =
+            document.getElementById(
+                "foodCartList"
             );
 
+        const foodCartTotal =
+            document.getElementById(
+                "foodCartTotal"
+            );
+
+
+        if (
+            !foodCartList ||
+            !foodCartTotal
+        ) {
+            return;
         }
+
+
+        foodCartList.innerHTML = "";
+
+
+        if (foodCart.length === 0) {
+
+            const emptyMessage =
+                document.createElement("p");
+
+            emptyMessage.className =
+                "empty-food-cart";
+
+            emptyMessage.textContent =
+                "No food items added yet.";
+
+            foodCartList.appendChild(
+                emptyMessage
+            );
+
+
+            foodCartTotal.textContent =
+                "₹0";
+
+            return;
+
+        }
+
+
+        let total = 0;
+
+
+        foodCart.forEach(function (item) {
+
+            const itemRow =
+                document.createElement("div");
+
+            itemRow.className =
+                "food-summary-item";
+
+
+            const itemInfo =
+                document.createElement("div");
+
+
+            const itemName =
+                document.createElement("strong");
+
+            itemName.textContent =
+                item.name;
+
+
+            const itemQuantity =
+                document.createElement("span");
+
+            itemQuantity.textContent =
+                "Qty: " + item.quantity;
+
+
+            itemInfo.appendChild(
+                itemName
+            );
+
+            itemInfo.appendChild(
+                itemQuantity
+            );
+
+
+            const itemPrice =
+                document.createElement("strong");
+
+            const itemTotal =
+                item.price *
+                item.quantity;
+
+
+            itemPrice.textContent =
+                "₹" + itemTotal;
+
+
+            itemRow.appendChild(
+                itemInfo
+            );
+
+            itemRow.appendChild(
+                itemPrice
+            );
+
+
+            foodCartList.appendChild(
+                itemRow
+            );
+
+
+            total += itemTotal;
+
+        });
+
+
+        foodCartTotal.textContent =
+            "₹" + total;
+
+    }
+
+
+    renderFoodCart();
+
+
+    /* =========================
+       CONTINUE TO BOOKING
+    ========================= */
+
+    const continueToConfirmationButton =
+        document.getElementById(
+            "continueToConfirmationButton"
+        );
+
+
+    if (continueToConfirmationButton) {
+
+        continueToConfirmationButton.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "booking-confirmation.html";
+
+            }
+        );
 
     }
 
