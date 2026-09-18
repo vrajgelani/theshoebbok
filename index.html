@@ -12,7 +12,7 @@
 
     <meta
         name="description"
-        content="thashowbook - Pick. Book. Watch."
+        content="thashowbook - Discover movies, choose your cinema and book your seats."
     >
 
     <title>
@@ -37,8 +37,6 @@
         <div class="header-container">
 
 
-            <!-- ================= BRAND ================= -->
-
             <a
                 href="index.html"
                 class="logo-link"
@@ -54,8 +52,6 @@
 
             </a>
 
-
-            <!-- ================= DESKTOP NAVIGATION ================= -->
 
             <nav
                 class="navigation"
@@ -93,10 +89,7 @@
             </nav>
 
 
-            <!-- ================= HEADER ACTIONS ================= -->
-
             <div class="header-right">
-
 
                 <button
                     type="button"
@@ -104,7 +97,7 @@
                     id="locationButton"
                 >
 
-                    <span class="location-symbol">
+                    <span>
                         📍
                     </span>
 
@@ -123,8 +116,6 @@
                     Login
                 </button>
 
-
-                <!-- MOBILE MENU BUTTON -->
 
                 <button
                     type="button"
@@ -145,7 +136,7 @@
         </div>
 
 
-        <!-- ================= MOBILE NAVIGATION ================= -->
+        <!-- ================= MOBILE NAV ================= -->
 
         <div
             class="mobile-navigation"
@@ -203,7 +194,15 @@
 
         <section class="hero">
 
-            <div class="hero-background"></div>
+            <div class="hero-background">
+
+                <div class="hero-glow"></div>
+
+                <div class="hero-ring hero-ring-one"></div>
+
+                <div class="hero-ring hero-ring-two"></div>
+
+            </div>
 
             <div class="hero-overlay"></div>
 
@@ -213,26 +212,26 @@
                 <div class="hero-content">
 
                     <div class="hero-label">
-                        YOUR MOVIE. YOUR SHOW. YOUR SEAT.
+                        THE BIG SCREEN EXPERIENCE
                     </div>
 
                     <h1>
 
-                        Your Next
+                        Every Story
+                        <br>
 
                         <span>
-                            Movie Night
+                            Deserves
                         </span>
 
-                        Starts Here.
+                        A Big Screen.
 
                     </h1>
 
 
                     <p>
-                        Discover the latest movies, choose your
-                        favourite cinema, select your seats and
-                        book your tickets in just a few simple steps.
+                        Find the latest movies, discover cinemas near you,
+                        choose your show and reserve your favourite seats.
                     </p>
 
 
@@ -254,6 +253,78 @@
 
                     </div>
 
+
+                    <div class="hero-stats">
+
+                        <div class="hero-stat">
+
+                            <strong>
+                                Movies
+                            </strong>
+
+                            <span>
+                                Discover
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-divider"></div>
+
+
+                        <div class="hero-stat">
+
+                            <strong>
+                                Cinemas
+                            </strong>
+
+                            <span>
+                                Choose
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-divider"></div>
+
+
+                        <div class="hero-stat">
+
+                            <strong>
+                                Seats
+                            </strong>
+
+                            <span>
+                                Book
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-poster-showcase">
+
+                    <div class="hero-poster-back"></div>
+
+                    <div class="hero-poster-main">
+
+                        <div class="hero-poster-top">
+                            THASHOW
+                        </div>
+
+                        <div class="hero-poster-main-title">
+                            CINEMA
+                        </div>
+
+                        <div class="hero-poster-bottom">
+                            EXPERIENCE
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -269,7 +340,7 @@
             <div class="search-container">
 
                 <div class="search-title">
-                    Find your movie
+                    SEARCH MOVIES
                 </div>
 
 
@@ -278,9 +349,10 @@
                     <input
                         type="text"
                         id="movieSearch"
-                        placeholder="Search movie name..."
+                        placeholder="Search by movie name or genre..."
                         autocomplete="off"
                     >
+
 
                     <button
                         type="button"
@@ -304,7 +376,7 @@
 
 
 
-        <!-- ================= MOVIES ================= -->
+        <!-- ================= NOW SHOWING ================= -->
 
         <section
             class="section movies-section"
@@ -312,6 +384,7 @@
         >
 
             <div class="section-container">
+
 
                 <div class="section-header">
 
@@ -324,6 +397,10 @@
                         <h2>
                             Movies You Can Watch Now
                         </h2>
+
+                        <p class="section-description">
+                            Choose a movie and start your cinema experience.
+                        </p>
 
                     </div>
 
@@ -344,21 +421,38 @@
                 >
 
 
-                    <article class="movie-card">
+                    <!-- MOVIE 1 -->
+
+                    <article
+                        class="movie-card"
+                        data-title="The Final Mission"
+                        data-genre="Action Thriller"
+                    >
 
                         <div class="movie-poster poster-1">
 
+                            <div class="poster-light"></div>
+
                             <div class="poster-content">
 
-                                <div class="poster-small">
-                                    THASHOW
-                                </div>
+                                <span class="poster-eyebrow">
+                                    THASHOW ORIGINAL
+                                </span>
 
-                                <div class="poster-title">
-                                    ACTION
-                                </div>
+                                <strong class="poster-title">
+                                    FINAL
+                                </strong>
+
+                                <strong class="poster-title poster-title-large">
+                                    MISSION
+                                </strong>
+
+                                <span class="poster-genre">
+                                    ACTION • THRILLER
+                                </span>
 
                             </div>
+
 
                             <span class="movie-status">
                                 NOW SHOWING
@@ -394,6 +488,7 @@
                             <button
                                 type="button"
                                 class="book-button"
+                                data-movie="The Final Mission"
                             >
                                 Book Tickets
                             </button>
@@ -404,21 +499,38 @@
 
 
 
-                    <article class="movie-card">
+                    <!-- MOVIE 2 -->
+
+                    <article
+                        class="movie-card"
+                        data-title="The Hidden Truth"
+                        data-genre="Mystery Drama"
+                    >
 
                         <div class="movie-poster poster-2">
 
+                            <div class="poster-light"></div>
+
                             <div class="poster-content">
 
-                                <div class="poster-small">
+                                <span class="poster-eyebrow">
                                     THASHOW
-                                </div>
+                                </span>
 
-                                <div class="poster-title">
-                                    MYSTERY
-                                </div>
+                                <strong class="poster-title">
+                                    HIDDEN
+                                </strong>
+
+                                <strong class="poster-title poster-title-large">
+                                    TRUTH
+                                </strong>
+
+                                <span class="poster-genre">
+                                    MYSTERY • DRAMA
+                                </span>
 
                             </div>
+
 
                             <span class="movie-status">
                                 NOW SHOWING
@@ -454,6 +566,7 @@
                             <button
                                 type="button"
                                 class="book-button"
+                                data-movie="The Hidden Truth"
                             >
                                 Book Tickets
                             </button>
@@ -464,21 +577,38 @@
 
 
 
-                    <article class="movie-card">
+                    <!-- MOVIE 3 -->
+
+                    <article
+                        class="movie-card"
+                        data-title="Crazy Weekend"
+                        data-genre="Comedy Family"
+                    >
 
                         <div class="movie-poster poster-3">
 
+                            <div class="poster-light"></div>
+
                             <div class="poster-content">
 
-                                <div class="poster-small">
+                                <span class="poster-eyebrow">
                                     THASHOW
-                                </div>
+                                </span>
 
-                                <div class="poster-title">
-                                    COMEDY
-                                </div>
+                                <strong class="poster-title">
+                                    CRAZY
+                                </strong>
+
+                                <strong class="poster-title poster-title-large">
+                                    WEEKEND
+                                </strong>
+
+                                <span class="poster-genre">
+                                    COMEDY • FAMILY
+                                </span>
 
                             </div>
+
 
                             <span class="movie-status">
                                 NOW SHOWING
@@ -514,6 +644,7 @@
                             <button
                                 type="button"
                                 class="book-button"
+                                data-movie="Crazy Weekend"
                             >
                                 Book Tickets
                             </button>
@@ -524,21 +655,38 @@
 
 
 
-                    <article class="movie-card">
+                    <!-- MOVIE 4 -->
+
+                    <article
+                        class="movie-card"
+                        data-title="A New Beginning"
+                        data-genre="Drama Romance"
+                    >
 
                         <div class="movie-poster poster-4">
 
+                            <div class="poster-light"></div>
+
                             <div class="poster-content">
 
-                                <div class="poster-small">
+                                <span class="poster-eyebrow">
                                     THASHOW
-                                </div>
+                                </span>
 
-                                <div class="poster-title">
-                                    DRAMA
-                                </div>
+                                <strong class="poster-title">
+                                    NEW
+                                </strong>
+
+                                <strong class="poster-title poster-title-large">
+                                    BEGINNING
+                                </strong>
+
+                                <span class="poster-genre">
+                                    DRAMA • ROMANCE
+                                </span>
 
                             </div>
+
 
                             <span class="movie-status">
                                 NOW SHOWING
@@ -574,6 +722,7 @@
                             <button
                                 type="button"
                                 class="book-button"
+                                data-movie="A New Beginning"
                             >
                                 Book Tickets
                             </button>
@@ -583,6 +732,14 @@
                     </article>
 
 
+                </div>
+
+
+                <div
+                    class="no-movie-message"
+                    id="noMovieMessage"
+                >
+                    No movies found.
                 </div>
 
             </div>
@@ -600,6 +757,7 @@
 
             <div class="section-container">
 
+
                 <div class="section-header">
 
                     <div>
@@ -609,8 +767,12 @@
                         </div>
 
                         <h2>
-                            Get Ready for the Next Show
+                            What's Coming Next
                         </h2>
+
+                        <p class="section-description">
+                            Get ready for upcoming stories on the big screen.
+                        </p>
 
                     </div>
 
@@ -624,8 +786,20 @@
 
                         <div class="coming-poster coming-1">
 
-                            <div class="coming-poster-text">
-                                COMING
+                            <div class="coming-poster-content">
+
+                                <span>
+                                    THASHOW
+                                </span>
+
+                                <strong>
+                                    BEYOND
+                                </strong>
+
+                                <strong>
+                                    HORIZON
+                                </strong>
+
                             </div>
 
                         </div>
@@ -633,7 +807,7 @@
 
                         <div class="coming-info">
 
-                            <span>
+                            <span class="coming-label">
                                 RELEASING SOON
                             </span>
 
@@ -645,9 +819,9 @@
                                 Adventure • Sci-Fi
                             </p>
 
-                            <strong>
+                            <div class="release-info">
                                 Coming Soon
-                            </strong>
+                            </div>
 
                         </div>
 
@@ -659,8 +833,20 @@
 
                         <div class="coming-poster coming-2">
 
-                            <div class="coming-poster-text">
-                                SOON
+                            <div class="coming-poster-content">
+
+                                <span>
+                                    THASHOW
+                                </span>
+
+                                <strong>
+                                    MIDNIGHT
+                                </strong>
+
+                                <strong>
+                                    STORY
+                                </strong>
+
                             </div>
 
                         </div>
@@ -668,7 +854,7 @@
 
                         <div class="coming-info">
 
-                            <span>
+                            <span class="coming-label">
                                 RELEASING SOON
                             </span>
 
@@ -680,9 +866,9 @@
                                 Thriller • Mystery
                             </p>
 
-                            <strong>
+                            <div class="release-info">
                                 Coming Soon
-                            </strong>
+                            </div>
 
                         </div>
 
@@ -706,6 +892,7 @@
 
             <div class="section-container">
 
+
                 <div class="section-header">
 
                     <div>
@@ -717,6 +904,10 @@
                         <h2>
                             Choose Your Cinema
                         </h2>
+
+                        <p class="section-description">
+                            Find the perfect screen for your movie night.
+                        </p>
 
                     </div>
 
@@ -730,8 +921,16 @@
 
                         <div class="cinema-image cinema-1">
 
-                            <div class="cinema-name-overlay">
-                                THASHOW CENTRAL
+                            <div class="cinema-image-content">
+
+                                <span>
+                                    THASHOW
+                                </span>
+
+                                <strong>
+                                    CENTRAL
+                                </strong>
+
                             </div>
 
                         </div>
@@ -747,7 +946,10 @@
                                 Modern cinema experience
                             </p>
 
-                            <button type="button">
+                            <button
+                                type="button"
+                                class="cinema-button"
+                            >
                                 View Shows
                             </button>
 
@@ -761,8 +963,16 @@
 
                         <div class="cinema-image cinema-2">
 
-                            <div class="cinema-name-overlay">
-                                THASHOW ROYAL
+                            <div class="cinema-image-content">
+
+                                <span>
+                                    THASHOW
+                                </span>
+
+                                <strong>
+                                    ROYAL
+                                </strong>
+
                             </div>
 
                         </div>
@@ -778,7 +988,10 @@
                                 Premium cinema experience
                             </p>
 
-                            <button type="button">
+                            <button
+                                type="button"
+                                class="cinema-button"
+                            >
                                 View Shows
                             </button>
 
@@ -792,8 +1005,16 @@
 
                         <div class="cinema-image cinema-3">
 
-                            <div class="cinema-name-overlay">
-                                THASHOW GALAXY
+                            <div class="cinema-image-content">
+
+                                <span>
+                                    THASHOW
+                                </span>
+
+                                <strong>
+                                    GALAXY
+                                </strong>
+
                             </div>
 
                         </div>
@@ -809,7 +1030,10 @@
                                 Contemporary cinema experience
                             </p>
 
-                            <button type="button">
+                            <button
+                                type="button"
+                                class="cinema-button"
+                            >
                                 View Shows
                             </button>
 
@@ -826,7 +1050,7 @@
 
 
 
-        <!-- ================= CTA ================= -->
+        <!-- ================= FINAL CTA ================= -->
 
         <section class="cta-section">
 
@@ -839,19 +1063,19 @@
                     </div>
 
                     <h2>
-                        Your Seat Is Waiting.
+                        Your Next Seat Is Waiting.
                     </h2>
 
                     <p>
-                        Choose a movie, pick a show and make your
-                        next cinema experience memorable.
+                        Pick your movie, choose your cinema and get ready
+                        for the big screen.
                     </p>
 
                     <a
                         href="#movies"
                         class="primary-button"
                     >
-                        Book Your Movie
+                        Explore Movies
                     </a>
 
                 </div>
@@ -883,8 +1107,8 @@
                 </div>
 
                 <p>
-                    A simple and modern way to discover movies,
-                    cinemas and book your seats.
+                    Discover movies, choose your cinema and
+                    book your next movie experience.
                 </p>
 
             </div>
