@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     let selectedHall =
-        "Hall 01";
+        localStorage.getItem("selectedHall") || "Hall 01";
 
 
     hallSelectionCards.forEach(function (button) {
@@ -426,11 +426,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     row + number
                 );
 
-
-                /*
-                    Demo booked seats.
-                    These are only for frontend UI testing.
-                */
 
                 if (
                     (row === "A" && number === 4) ||
@@ -611,6 +606,156 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
         );
+
+    }
+
+
+    /* =========================
+       BOOKING SUMMARY PAGE
+    ========================= */
+
+    const summaryMovie =
+        document.getElementById("summaryMovie");
+
+
+    if (summaryMovie) {
+
+        const summaryCinema =
+            document.getElementById("summaryCinema");
+
+        const summaryHall =
+            document.getElementById("summaryHall");
+
+        const summaryDate =
+            document.getElementById("summaryDate");
+
+        const summaryTime =
+            document.getElementById("summaryTime");
+
+        const summarySeats =
+            document.getElementById("summarySeats");
+
+        const summaryTicketPrice =
+            document.getElementById("summaryTicketPrice");
+
+        const summarySeatCount =
+            document.getElementById("summarySeatCount");
+
+        const summaryTotal =
+            document.getElementById("summaryTotal");
+
+
+        const movie =
+            localStorage.getItem("selectedMovie") ||
+            "AAGAAZ";
+
+        const cinema =
+            localStorage.getItem("selectedCinema") ||
+            "Thashow Grand Cinema";
+
+        const hall =
+            localStorage.getItem("selectedHall") ||
+            "Hall 01";
+
+        const date =
+            localStorage.getItem("selectedDate") ||
+            "Today";
+
+        const time =
+            localStorage.getItem("selectedTime") ||
+            "10:00 AM";
+
+
+        let seats = [];
+
+
+        try {
+
+            seats =
+                JSON.parse(
+                    localStorage.getItem("selectedSeats")
+                ) || [];
+
+        } catch (error) {
+
+            seats = [];
+
+        }
+
+
+        const ticketPrice = 250;
+
+        const seatCount =
+            seats.length;
+
+        const total =
+            seatCount * ticketPrice;
+
+
+        summaryMovie.textContent =
+            movie;
+
+
+        summaryCinema.textContent =
+            cinema;
+
+
+        summaryHall.textContent =
+            hall;
+
+
+        summaryDate.textContent =
+            date;
+
+
+        summaryTime.textContent =
+            time;
+
+
+        if (seats.length > 0) {
+
+            summarySeats.textContent =
+                seats.join(", ");
+
+        } else {
+
+            summarySeats.textContent =
+                "No seats selected";
+
+        }
+
+
+        summaryTicketPrice.textContent =
+            "₹" + ticketPrice;
+
+
+        summarySeatCount.textContent =
+            seatCount;
+
+
+        summaryTotal.textContent =
+            "₹" + total;
+
+
+        const continueToFoodButton =
+            document.getElementById(
+                "continueToFoodButton"
+            );
+
+
+        if (continueToFoodButton) {
+
+            continueToFoodButton.addEventListener(
+                "click",
+                function () {
+
+                    window.location.href =
+                        "cinema-details.html#food";
+
+                }
+            );
+
+        }
 
     }
 
