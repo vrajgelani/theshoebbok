@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - thashowbook</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+            </a>
+
+            <nav class="main-navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#movies">Movies</a>
+                <a href="index.html#cinemas">Cinemas</a>
+            </nav>
+
+            <a href="login.html" class="login-link">
+                Login
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main class="auth-page">
+
+        <div class="auth-container">
+
+            <div class="auth-card">
+
+                <div class="auth-header">
+
+                    <h1>Create Account</h1>
+
+                    <p>
+                        Register to book your favourite movies.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm" class="auth-form">
+
+                    <div class="form-group">
+
+                        <label for="registerName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            placeholder="Create a password"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerConfirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerConfirmPassword"
+                            placeholder="Confirm your password"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                    <p
+                        id="registerMessage"
+                        class="auth-message"
+                    ></p>
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit-button"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    <p>
+                        Already have an account?
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 thashowbook. All rights reserved.
+                </p>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

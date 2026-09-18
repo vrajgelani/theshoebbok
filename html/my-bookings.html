@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Bookings - thashowbook</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+            </a>
+
+            <nav class="main-navigation">
+
+                <a href="index.html">Home</a>
+
+                <a href="index.html#movies">Movies</a>
+
+                <a href="index.html#cinemas">Cinemas</a>
+
+                <a
+                    href="my-bookings.html"
+                    class="protected-action"
+                >
+                    My Bookings
+                </a>
+
+            </nav>
+
+            <a
+                href="login.html"
+                class="login-link header-login-button"
+            >
+                Login
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- Page Header -->
+    <section class="page-header">
+
+        <div class="container">
+
+            <h1>My Bookings</h1>
+
+            <p>
+                View your movie booking details and booking history.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- My Bookings -->
+    <main class="my-bookings-section">
+
+        <div class="container">
+
+            <!-- Empty Booking Message -->
+            <div
+                id="emptyBookingMessage"
+                class="empty-booking-message"
+            >
+
+                <h2>No Bookings Found</h2>
+
+                <p>
+                    You have not completed any movie booking yet.
+                </p>
+
+                <a
+                    href="index.html"
+                    class="primary-button"
+                >
+                    Browse Movies
+                </a>
+
+            </div>
+
+
+            <!-- Booking Card -->
+            <div
+                id="myBookingCard"
+                class="my-booking-card"
+            >
+
+                <div class="booking-card-header">
+
+                    <div>
+
+                        <span class="booking-label">
+                            Booking ID
+                        </span>
+
+                        <h2 id="myBookingId">
+                            TSB000000
+                        </h2>
+
+                    </div>
+
+                    <span class="booking-status">
+                        Confirmed
+                    </span>
+
+                </div>
+
+
+                <div class="booking-card-content">
+
+                    <!-- Movie -->
+                    <div class="booking-detail-item">
+
+                        <span class="booking-detail-label">
+                            Movie
+                        </span>
+
+                        <strong id="myBookingMovie">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Cinema -->
+                    <div class="booking-detail-item">
+
+                        <span class="booking-detail-label">
+                            Cinema
+                        </span>
+
+                        <strong id="myBookingCinema">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Hall -->
+                    <div class="booking-detail-item">
+
+                        <span class="booking-detail-label">
+                            Hall
+                        </span>
+
+                        <strong id="myBookingHall">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Date -->
+                    <div class="booking-detail-item">
+
+                        <span class="booking-detail-label">
+                            Date
+                        </span>
+
+                        <strong id="myBookingDate">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Showtime -->
+                    <div class="booking-detail-item">
+
+                        <span class="booking-detail-label">
+                            Showtime
+                        </span>
+
+                        <strong id="myBookingTime">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Seats -->
+                    <div class="booking-detail-item">
+
+                        <span class="booking-detail-label">
+                            Seats
+                        </span>
+
+                        <strong id="myBookingSeats">
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Food -->
+                <div class="booking-food-section">
+
+                    <h3>Food & Beverages</h3>
+
+                    <div
+                        id="myBookingFoodList"
+                        class="booking-food-list"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- Price Summary -->
+                <div class="booking-price-section">
+
+                    <div class="price-row">
+
+                        <span>
+                            Ticket Total
+                        </span>
+
+                        <strong id="myBookingTicketTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="price-row">
+
+                        <span>
+                            Food Total
+                        </span>
+
+                        <strong id="myBookingFoodTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="price-row grand-price-row">
+
+                        <span>
+                            Grand Total
+                        </span>
+
+                        <strong id="myBookingGrandTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Actions -->
+                <div class="booking-card-actions">
+
+                    <a
+                        href="index.html"
+                        class="secondary-button"
+                    >
+                        Back to Home
+                    </a>
+
+                    <a
+                        href="cinema-details.html"
+                        class="primary-button"
+                    >
+                        Book Another Movie
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="index.html#movies">
+                    Movies
+                </a>
+
+                <a href="index.html#cinemas">
+                    Cinemas
+                </a>
+
+                <a
+                    href="my-bookings.html"
+                    class="protected-action"
+                >
+                    My Bookings
+                </a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 thashowbook. All rights reserved.
+                </p>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - thashowbook</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+            </a>
+
+            <nav class="main-navigation">
+                <a href="index.html">Home</a>
+                <a href="index.html#movies">Movies</a>
+                <a href="index.html#cinemas">Cinemas</a>
+            </nav>
+
+            <a href="register.html" class="login-link">
+                Register
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main class="auth-page">
+
+        <div class="auth-container">
+
+            <div class="auth-card">
+
+                <div class="auth-header">
+
+                    <h1>Welcome Back</h1>
+
+                    <p>
+                        Login to continue your movie booking.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm" class="auth-form">
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <p
+                        id="loginMessage"
+                        class="auth-message"
+                    ></p>
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit-button"
+                    >
+                        Login
+                    </button>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    <p>
+                        Don't have an account?
+                        <a href="register.html">
+                            Create Account
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 thashowbook. All rights reserved.
+                </p>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>
