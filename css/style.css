@@ -37,7 +37,9 @@ a {
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .site-header {
     width: 100%;
@@ -108,13 +110,14 @@ a {
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero-section {
     min-height: 570px;
     display: flex;
     align-items: center;
-
     background:
         linear-gradient(
             90deg,
@@ -199,7 +202,9 @@ a {
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 .search-section {
     background: var(--white);
@@ -209,41 +214,33 @@ a {
 .search-box {
     max-width: 720px;
     margin: 0 auto;
-
     display: flex;
-
     border: 1px solid var(--border);
     border-radius: 8px;
-
     overflow: hidden;
 }
 
 .search-box input {
     flex: 1;
-
     border: none;
     outline: none;
-
     padding: 16px 18px;
-
     font-size: 15px;
 }
 
 .search-box button {
     border: none;
-
     padding: 0 26px;
-
     background: var(--primary);
     color: var(--white);
-
     font-weight: 700;
-
     cursor: pointer;
 }
 
 
-/* MOVIE SECTIONS */
+/* =========================
+   MOVIES
+========================= */
 
 .movie-section {
     padding: 80px 0;
@@ -257,7 +254,6 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: end;
-
     margin-bottom: 35px;
 }
 
@@ -268,42 +264,29 @@ a {
 
 .section-label {
     color: var(--primary);
-
     font-size: 12px;
     font-weight: 800;
-
     letter-spacing: 3px;
-
     margin-bottom: 10px;
 }
 
 .view-all {
     color: var(--primary);
-
     font-size: 14px;
     font-weight: 700;
 }
 
-
-/* MOVIE GRID */
-
 .movie-grid {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 22px;
 }
 
 .movie-card {
     background: var(--white);
-
     border: 1px solid var(--border);
-
     border-radius: 10px;
-
     overflow: hidden;
-
     transition: 0.25s ease;
 }
 
@@ -313,13 +296,9 @@ a {
 
 .movie-card img {
     width: 100%;
-
     aspect-ratio: 2 / 3;
-
     object-fit: cover;
-
     display: block;
-
     background: #dddddd;
 }
 
@@ -329,78 +308,148 @@ a {
 
 .movie-info h3 {
     font-size: 19px;
-
     margin-bottom: 5px;
 }
 
 .movie-info p {
     color: var(--gray);
-
     font-size: 13px;
-
     margin-bottom: 15px;
 }
 
 .movie-button {
-    display: inline-block;
-
     color: var(--primary);
-
     font-size: 13px;
-
     font-weight: 700;
 }
 
 
-/* EXPERIENCE */
+/* =========================
+   CINEMA HOUSES
+========================= */
+
+.cinema-section {
+    background: var(--light);
+    padding: 90px 0;
+}
+
+.cinema-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cinema-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.25s ease;
+}
+
+.cinema-card:hover {
+    transform: translateY(-5px);
+}
+
+.cinema-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+    background: #dddddd;
+}
+
+.cinema-info {
+    padding: 22px;
+}
+
+.cinema-number {
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.cinema-info h3 {
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.cinema-location {
+    color: var(--gray);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.cinema-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.cinema-details span {
+    border: 1px solid var(--border);
+    padding: 6px 9px;
+    border-radius: 5px;
+    color: #444444;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.cinema-button {
+    display: inline-block;
+    background: var(--black);
+    color: var(--white);
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.cinema-button:hover {
+    background: var(--primary);
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
 
 .experience-section {
     background: var(--white);
-
     padding: 100px 0;
-
     text-align: center;
 }
 
 .experience-section h2 {
     font-size: 38px;
-
     line-height: 1.2;
-
     margin-bottom: 16px;
 }
 
 .section-description {
     max-width: 650px;
-
     margin: 0 auto;
-
     color: var(--gray);
-
     font-size: 16px;
 }
 
 .experience-grid {
     margin-top: 50px;
-
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 22px;
 }
 
 .experience-card {
     background: var(--light);
-
     border: 1px solid var(--border);
-
     padding: 34px;
-
     text-align: left;
-
     border-radius: 10px;
-
     transition: 0.25s ease;
 }
 
@@ -410,57 +459,47 @@ a {
 
 .card-number {
     color: var(--primary);
-
     font-size: 13px;
     font-weight: 800;
-
     display: block;
-
     margin-bottom: 18px;
 }
 
 .experience-card h3 {
     font-size: 24px;
-
     margin-bottom: 10px;
 }
 
 .experience-card p {
     color: var(--gray);
-
     font-size: 14px;
 }
 
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .site-footer {
     background: var(--dark);
-
     color: var(--white);
-
     padding: 35px 0;
 }
 
 .footer-content {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 20px;
 }
 
 .site-footer h3 {
     color: var(--primary);
-
     font-size: 20px;
 }
 
 .site-footer p {
     color: #aaaaaa;
-
     font-size: 13px;
 }
 
@@ -469,11 +508,17 @@ a {
 }
 
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
     .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cinema-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -483,17 +528,13 @@ a {
 
     .header-content {
         flex-wrap: wrap;
-
         padding: 16px 0;
     }
 
     .main-navigation {
         order: 3;
-
         width: 100%;
-
         justify-content: center;
-
         gap: 20px;
     }
 
@@ -511,7 +552,6 @@ a {
 
     .footer-content {
         flex-direction: column;
-
         text-align: center;
     }
 
@@ -521,17 +561,16 @@ a {
 
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
 
-    .movie-grid {
+    .movie-grid,
+    .cinema-grid {
         grid-template-columns: 1fr;
     }
 
     .section-heading {
         align-items: start;
-
         gap: 15px;
-
         flex-direction: column;
     }
 
@@ -549,7 +588,6 @@ a {
 
     .hero-text h1 {
         font-size: 50px;
-
         letter-spacing: -2px;
     }
 
