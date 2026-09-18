@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="thashowbook - Pick. Book. Watch."
+    >
+
+    <title>
+        thashowbook | Pick. Book. Watch.
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+
+            <!-- ================= BRAND ================= -->
+
+            <a
+                href="index.html"
+                class="logo-link"
+            >
+
+                <div class="logo-text">
+                    thashowbook
+                </div>
+
+                <div class="logo-tagline">
+                    Pick. Book. Watch.
+                </div>
+
+            </a>
+
+
+            <!-- ================= DESKTOP NAVIGATION ================= -->
+
+            <nav
+                class="navigation"
+                id="mainNavigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link active"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="#movies"
+                    class="nav-link"
+                >
+                    Movies
+                </a>
+
+                <a
+                    href="#cinemas"
+                    class="nav-link"
+                >
+                    Cinemas
+                </a>
+
+                <a
+                    href="#coming-soon"
+                    class="nav-link"
+                >
+                    Coming Soon
+                </a>
+
+            </nav>
+
+
+            <!-- ================= HEADER ACTIONS ================= -->
+
+            <div class="header-right">
+
+
+                <button
+                    type="button"
+                    class="location-button"
+                    id="locationButton"
+                >
+
+                    <span class="location-symbol">
+                        📍
+                    </span>
+
+                    <span>
+                        Surat
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="login-button"
+                    id="loginButton"
+                >
+                    Login
+                </button>
+
+
+                <!-- MOBILE MENU BUTTON -->
+
+                <button
+                    type="button"
+                    class="mobile-menu-button"
+                    id="mobileMenuButton"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MOBILE NAVIGATION ================= -->
+
+        <div
+            class="mobile-navigation"
+            id="mobileNavigation"
+        >
+
+            <a
+                href="index.html"
+                class="mobile-nav-link active"
+            >
+                Home
+            </a>
+
+            <a
+                href="#movies"
+                class="mobile-nav-link"
+            >
+                Movies
+            </a>
+
+            <a
+                href="#cinemas"
+                class="mobile-nav-link"
+            >
+                Cinemas
+            </a>
+
+            <a
+                href="#coming-soon"
+                class="mobile-nav-link"
+            >
+                Coming Soon
+            </a>
+
+            <button
+                type="button"
+                class="mobile-location-button"
+                id="mobileLocationButton"
+            >
+                📍 Surat
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-background"></div>
+
+            <div class="hero-overlay"></div>
+
+
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <div class="hero-label">
+                        YOUR MOVIE. YOUR SHOW. YOUR SEAT.
+                    </div>
+
+                    <h1>
+
+                        Your Next
+
+                        <span>
+                            Movie Night
+                        </span>
+
+                        Starts Here.
+
+                    </h1>
+
+
+                    <p>
+                        Discover the latest movies, choose your
+                        favourite cinema, select your seats and
+                        book your tickets in just a few simple steps.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#movies"
+                            class="primary-button"
+                        >
+                            Explore Movies
+                        </a>
+
+                        <a
+                            href="#cinemas"
+                            class="outline-button"
+                        >
+                            Find Cinemas
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <section class="search-section">
+
+            <div class="search-container">
+
+                <div class="search-title">
+                    Find your movie
+                </div>
+
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="movieSearch"
+                        placeholder="Search movie name..."
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        id="searchButton"
+                        class="search-button"
+                    >
+                        Search
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="search-message"
+                    id="searchMessage"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MOVIES ================= -->
+
+        <section
+            class="section movies-section"
+            id="movies"
+        >
+
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            NOW SHOWING
+                        </div>
+
+                        <h2>
+                            Movies You Can Watch Now
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="#movies"
+                        class="view-all"
+                    >
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div
+                    class="movie-grid"
+                    id="movieGrid"
+                >
+
+
+                    <article class="movie-card">
+
+                        <div class="movie-poster poster-1">
+
+                            <div class="poster-content">
+
+                                <div class="poster-small">
+                                    THASHOW
+                                </div>
+
+                                <div class="poster-title">
+                                    ACTION
+                                </div>
+
+                            </div>
+
+                            <span class="movie-status">
+                                NOW SHOWING
+                            </span>
+
+                        </div>
+
+
+                        <div class="movie-details">
+
+                            <h3>
+                                The Final Mission
+                            </h3>
+
+                            <p>
+                                Action • Thriller
+                            </p>
+
+
+                            <div class="movie-info">
+
+                                <span>
+                                    ⭐ 4.6
+                                </span>
+
+                                <span>
+                                    2h 18m
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="book-button"
+                            >
+                                Book Tickets
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="movie-card">
+
+                        <div class="movie-poster poster-2">
+
+                            <div class="poster-content">
+
+                                <div class="poster-small">
+                                    THASHOW
+                                </div>
+
+                                <div class="poster-title">
+                                    MYSTERY
+                                </div>
+
+                            </div>
+
+                            <span class="movie-status">
+                                NOW SHOWING
+                            </span>
+
+                        </div>
+
+
+                        <div class="movie-details">
+
+                            <h3>
+                                The Hidden Truth
+                            </h3>
+
+                            <p>
+                                Mystery • Drama
+                            </p>
+
+
+                            <div class="movie-info">
+
+                                <span>
+                                    ⭐ 4.4
+                                </span>
+
+                                <span>
+                                    2h 05m
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="book-button"
+                            >
+                                Book Tickets
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="movie-card">
+
+                        <div class="movie-poster poster-3">
+
+                            <div class="poster-content">
+
+                                <div class="poster-small">
+                                    THASHOW
+                                </div>
+
+                                <div class="poster-title">
+                                    COMEDY
+                                </div>
+
+                            </div>
+
+                            <span class="movie-status">
+                                NOW SHOWING
+                            </span>
+
+                        </div>
+
+
+                        <div class="movie-details">
+
+                            <h3>
+                                Crazy Weekend
+                            </h3>
+
+                            <p>
+                                Comedy • Family
+                            </p>
+
+
+                            <div class="movie-info">
+
+                                <span>
+                                    ⭐ 4.7
+                                </span>
+
+                                <span>
+                                    2h 12m
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="book-button"
+                            >
+                                Book Tickets
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="movie-card">
+
+                        <div class="movie-poster poster-4">
+
+                            <div class="poster-content">
+
+                                <div class="poster-small">
+                                    THASHOW
+                                </div>
+
+                                <div class="poster-title">
+                                    DRAMA
+                                </div>
+
+                            </div>
+
+                            <span class="movie-status">
+                                NOW SHOWING
+                            </span>
+
+                        </div>
+
+
+                        <div class="movie-details">
+
+                            <h3>
+                                A New Beginning
+                            </h3>
+
+                            <p>
+                                Drama • Romance
+                            </p>
+
+
+                            <div class="movie-info">
+
+                                <span>
+                                    ⭐ 4.5
+                                </span>
+
+                                <span>
+                                    2h 20m
+                                </span>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                class="book-button"
+                            >
+                                Book Tickets
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= COMING SOON ================= -->
+
+        <section
+            class="section coming-section"
+            id="coming-soon"
+        >
+
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            COMING SOON
+                        </div>
+
+                        <h2>
+                            Get Ready for the Next Show
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="coming-grid">
+
+
+                    <article class="coming-card">
+
+                        <div class="coming-poster coming-1">
+
+                            <div class="coming-poster-text">
+                                COMING
+                            </div>
+
+                        </div>
+
+
+                        <div class="coming-info">
+
+                            <span>
+                                RELEASING SOON
+                            </span>
+
+                            <h3>
+                                Beyond The Horizon
+                            </h3>
+
+                            <p>
+                                Adventure • Sci-Fi
+                            </p>
+
+                            <strong>
+                                Coming Soon
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="coming-card">
+
+                        <div class="coming-poster coming-2">
+
+                            <div class="coming-poster-text">
+                                SOON
+                            </div>
+
+                        </div>
+
+
+                        <div class="coming-info">
+
+                            <span>
+                                RELEASING SOON
+                            </span>
+
+                            <h3>
+                                Midnight Story
+                            </h3>
+
+                            <p>
+                                Thriller • Mystery
+                            </p>
+
+                            <strong>
+                                Coming Soon
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CINEMAS ================= -->
+
+        <section
+            class="section cinema-section"
+            id="cinemas"
+        >
+
+            <div class="section-container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            OUR CINEMAS
+                        </div>
+
+                        <h2>
+                            Choose Your Cinema
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cinema-grid">
+
+
+                    <article class="cinema-card">
+
+                        <div class="cinema-image cinema-1">
+
+                            <div class="cinema-name-overlay">
+                                THASHOW CENTRAL
+                            </div>
+
+                        </div>
+
+
+                        <div class="cinema-details">
+
+                            <h3>
+                                Thashow Central Cinema
+                            </h3>
+
+                            <p>
+                                Modern cinema experience
+                            </p>
+
+                            <button type="button">
+                                View Shows
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="cinema-card">
+
+                        <div class="cinema-image cinema-2">
+
+                            <div class="cinema-name-overlay">
+                                THASHOW ROYAL
+                            </div>
+
+                        </div>
+
+
+                        <div class="cinema-details">
+
+                            <h3>
+                                Thashow Royal Cinema
+                            </h3>
+
+                            <p>
+                                Premium cinema experience
+                            </p>
+
+                            <button type="button">
+                                View Shows
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="cinema-card">
+
+                        <div class="cinema-image cinema-3">
+
+                            <div class="cinema-name-overlay">
+                                THASHOW GALAXY
+                            </div>
+
+                        </div>
+
+
+                        <div class="cinema-details">
+
+                            <h3>
+                                Thashow Galaxy Cinema
+                            </h3>
+
+                            <p>
+                                Contemporary cinema experience
+                            </p>
+
+                            <button type="button">
+                                View Shows
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div class="cta-container">
+
+                <div class="cta-content">
+
+                    <div class="section-label">
+                        THASHOWBOOK
+                    </div>
+
+                    <h2>
+                        Your Seat Is Waiting.
+                    </h2>
+
+                    <p>
+                        Choose a movie, pick a show and make your
+                        next cinema experience memorable.
+                    </p>
+
+                    <a
+                        href="#movies"
+                        class="primary-button"
+                    >
+                        Book Your Movie
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <div class="footer-logo">
+                    thashowbook
+                </div>
+
+                <div class="footer-tagline">
+                    Pick. Book. Watch.
+                </div>
+
+                <p>
+                    A simple and modern way to discover movies,
+                    cinemas and book your seats.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="#movies">
+                    Movies
+                </a>
+
+                <a href="#cinemas">
+                    Cinemas
+                </a>
+
+                <a href="#coming-soon">
+                    Coming Soon
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Customer
+                </h3>
+
+                <a href="#">
+                    My Bookings
+                </a>
+
+                <a href="#">
+                    My Profile
+                </a>
+
+                <a href="#">
+                    Help Center
+                </a>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Legal
+                </h3>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Refund Policy
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 thashowbook. All rights reserved.
+            </p>
+
+            <p>
+                Pick. Book. Watch.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
