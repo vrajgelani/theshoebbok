@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movies | thashowbook</title>
+
+    <meta
+        name="description"
+        content="Explore movies and book your cinema tickets with thashowbook."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="brand">
+                <img
+                    src="images/logo/logo.png"
+                    alt="thashowbook"
+                    class="brand-logo"
+                >
+            </a>
+
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="movies.html" class="nav-link active">Movies</a>
+                <a href="bookings.html" class="nav-link">My Bookings</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="login-button">Login</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+        <!-- Page Hero -->
+        <section class="movies-page-hero">
+
+            <div class="page-hero-content">
+
+                <p class="hero-label">EXPLORE THE SHOWS</p>
+
+                <h1>Find Your Movie</h1>
+
+                <p>
+                    Browse movies, discover new stories and choose your
+                    perfect cinema experience.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Movies Content -->
+        <section class="all-movies-section">
+
+            <div class="movies-toolbar">
+
+                <div class="section-heading compact-heading">
+
+                    <div>
+                        <p class="section-label">MOVIE COLLECTION</p>
+                        <h2>Now Showing</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="movie-search">
+
+                    <label for="movieSearch" class="visually-hidden">
+                        Search movies
+                    </label>
+
+                    <input
+                        type="search"
+                        id="movieSearch"
+                        name="movieSearch"
+                        placeholder="Search movies..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Genre Filters -->
+            <div class="movie-filters" aria-label="Movie filters">
+
+                <button
+                    type="button"
+                    class="filter-button active"
+                    data-filter="all"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="action"
+                >
+                    Action
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="drama"
+                >
+                    Drama
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="comedy"
+                >
+                    Comedy
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="thriller"
+                >
+                    Thriller
+                </button>
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="romance"
+                >
+                    Romance
+                </button>
+
+            </div>
+
+
+            <!-- Movie Grid -->
+            <div class="movie-grid all-movie-grid" id="movieGrid">
+
+                <article
+                    class="movie-card movie-item"
+                    data-title="Movie Title 01"
+                    data-genre="action drama"
+                >
+
+                    <a
+                        href="movie-details.html"
+                        class="movie-poster-link"
+                    >
+                        <img
+                            src="images/movies/movie-01.jpg"
+                            alt="Movie Title 01 poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <div class="movie-status">
+                            NOW SHOWING
+                        </div>
+
+                        <h3>Movie Title 01</h3>
+
+                        <p class="movie-meta">
+                            Action · Drama · Hindi
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 20m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="movie-card movie-item"
+                    data-title="Movie Title 02"
+                    data-genre="thriller"
+                >
+
+                    <a
+                        href="movie-details.html"
+                        class="movie-poster-link"
+                    >
+                        <img
+                            src="images/movies/movie-02.jpg"
+                            alt="Movie Title 02 poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <div class="movie-status">
+                            NOW SHOWING
+                        </div>
+
+                        <h3>Movie Title 02</h3>
+
+                        <p class="movie-meta">
+                            Thriller · Mystery · Hindi
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 05m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="movie-card movie-item"
+                    data-title="Movie Title 03"
+                    data-genre="comedy drama"
+                >
+
+                    <a
+                        href="movie-details.html"
+                        class="movie-poster-link"
+                    >
+                        <img
+                            src="images/movies/movie-03.jpg"
+                            alt="Movie Title 03 poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <div class="movie-status">
+                            NOW SHOWING
+                        </div>
+
+                        <h3>Movie Title 03</h3>
+
+                        <p class="movie-meta">
+                            Comedy · Family · Gujarati
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 10m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article
+                    class="movie-card movie-item"
+                    data-title="Movie Title 04"
+                    data-genre="romance drama"
+                >
+
+                    <a
+                        href="movie-details.html"
+                        class="movie-poster-link"
+                    >
+                        <img
+                            src="images/movies/movie-04.jpg"
+                            alt="Movie Title 04 poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <div class="movie-status">
+                            NOW SHOWING
+                        </div>
+
+                        <h3>Movie Title 04</h3>
+
+                        <p class="movie-meta">
+                            Romance · Drama · Hindi
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 15m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- No Search Result -->
+            <div
+                class="empty-state"
+                id="movieEmptyState"
+                hidden
+            >
+                <h3>No Movies Found</h3>
+                <p>
+                    Try another movie name or choose a different genre.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Coming Soon -->
+        <section class="coming-soon-section movies-coming-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">COMING SOON</p>
+                    <h2>Coming Soon</h2>
+                </div>
+
+            </div>
+
+
+            <div class="coming-soon-grid">
+
+                <article class="coming-movie-card">
+
+                    <img
+                        src="images/movies/movie-05.jpg"
+                        alt="Upcoming Movie 01 poster"
+                    >
+
+                    <div class="coming-movie-info">
+
+                        <span>COMING SOON</span>
+
+                        <h3>Upcoming Movie 01</h3>
+
+                        <p>
+                            Releasing Soon
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="coming-movie-card">
+
+                    <img
+                        src="images/movies/movie-06.jpg"
+                        alt="Upcoming Movie 02 poster"
+                    >
+
+                    <div class="coming-movie-info">
+
+                        <span>COMING SOON</span>
+
+                        <h3>Upcoming Movie 02</h3>
+
+                        <p>
+                            Releasing Soon
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="coming-movie-card">
+
+                    <img
+                        src="images/movies/movie-07.jpg"
+                        alt="Upcoming Movie 03 poster"
+                    >
+
+                    <div class="coming-movie-info">
+
+                        <span>COMING SOON</span>
+
+                        <h3>Upcoming Movie 03</h3>
+
+                        <p>
+                            Releasing Soon
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section class="cta-section">
+
+            <div class="cta-content">
+
+                <p class="section-label">
+                    FIND YOUR NEXT SHOW
+                </p>
+
+                <h2>
+                    One movie. One seat. One great experience.
+                </h2>
+
+                <p>
+                    Select your favourite movie and continue to choose
+                    your cinema and showtime.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+                    <img
+                        src="images/logo/logo.png"
+                        alt="thashowbook"
+                        class="footer-logo"
+                    >
+                </a>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-column">
+
+                    <h3>Explore</h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="movies.html">
+                        Movies
+                    </a>
+
+                    <a href="bookings.html">
+                        My Bookings
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>Account</h3>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                    <a href="bookings.html">
+                        Bookings
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 thashowbook. All rights reserved.
+            </p>
+
+            <p>
+                Pick. Book. Watch.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

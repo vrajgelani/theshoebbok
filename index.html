@@ -1,1195 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>thashowbook | Pick. Book. Watch.</title>
 
     <meta
         name="description"
-        content="thashowbook - Discover movies, choose your cinema and book your seats."
+        content="thashowbook - Pick your movie, book your seats and enjoy the show."
     >
 
-    <title>
-        thashowbook | Pick. Book. Watch.
-    </title>
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
 
-
-    <!-- ================= HEADER ================= -->
-
-    <header class="header">
-
+    <!-- Header -->
+    <header class="site-header">
         <div class="header-container">
 
-
-            <a
-                href="index.html"
-                class="logo-link"
-            >
-
-                <div class="logo-text">
-                    thashowbook
-                </div>
-
-                <div class="logo-tagline">
-                    Pick. Book. Watch.
-                </div>
-
+            <a href="index.html" class="brand">
+                <img
+                    src="images/logo/logo.png"
+                    alt="thashowbook"
+                    class="brand-logo"
+                >
             </a>
 
-
-            <nav
-                class="navigation"
-                id="mainNavigation"
-            >
-
-                <a
-                    href="index.html"
-                    class="nav-link active"
-                >
-                    Home
-                </a>
-
-                <a
-                    href="#movies"
-                    class="nav-link"
-                >
-                    Movies
-                </a>
-
-                <a
-                    href="#cinemas"
-                    class="nav-link"
-                >
-                    Cinemas
-                </a>
-
-                <a
-                    href="#coming-soon"
-                    class="nav-link"
-                >
-                    Coming Soon
-                </a>
-
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="movies.html" class="nav-link">Movies</a>
+                <a href="bookings.html" class="nav-link">My Bookings</a>
             </nav>
 
-
-            <div class="header-right">
-
-                <button
-                    type="button"
-                    class="location-button"
-                    id="locationButton"
-                >
-
-                    <span>
-                        📍
-                    </span>
-
-                    <span>
-                        Surat
-                    </span>
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="login-button"
-                    id="loginButton"
-                >
-                    Login
-                </button>
-
-
-                <button
-                    type="button"
-                    class="mobile-menu-button"
-                    id="mobileMenuButton"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                >
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </button>
-
+            <div class="header-actions">
+                <a href="login.html" class="login-button">Login</a>
             </div>
 
         </div>
-
-
-        <!-- ================= MOBILE NAV ================= -->
-
-        <div
-            class="mobile-navigation"
-            id="mobileNavigation"
-        >
-
-            <a
-                href="index.html"
-                class="mobile-nav-link active"
-            >
-                Home
-            </a>
-
-            <a
-                href="#movies"
-                class="mobile-nav-link"
-            >
-                Movies
-            </a>
-
-            <a
-                href="#cinemas"
-                class="mobile-nav-link"
-            >
-                Cinemas
-            </a>
-
-            <a
-                href="#coming-soon"
-                class="mobile-nav-link"
-            >
-                Coming Soon
-            </a>
-
-            <button
-                type="button"
-                class="mobile-location-button"
-                id="mobileLocationButton"
-            >
-                📍 Surat
-            </button>
-
-        </div>
-
     </header>
 
 
-
-    <!-- ================= MAIN ================= -->
-
+    <!-- Main Content -->
     <main>
 
+        <!-- Hero Section -->
+        <section class="hero-section">
 
-        <!-- ================= HERO ================= -->
+            <div class="hero-content">
 
-        <section class="hero">
+                <p class="hero-label">YOUR MOVIE. YOUR SHOW. YOUR SEAT.</p>
 
-            <div class="hero-background">
+                <h1>
+                    Pick. Book.<br>
+                    Watch.
+                </h1>
 
-                <div class="hero-glow"></div>
+                <p class="hero-description">
+                    Discover movies, choose your favourite showtime,
+                    select your seats and enjoy the cinema experience.
+                </p>
 
-                <div class="hero-ring hero-ring-one"></div>
-
-                <div class="hero-ring hero-ring-two"></div>
-
-            </div>
-
-            <div class="hero-overlay"></div>
-
-
-            <div class="hero-container">
-
-                <div class="hero-content">
-
-                    <div class="hero-label">
-                        THE BIG SCREEN EXPERIENCE
-                    </div>
-
-                    <h1>
-
-                        Every Story
-                        <br>
-
-                        <span>
-                            Deserves
-                        </span>
-
-                        A Big Screen.
-
-                    </h1>
-
-
-                    <p>
-                        Find the latest movies, discover cinemas near you,
-                        choose your show and reserve your favourite seats.
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#movies"
-                            class="primary-button"
-                        >
-                            Explore Movies
-                        </a>
-
-                        <a
-                            href="#cinemas"
-                            class="outline-button"
-                        >
-                            Find Cinemas
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-stats">
-
-                        <div class="hero-stat">
-
-                            <strong>
-                                Movies
-                            </strong>
-
-                            <span>
-                                Discover
-                            </span>
-
-                        </div>
-
-
-                        <div class="hero-divider"></div>
-
-
-                        <div class="hero-stat">
-
-                            <strong>
-                                Cinemas
-                            </strong>
-
-                            <span>
-                                Choose
-                            </span>
-
-                        </div>
-
-
-                        <div class="hero-divider"></div>
-
-
-                        <div class="hero-stat">
-
-                            <strong>
-                                Seats
-                            </strong>
-
-                            <span>
-                                Book
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="hero-poster-showcase">
-
-                    <div class="hero-poster-back"></div>
-
-                    <div class="hero-poster-main">
-
-                        <div class="hero-poster-top">
-                            THASHOW
-                        </div>
-
-                        <div class="hero-poster-main-title">
-                            CINEMA
-                        </div>
-
-                        <div class="hero-poster-bottom">
-                            EXPERIENCE
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= SEARCH ================= -->
-
-        <section class="search-section">
-
-            <div class="search-container">
-
-                <div class="search-title">
-                    SEARCH MOVIES
-                </div>
-
-
-                <div class="search-box">
-
-                    <input
-                        type="text"
-                        id="movieSearch"
-                        placeholder="Search by movie name or genre..."
-                        autocomplete="off"
-                    >
-
-
-                    <button
-                        type="button"
-                        id="searchButton"
-                        class="search-button"
-                    >
-                        Search
-                    </button>
-
-                </div>
-
-
-                <div
-                    class="search-message"
-                    id="searchMessage"
-                ></div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= NOW SHOWING ================= -->
-
-        <section
-            class="section movies-section"
-            id="movies"
-        >
-
-            <div class="section-container">
-
-
-                <div class="section-header">
-
-                    <div>
-
-                        <div class="section-label">
-                            NOW SHOWING
-                        </div>
-
-                        <h2>
-                            Movies You Can Watch Now
-                        </h2>
-
-                        <p class="section-description">
-                            Choose a movie and start your cinema experience.
-                        </p>
-
-                    </div>
-
-
-                    <a
-                        href="#movies"
-                        class="view-all"
-                    >
-                        View All →
-                    </a>
-
-                </div>
-
-
-                <div
-                    class="movie-grid"
-                    id="movieGrid"
-                >
-
-
-                    <!-- MOVIE 1 -->
-
-                    <article
-                        class="movie-card"
-                        data-title="The Final Mission"
-                        data-genre="Action Thriller"
-                    >
-
-                        <div class="movie-poster poster-1">
-
-                            <div class="poster-light"></div>
-
-                            <div class="poster-content">
-
-                                <span class="poster-eyebrow">
-                                    THASHOW ORIGINAL
-                                </span>
-
-                                <strong class="poster-title">
-                                    FINAL
-                                </strong>
-
-                                <strong class="poster-title poster-title-large">
-                                    MISSION
-                                </strong>
-
-                                <span class="poster-genre">
-                                    ACTION • THRILLER
-                                </span>
-
-                            </div>
-
-
-                            <span class="movie-status">
-                                NOW SHOWING
-                            </span>
-
-                        </div>
-
-
-                        <div class="movie-details">
-
-                            <h3>
-                                The Final Mission
-                            </h3>
-
-                            <p>
-                                Action • Thriller
-                            </p>
-
-
-                            <div class="movie-info">
-
-                                <span>
-                                    ⭐ 4.6
-                                </span>
-
-                                <span>
-                                    2h 18m
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="book-button"
-                                data-movie="The Final Mission"
-                            >
-                                Book Tickets
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- MOVIE 2 -->
-
-                    <article
-                        class="movie-card"
-                        data-title="The Hidden Truth"
-                        data-genre="Mystery Drama"
-                    >
-
-                        <div class="movie-poster poster-2">
-
-                            <div class="poster-light"></div>
-
-                            <div class="poster-content">
-
-                                <span class="poster-eyebrow">
-                                    THASHOW
-                                </span>
-
-                                <strong class="poster-title">
-                                    HIDDEN
-                                </strong>
-
-                                <strong class="poster-title poster-title-large">
-                                    TRUTH
-                                </strong>
-
-                                <span class="poster-genre">
-                                    MYSTERY • DRAMA
-                                </span>
-
-                            </div>
-
-
-                            <span class="movie-status">
-                                NOW SHOWING
-                            </span>
-
-                        </div>
-
-
-                        <div class="movie-details">
-
-                            <h3>
-                                The Hidden Truth
-                            </h3>
-
-                            <p>
-                                Mystery • Drama
-                            </p>
-
-
-                            <div class="movie-info">
-
-                                <span>
-                                    ⭐ 4.4
-                                </span>
-
-                                <span>
-                                    2h 05m
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="book-button"
-                                data-movie="The Hidden Truth"
-                            >
-                                Book Tickets
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- MOVIE 3 -->
-
-                    <article
-                        class="movie-card"
-                        data-title="Crazy Weekend"
-                        data-genre="Comedy Family"
-                    >
-
-                        <div class="movie-poster poster-3">
-
-                            <div class="poster-light"></div>
-
-                            <div class="poster-content">
-
-                                <span class="poster-eyebrow">
-                                    THASHOW
-                                </span>
-
-                                <strong class="poster-title">
-                                    CRAZY
-                                </strong>
-
-                                <strong class="poster-title poster-title-large">
-                                    WEEKEND
-                                </strong>
-
-                                <span class="poster-genre">
-                                    COMEDY • FAMILY
-                                </span>
-
-                            </div>
-
-
-                            <span class="movie-status">
-                                NOW SHOWING
-                            </span>
-
-                        </div>
-
-
-                        <div class="movie-details">
-
-                            <h3>
-                                Crazy Weekend
-                            </h3>
-
-                            <p>
-                                Comedy • Family
-                            </p>
-
-
-                            <div class="movie-info">
-
-                                <span>
-                                    ⭐ 4.7
-                                </span>
-
-                                <span>
-                                    2h 12m
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="book-button"
-                                data-movie="Crazy Weekend"
-                            >
-                                Book Tickets
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- MOVIE 4 -->
-
-                    <article
-                        class="movie-card"
-                        data-title="A New Beginning"
-                        data-genre="Drama Romance"
-                    >
-
-                        <div class="movie-poster poster-4">
-
-                            <div class="poster-light"></div>
-
-                            <div class="poster-content">
-
-                                <span class="poster-eyebrow">
-                                    THASHOW
-                                </span>
-
-                                <strong class="poster-title">
-                                    NEW
-                                </strong>
-
-                                <strong class="poster-title poster-title-large">
-                                    BEGINNING
-                                </strong>
-
-                                <span class="poster-genre">
-                                    DRAMA • ROMANCE
-                                </span>
-
-                            </div>
-
-
-                            <span class="movie-status">
-                                NOW SHOWING
-                            </span>
-
-                        </div>
-
-
-                        <div class="movie-details">
-
-                            <h3>
-                                A New Beginning
-                            </h3>
-
-                            <p>
-                                Drama • Romance
-                            </p>
-
-
-                            <div class="movie-info">
-
-                                <span>
-                                    ⭐ 4.5
-                                </span>
-
-                                <span>
-                                    2h 20m
-                                </span>
-
-                            </div>
-
-
-                            <button
-                                type="button"
-                                class="book-button"
-                                data-movie="A New Beginning"
-                            >
-                                Book Tickets
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-
-                <div
-                    class="no-movie-message"
-                    id="noMovieMessage"
-                >
-                    No movies found.
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= COMING SOON ================= -->
-
-        <section
-            class="section coming-section"
-            id="coming-soon"
-        >
-
-            <div class="section-container">
-
-
-                <div class="section-header">
-
-                    <div>
-
-                        <div class="section-label">
-                            COMING SOON
-                        </div>
-
-                        <h2>
-                            What's Coming Next
-                        </h2>
-
-                        <p class="section-description">
-                            Get ready for upcoming stories on the big screen.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="coming-grid">
-
-
-                    <article class="coming-card">
-
-                        <div class="coming-poster coming-1">
-
-                            <div class="coming-poster-content">
-
-                                <span>
-                                    THASHOW
-                                </span>
-
-                                <strong>
-                                    BEYOND
-                                </strong>
-
-                                <strong>
-                                    HORIZON
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="coming-info">
-
-                            <span class="coming-label">
-                                RELEASING SOON
-                            </span>
-
-                            <h3>
-                                Beyond The Horizon
-                            </h3>
-
-                            <p>
-                                Adventure • Sci-Fi
-                            </p>
-
-                            <div class="release-info">
-                                Coming Soon
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="coming-card">
-
-                        <div class="coming-poster coming-2">
-
-                            <div class="coming-poster-content">
-
-                                <span>
-                                    THASHOW
-                                </span>
-
-                                <strong>
-                                    MIDNIGHT
-                                </strong>
-
-                                <strong>
-                                    STORY
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="coming-info">
-
-                            <span class="coming-label">
-                                RELEASING SOON
-                            </span>
-
-                            <h3>
-                                Midnight Story
-                            </h3>
-
-                            <p>
-                                Thriller • Mystery
-                            </p>
-
-                            <div class="release-info">
-                                Coming Soon
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= CINEMAS ================= -->
-
-        <section
-            class="section cinema-section"
-            id="cinemas"
-        >
-
-            <div class="section-container">
-
-
-                <div class="section-header">
-
-                    <div>
-
-                        <div class="section-label">
-                            OUR CINEMAS
-                        </div>
-
-                        <h2>
-                            Choose Your Cinema
-                        </h2>
-
-                        <p class="section-description">
-                            Find the perfect screen for your movie night.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="cinema-grid">
-
-
-                    <article class="cinema-card">
-
-                        <div class="cinema-image cinema-1">
-
-                            <div class="cinema-image-content">
-
-                                <span>
-                                    THASHOW
-                                </span>
-
-                                <strong>
-                                    CENTRAL
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="cinema-details">
-
-                            <h3>
-                                Thashow Central Cinema
-                            </h3>
-
-                            <p>
-                                Modern cinema experience
-                            </p>
-
-                            <button
-                                type="button"
-                                class="cinema-button"
-                            >
-                                View Shows
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="cinema-card">
-
-                        <div class="cinema-image cinema-2">
-
-                            <div class="cinema-image-content">
-
-                                <span>
-                                    THASHOW
-                                </span>
-
-                                <strong>
-                                    ROYAL
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="cinema-details">
-
-                            <h3>
-                                Thashow Royal Cinema
-                            </h3>
-
-                            <p>
-                                Premium cinema experience
-                            </p>
-
-                            <button
-                                type="button"
-                                class="cinema-button"
-                            >
-                                View Shows
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="cinema-card">
-
-                        <div class="cinema-image cinema-3">
-
-                            <div class="cinema-image-content">
-
-                                <span>
-                                    THASHOW
-                                </span>
-
-                                <strong>
-                                    GALAXY
-                                </strong>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="cinema-details">
-
-                            <h3>
-                                Thashow Galaxy Cinema
-                            </h3>
-
-                            <p>
-                                Contemporary cinema experience
-                            </p>
-
-                            <button
-                                type="button"
-                                class="cinema-button"
-                            >
-                                View Shows
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= FINAL CTA ================= -->
-
-        <section class="cta-section">
-
-            <div class="cta-container">
-
-                <div class="cta-content">
-
-                    <div class="section-label">
-                        THASHOWBOOK
-                    </div>
-
-                    <h2>
-                        Your Next Seat Is Waiting.
-                    </h2>
-
-                    <p>
-                        Pick your movie, choose your cinema and get ready
-                        for the big screen.
-                    </p>
-
-                    <a
-                        href="#movies"
-                        class="primary-button"
-                    >
+                <div class="hero-buttons">
+                    <a href="movies.html" class="primary-button">
                         Explore Movies
                     </a>
 
+                    <a href="bookings.html" class="secondary-button">
+                        My Bookings
+                    </a>
                 </div>
 
             </div>
 
         </section>
 
+
+        <!-- Now Showing -->
+        <section class="movies-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">NOW SHOWING</p>
+                    <h2>Movies You Can Watch</h2>
+                </div>
+
+                <a href="movies.html" class="view-all-link">
+                    View All Movies
+                </a>
+
+            </div>
+
+
+            <div class="movie-grid">
+
+                <article class="movie-card">
+
+                    <a href="movie-details.html" class="movie-poster-link">
+                        <img
+                            src="images/movies/movie-01.jpg"
+                            alt="Movie poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <h3>Movie Title 01</h3>
+
+                        <p class="movie-meta">
+                            Action · Drama · Hindi
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="movie-card">
+
+                    <a href="movie-details.html" class="movie-poster-link">
+                        <img
+                            src="images/movies/movie-02.jpg"
+                            alt="Movie poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <h3>Movie Title 02</h3>
+
+                        <p class="movie-meta">
+                            Thriller · Mystery · Hindi
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="movie-card">
+
+                    <a href="movie-details.html" class="movie-poster-link">
+                        <img
+                            src="images/movies/movie-03.jpg"
+                            alt="Movie poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <h3>Movie Title 03</h3>
+
+                        <p class="movie-meta">
+                            Comedy · Family · Gujarati
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="movie-card">
+
+                    <a href="movie-details.html" class="movie-poster-link">
+                        <img
+                            src="images/movies/movie-04.jpg"
+                            alt="Movie poster"
+                            class="movie-poster"
+                        >
+                    </a>
+
+                    <div class="movie-card-content">
+
+                        <h3>Movie Title 04</h3>
+
+                        <p class="movie-meta">
+                            Romance · Drama · Hindi
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="card-book-button"
+                        >
+                            Book Now
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Coming Soon -->
+        <section class="coming-soon-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">COMING SOON</p>
+                    <h2>Upcoming Movies</h2>
+                </div>
+
+            </div>
+
+
+            <div class="coming-soon-grid">
+
+                <article class="coming-movie-card">
+
+                    <img
+                        src="images/movies/movie-05.jpg"
+                        alt="Upcoming movie poster"
+                    >
+
+                    <div class="coming-movie-info">
+                        <span>COMING SOON</span>
+                        <h3>Upcoming Movie 01</h3>
+                        <p>Releasing Soon</p>
+                    </div>
+
+                </article>
+
+
+                <article class="coming-movie-card">
+
+                    <img
+                        src="images/movies/movie-06.jpg"
+                        alt="Upcoming movie poster"
+                    >
+
+                    <div class="coming-movie-info">
+                        <span>COMING SOON</span>
+                        <h3>Upcoming Movie 02</h3>
+                        <p>Releasing Soon</p>
+                    </div>
+
+                </article>
+
+
+                <article class="coming-movie-card">
+
+                    <img
+                        src="images/movies/movie-07.jpg"
+                        alt="Upcoming movie poster"
+                    >
+
+                    <div class="coming-movie-info">
+                        <span>COMING SOON</span>
+                        <h3>Upcoming Movie 03</h3>
+                        <p>Releasing Soon</p>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Cinema Section -->
+        <section class="cinema-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">OUR CINEMAS</p>
+                    <h2>Find Your Cinema</h2>
+                </div>
+
+            </div>
+
+
+            <div class="cinema-grid">
+
+                <article class="cinema-card">
+
+                    <img
+                        src="images/cinemas/cinema-01.jpg"
+                        alt="Thashow Central Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+                        <h3>Thashow Central Cinema</h3>
+                        <p>Premium cinema experience</p>
+                    </div>
+
+                </article>
+
+
+                <article class="cinema-card">
+
+                    <img
+                        src="images/cinemas/cinema-02.jpg"
+                        alt="Thashow Royal Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+                        <h3>Thashow Royal Cinema</h3>
+                        <p>Luxury movie experience</p>
+                    </div>
+
+                </article>
+
+
+                <article class="cinema-card">
+
+                    <img
+                        src="images/cinemas/cinema-03.jpg"
+                        alt="Thashow Galaxy Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+                        <h3>Thashow Galaxy Cinema</h3>
+                        <p>Modern cinema experience</p>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Call To Action -->
+        <section class="cta-section">
+
+            <div class="cta-content">
+
+                <p class="section-label">READY FOR THE SHOW?</p>
+
+                <h2>Your next movie night starts here.</h2>
+
+                <p>
+                    Choose a movie, pick your seats and book your tickets
+                    in just a few simple steps.
+                </p>
+
+                <a href="movies.html" class="primary-button">
+                    Book Your Movie
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
 
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="site-footer">
 
         <div class="footer-container">
 
-
             <div class="footer-brand">
 
-                <div class="footer-logo">
-                    thashowbook
-                </div>
-
-                <div class="footer-tagline">
-                    Pick. Book. Watch.
-                </div>
+                <a href="index.html">
+                    <img
+                        src="images/logo/logo.png"
+                        alt="thashowbook"
+                        class="footer-logo"
+                    >
+                </a>
 
                 <p>
-                    Discover movies, choose your cinema and
-                    book your next movie experience.
+                    Pick. Book. Watch.
                 </p>
 
             </div>
 
 
-            <div class="footer-column">
+            <div class="footer-links">
 
-                <h3>
-                    Explore
-                </h3>
+                <div class="footer-column">
+                    <h3>Explore</h3>
+                    <a href="index.html">Home</a>
+                    <a href="movies.html">Movies</a>
+                    <a href="bookings.html">My Bookings</a>
+                </div>
 
-                <a href="index.html">
-                    Home
-                </a>
 
-                <a href="#movies">
-                    Movies
-                </a>
-
-                <a href="#cinemas">
-                    Cinemas
-                </a>
-
-                <a href="#coming-soon">
-                    Coming Soon
-                </a>
+                <div class="footer-column">
+                    <h3>Account</h3>
+                    <a href="login.html">Login</a>
+                    <a href="bookings.html">Bookings</a>
+                </div>
 
             </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Customer
-                </h3>
-
-                <a href="#">
-                    My Bookings
-                </a>
-
-                <a href="#">
-                    My Profile
-                </a>
-
-                <a href="#">
-                    Help Center
-                </a>
-
-                <a href="#">
-                    Contact Us
-                </a>
-
-            </div>
-
-
-            <div class="footer-column">
-
-                <h3>
-                    Legal
-                </h3>
-
-                <a href="#">
-                    Terms & Conditions
-                </a>
-
-                <a href="#">
-                    Privacy Policy
-                </a>
-
-                <a href="#">
-                    Refund Policy
-                </a>
-
-            </div>
-
 
         </div>
 
 
         <div class="footer-bottom">
-
             <p>
                 © 2026 thashowbook. All rights reserved.
             </p>
@@ -1197,15 +427,12 @@
             <p>
                 Pick. Book. Watch.
             </p>
-
         </div>
 
     </footer>
 
 
-
-    <script src="js/index.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
-
 </html>
