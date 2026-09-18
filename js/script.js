@@ -198,25 +198,30 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
 
+
                 localStorage.setItem(
                     "selectedMovie",
                     selectedMovie
                 );
+
 
                 localStorage.setItem(
                     "selectedDate",
                     selectedDate
                 );
 
+
                 localStorage.setItem(
                     "selectedTime",
                     selectedTime
                 );
 
+
                 localStorage.setItem(
                     "selectedCinema",
                     "Thashow Grand Cinema"
                 );
+
 
                 window.location.href =
                     "seat-selection.html";
@@ -228,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       SEAT PAGE DATA
+       SEAT PAGE
     ========================= */
 
     const seatLayout =
@@ -717,10 +722,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const ticketPrice = 250;
 
-
         const seatCount =
             seats.length;
-
 
         const total =
             seatCount * ticketPrice;
@@ -729,18 +732,14 @@ document.addEventListener("DOMContentLoaded", function () {
         summaryMovie.textContent =
             movie;
 
-
         summaryCinema.textContent =
             cinema;
-
 
         summaryHall.textContent =
             hall;
 
-
         summaryDate.textContent =
             date;
-
 
         summaryTime.textContent =
             time;
@@ -762,10 +761,8 @@ document.addEventListener("DOMContentLoaded", function () {
         summaryTicketPrice.textContent =
             "₹" + ticketPrice;
 
-
         summarySeatCount.textContent =
             seatCount;
-
 
         summaryTotal.textContent =
             "₹" + total;
@@ -959,6 +956,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const itemPrice =
                 document.createElement("strong");
 
+
             const itemTotal =
                 item.price *
                 item.quantity;
@@ -997,7 +995,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* =========================
-       CONTINUE TO BOOKING
+       CONTINUE TO CONFIRMATION
     ========================= */
 
     const continueToConfirmationButton =
@@ -1017,6 +1015,306 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
         );
+
+    }
+
+
+    /* =========================
+       BOOKING CONFIRMATION
+    ========================= */
+
+    const confirmationMovie =
+        document.getElementById(
+            "confirmationMovie"
+        );
+
+
+    if (confirmationMovie) {
+
+        const confirmationCinema =
+            document.getElementById(
+                "confirmationCinema"
+            );
+
+        const confirmationHall =
+            document.getElementById(
+                "confirmationHall"
+            );
+
+        const confirmationDate =
+            document.getElementById(
+                "confirmationDate"
+            );
+
+        const confirmationTime =
+            document.getElementById(
+                "confirmationTime"
+            );
+
+        const confirmationSeats =
+            document.getElementById(
+                "confirmationSeats"
+            );
+
+        const confirmationTicketTotal =
+            document.getElementById(
+                "confirmationTicketTotal"
+            );
+
+        const confirmationFoodTotal =
+            document.getElementById(
+                "confirmationFoodTotal"
+            );
+
+        const confirmationGrandTotal =
+            document.getElementById(
+                "confirmationGrandTotal"
+            );
+
+        const confirmationFoodList =
+            document.getElementById(
+                "confirmationFoodList"
+            );
+
+
+        const movie =
+            localStorage.getItem(
+                "selectedMovie"
+            ) || "AAGAAZ";
+
+
+        const cinema =
+            localStorage.getItem(
+                "selectedCinema"
+            ) || "Thashow Grand Cinema";
+
+
+        const hall =
+            localStorage.getItem(
+                "selectedHall"
+            ) || "Hall 01";
+
+
+        const date =
+            localStorage.getItem(
+                "selectedDate"
+            ) || "Today";
+
+
+        const time =
+            localStorage.getItem(
+                "selectedTime"
+            ) || "10:00 AM";
+
+
+        let seats = [];
+
+
+        try {
+
+            seats =
+                JSON.parse(
+                    localStorage.getItem(
+                        "selectedSeats"
+                    )
+                ) || [];
+
+        } catch (error) {
+
+            seats = [];
+
+        }
+
+
+        let storedFoodCart = [];
+
+
+        try {
+
+            storedFoodCart =
+                JSON.parse(
+                    localStorage.getItem(
+                        "foodCart"
+                    )
+                ) || [];
+
+        } catch (error) {
+
+            storedFoodCart = [];
+
+        }
+
+
+        const ticketPrice = 250;
+
+
+        const ticketTotal =
+            seats.length * ticketPrice;
+
+
+        let foodTotal = 0;
+
+
+        storedFoodCart.forEach(function (item) {
+
+            foodTotal +=
+                item.price *
+                item.quantity;
+
+        });
+
+
+        const grandTotal =
+            ticketTotal +
+            foodTotal;
+
+
+        confirmationMovie.textContent =
+            movie;
+
+
+        confirmationCinema.textContent =
+            cinema;
+
+
+        confirmationHall.textContent =
+            hall;
+
+
+        confirmationDate.textContent =
+            date;
+
+
+        confirmationTime.textContent =
+            time;
+
+
+        confirmationSeats.textContent =
+            seats.length > 0
+                ? seats.join(", ")
+                : "No seats selected";
+
+
+        confirmationTicketTotal.textContent =
+            "₹" + ticketTotal;
+
+
+        confirmationFoodTotal.textContent =
+            "₹" + foodTotal;
+
+
+        confirmationGrandTotal.textContent =
+            "₹" + grandTotal;
+
+
+        renderConfirmationFood(
+            storedFoodCart
+        );
+
+
+        const confirmBookingButton =
+            document.getElementById(
+                "confirmBookingButton"
+            );
+
+
+        if (confirmBookingButton) {
+
+            confirmBookingButton.addEventListener(
+                "click",
+                function () {
+
+                    localStorage.setItem(
+                        "bookingConfirmed",
+                        "true"
+                    );
+
+                    window.location.href =
+                        "booking-success.html";
+
+                }
+            );
+
+        }
+
+
+        function renderConfirmationFood(items) {
+
+            confirmationFoodList.innerHTML = "";
+
+
+            if (items.length === 0) {
+
+                const emptyMessage =
+                    document.createElement("p");
+
+                emptyMessage.textContent =
+                    "No food items selected.";
+
+                confirmationFoodList.appendChild(
+                    emptyMessage
+                );
+
+                return;
+
+            }
+
+
+            items.forEach(function (item) {
+
+                const foodItem =
+                    document.createElement("div");
+
+                foodItem.className =
+                    "confirmation-food-item";
+
+
+                const foodName =
+                    document.createElement("strong");
+
+                foodName.textContent =
+                    item.name;
+
+
+                const foodQuantity =
+                    document.createElement("span");
+
+                foodQuantity.textContent =
+                    "Qty: " +
+                    item.quantity;
+
+
+                const foodPrice =
+                    document.createElement("strong");
+
+                foodPrice.textContent =
+                    "₹" +
+                    (
+                        item.price *
+                        item.quantity
+                    );
+
+
+                foodItem.appendChild(
+                    foodName
+                );
+
+                foodItem.appendChild(
+                    foodQuantity
+                );
+
+                foodItem.appendChild(
+                    foodPrice
+                );
+
+
+                confirmationFoodList.appendChild(
+                    foodItem
+                );
+
+            });
+
+        }
 
     }
 
