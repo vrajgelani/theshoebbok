@@ -1,90 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>thashowbook | Pick. Book. Watch.</title>
+    <title>thashowbook - Pick. Book. Watch.</title>
 
     <link rel="stylesheet" href="../css/style.css">
-
 </head>
 
 <body>
 
+    <!-- Header -->
     <header class="site-header">
 
-        <div class="container header-content">
+        <div class="header-container">
 
             <div class="logo">
-    <img src="../assets/images/logo/thashowbook-logo.png" alt="thashowbook Logo">
-</div>
+                <img
+                    src="../assets/images/logo/thashowbook-logo.png"
+                    alt="thashowbook Logo"
+                >
+            </div>
 
-            <nav class="main-navigation">
-
-                <a href="index.html" class="nav-link active">
-                    Home
-                </a>
-
-                <a href="#" class="nav-link">
-                    Movies
-                </a>
-
-                <a href="#cinemas" class="nav-link">
-                    Cinemas
-                </a>
-
-                <a href="#" class="nav-link">
-                    My Bookings
-                </a>
-
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="#movies">Movies</a>
+                <a href="#cinemas">Cinemas</a>
+                <a href="#">My Bookings</a>
             </nav>
 
-            <a href="#" class="login-button">
+            <button class="login-button">
                 Login
-            </a>
+            </button>
 
         </div>
 
     </header>
 
 
+    <!-- Hero Section -->
     <main>
 
         <section class="hero-section">
 
-            <div class="container hero-content">
+            <div class="hero-content">
 
-                <div class="hero-text">
+                <p class="hero-label">
+                    WELCOME TO THASHOWBOOK
+                </p>
 
-                    <p class="hero-label">
-                        WELCOME TO THASHOWBOOK
-                    </p>
+                <h1>
+                    Pick. Book. Watch.
+                </h1>
 
-                    <h1>
-                        Pick. Book.
-                        <span>Watch.</span>
-                    </h1>
+                <p>
+                    Discover movies, choose your cinema,
+                    select your seats and enjoy your show.
+                </p>
 
-                    <p class="hero-description">
-                        Discover movies, choose your cinema,
-                        select your show and enjoy your movie experience.
-                    </p>
+                <div class="hero-buttons">
 
-                    <div class="hero-buttons">
+                    <a href="#movies" class="primary-button">
+                        Explore Movies
+                    </a>
 
-                        <a href="#" class="primary-button">
-                            Explore Movies
-                        </a>
-
-                        <a href="#cinemas" class="secondary-button">
-                            Find Cinemas
-                        </a>
-
-                    </div>
+                    <a href="#cinemas" class="secondary-button">
+                        Find Cinemas
+                    </a>
 
                 </div>
 
@@ -93,398 +76,162 @@
         </section>
 
 
+        <!-- Search -->
         <section class="search-section">
 
-            <div class="container">
+            <div class="search-container">
 
-                <div class="search-box">
+                <input
+                    type="text"
+                    id="movieSearch"
+                    placeholder="Search for movies..."
+                >
 
-                    <input
-                        type="text"
-                        id="movieSearch"
-                        placeholder="Search for movies..."
-                    >
-
-                    <button
-                        type="button"
-                        id="searchButton"
-                    >
-                        Search
-                    </button>
-
-                </div>
+                <button id="searchButton">
+                    Search
+                </button>
 
             </div>
 
         </section>
 
 
-        <section class="movie-section">
+        <!-- Now Showing -->
+        <section class="content-section" id="movies">
 
-            <div class="container">
+            <div class="section-heading">
 
-                <div class="section-heading">
+                <div>
+                    <p class="section-label">
+                        NOW SHOWING
+                    </p>
 
-                    <div>
+                    <h2>
+                        Movies
+                    </h2>
+                </div>
 
-                        <p class="section-label">
-                            NOW SHOWING
+            </div>
+
+
+            <div class="movie-grid" id="movieGrid">
+
+                <!-- Movie 01 -->
+                <div class="movie-card">
+
+                    <img
+                        src="../assets/images/movies/movie-01.jpg"
+                        alt="AAGAAZ"
+                    >
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            AAGAAZ
+                        </h3>
+
+                        <p>
+                            Gujarati • Drama • 2h 20m
                         </p>
 
-                        <h2>
-                            Movies Playing Now
-                        </h2>
+                        <a
+                            href="movie-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
 
                     </div>
 
-                    <a href="#" class="view-all">
-                        View All
-                    </a>
-
                 </div>
 
 
-                <div class="movie-grid">
+                <!-- Movie 02 -->
+                <div class="movie-card">
 
-                    <article class="movie-card">
+                    <img
+                        src="../assets/images/movies/movie-02.jpg"
+                        alt="HASO TOH JIVO"
+                    >
 
-                        <img
-                            src="../assets/images/movies/movie-01.jpg"
-                            alt="AAGAAZ movie poster"
-                        >
+                    <div class="movie-card-content">
 
-                        <div class="movie-info">
+                        <h3>
+                            HASO TOH JIVO
+                        </h3>
 
-                            <h3>AAGAAZ</h3>
-
-                            <p>
-                                Action • Drama
-                            </p>
-
-                            <a href="#" class="movie-button">
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="movie-card">
-
-                        <img
-                            src="../assets/images/movies/movie-02.jpg"
-                            alt="HASO TOH JIVO movie poster"
-                        >
-
-                        <div class="movie-info">
-
-                            <h3>HASO TOH JIVO</h3>
-
-                            <p>
-                                Comedy • Drama
-                            </p>
-
-                            <a href="#" class="movie-button">
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="movie-card">
-
-                        <img
-                            src="../assets/images/movies/movie-03.jpg"
-                            alt="RAAZ movie poster"
-                        >
-
-                        <div class="movie-info">
-
-                            <h3>RAAZ</h3>
-
-                            <p>
-                                Thriller • Mystery
-                            </p>
-
-                            <a href="#" class="movie-button">
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="movie-card">
-
-                        <img
-                            src="../assets/images/movies/movie-04.jpg"
-                            alt="APNO GHAR movie poster"
-                        >
-
-                        <div class="movie-info">
-
-                            <h3>APNO GHAR</h3>
-
-                            <p>
-                                Family • Drama
-                            </p>
-
-                            <a href="#" class="movie-button">
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- CINEMAS -->
-
-        <section
-            class="cinema-section"
-            id="cinemas"
-        >
-
-            <div class="container">
-
-                <div class="section-heading">
-
-                    <div>
-
-                        <p class="section-label">
-                            OUR CINEMAS
+                        <p>
+                            Gujarati • Comedy • 2h 05m
                         </p>
 
-                        <h2>
-                            Choose Your Cinema House
-                        </h2>
+                        <a
+                            href="movie-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
 
                     </div>
 
-                    <a href="#" class="view-all">
-                        View All
-                    </a>
+                </div>
+
+
+                <!-- Movie 03 -->
+                <div class="movie-card">
+
+                    <img
+                        src="../assets/images/movies/movie-03.jpg"
+                        alt="RAAZ"
+                    >
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            RAAZ
+                        </h3>
+
+                        <p>
+                            Gujarati • Thriller • 2h 15m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
 
                 </div>
 
 
-                <div class="cinema-grid">
+                <!-- Movie 04 -->
+                <div class="movie-card">
 
+                    <img
+                        src="../assets/images/movies/movie-04.jpg"
+                        alt="APNO GHAR"
+                    >
 
-                    <article class="cinema-card">
+                    <div class="movie-card-content">
 
-                        <img
-                            src="../assets/images/cinema/cinema-house-01.jpg"
-                            alt="Thashow Grand Cinema exterior"
+                        <h3>
+                            APNO GHAR
+                        </h3>
+
+                        <p>
+                            Gujarati • Family • 2h 10m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="primary-button"
                         >
+                            View Details
+                        </a>
 
-                        <div class="cinema-info">
-
-                            <p class="cinema-number">
-                                CINEMA HOUSE 01
-                            </p>
-
-                            <h3>
-                                Thashow Grand Cinema
-                            </h3>
-
-                            <p class="cinema-location">
-                                City Centre
-                            </p>
-
-                            <div class="cinema-details">
-
-                                <span>5 Halls</span>
-                                <span>6–10 Movies</span>
-                                <span>4 Food Options</span>
-
-                            </div>
-
-                            <a
-                                href="cinema-details.html"
-                                class="cinema-button"
-                            >
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="cinema-card">
-
-                        <img
-                            src="../assets/images/cinema/cinema-house-02.jpg"
-                            alt="Thashow Galaxy Cinema exterior"
-                        >
-
-                        <div class="cinema-info">
-
-                            <p class="cinema-number">
-                                CINEMA HOUSE 02
-                            </p>
-
-                            <h3>
-                                Thashow Galaxy Cinema
-                            </h3>
-
-                            <p class="cinema-location">
-                                Riverside
-                            </p>
-
-                            <div class="cinema-details">
-
-                                <span>5 Halls</span>
-                                <span>6–10 Movies</span>
-                                <span>4 Food Options</span>
-
-                            </div>
-
-                            <a
-                                href="cinema-details.html"
-                                class="cinema-button"
-                            >
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="cinema-card">
-
-                        <img
-                            src="../assets/images/cinema/cinema-house-03.jpg"
-                            alt="Thashow Royal Cinema exterior"
-                        >
-
-                        <div class="cinema-info">
-
-                            <p class="cinema-number">
-                                CINEMA HOUSE 03
-                            </p>
-
-                            <h3>
-                                Thashow Royal Cinema
-                            </h3>
-
-                            <p class="cinema-location">
-                                West District
-                            </p>
-
-                            <div class="cinema-details">
-
-                                <span>5 Halls</span>
-                                <span>6–10 Movies</span>
-                                <span>4 Food Options</span>
-
-                            </div>
-
-                            <a
-                                href="cinema-details.html"
-                                class="cinema-button"
-                            >
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="cinema-card">
-
-                        <img
-                            src="../assets/images/cinema/cinema-house-04.jpg"
-                            alt="Thashow Central Cinema exterior"
-                        >
-
-                        <div class="cinema-info">
-
-                            <p class="cinema-number">
-                                CINEMA HOUSE 04
-                            </p>
-
-                            <h3>
-                                Thashow Central Cinema
-                            </h3>
-
-                            <p class="cinema-location">
-                                North District
-                            </p>
-
-                            <div class="cinema-details">
-
-                                <span>5 Halls</span>
-                                <span>6–10 Movies</span>
-                                <span>4 Food Options</span>
-
-                            </div>
-
-                            <a
-                                href="cinema-details.html"
-                                class="cinema-button"
-                            >
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="cinema-card">
-
-                        <img
-                            src="../assets/images/cinema/cinema-house-05.jpg"
-                            alt="Thashow Platinum Cinema exterior"
-                        >
-
-                        <div class="cinema-info">
-
-                            <p class="cinema-number">
-                                CINEMA HOUSE 05
-                            </p>
-
-                            <h3>
-                                Thashow Platinum Cinema
-                            </h3>
-
-                            <p class="cinema-location">
-                                East District
-                            </p>
-
-                            <div class="cinema-details">
-
-                                <span>5 Halls</span>
-                                <span>6–10 Movies</span>
-                                <span>4 Food Options</span>
-
-                            </div>
-
-                            <a
-                                href="cinema-details.html"
-                                class="cinema-button"
-                            >
-                                View Details
-                            </a>
-
-                        </div>
-
-                    </article>
-
+                    </div>
 
                 </div>
 
@@ -493,68 +240,321 @@
         </section>
 
 
+        <!-- Upcoming -->
+        <section class="content-section upcoming-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        COMING SOON
+                    </p>
+
+                    <h2>
+                        Upcoming Movies
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="movie-grid">
+
+                <!-- Movie 05 -->
+                <div class="movie-card">
+
+                    <img
+                        src="../assets/images/movies/movie-05.jpg"
+                        alt="SAFAR"
+                    >
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            SAFAR
+                        </h3>
+
+                        <p>
+                            Gujarati • Adventure • 2h 25m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="secondary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Movie 06 -->
+                <div class="movie-card">
+
+                    <img
+                        src="../assets/images/movies/movie-06.jpg"
+                        alt="DIL SE DIL TAK"
+                    >
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            DIL SE DIL TAK
+                        </h3>
+
+                        <p>
+                            Gujarati • Romance • 2h 18m
+                        </p>
+
+                        <a
+                            href="movie-details.html"
+                            class="secondary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Cinemas -->
+        <section class="content-section" id="cinemas">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="section-label">
+                        OUR CINEMAS
+                    </p>
+
+                    <h2>
+                        Cinema Houses
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="cinema-grid">
+
+                <!-- Cinema 01 -->
+                <div class="cinema-card">
+
+                    <img
+                        src="../assets/images/cinema/cinema-house-01.jpg"
+                        alt="Thashow Grand Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+
+                        <h3>
+                            Thashow Grand Cinema
+                        </h3>
+
+                        <p>
+                            5 Halls • 6 Movies • 4 Food Options
+                        </p>
+
+                        <a
+                            href="cinema-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Cinema 02 -->
+                <div class="cinema-card">
+
+                    <img
+                        src="../assets/images/cinema/cinema-house-02.jpg"
+                        alt="Thashow Galaxy Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+
+                        <h3>
+                            Thashow Galaxy Cinema
+                        </h3>
+
+                        <p>
+                            5 Halls • 6–10 Movies • 4 Food Options
+                        </p>
+
+                        <a
+                            href="cinema-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Cinema 03 -->
+                <div class="cinema-card">
+
+                    <img
+                        src="../assets/images/cinema/cinema-house-03.jpg"
+                        alt="Thashow Royal Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+
+                        <h3>
+                            Thashow Royal Cinema
+                        </h3>
+
+                        <p>
+                            5 Halls • 6–10 Movies • 4 Food Options
+                        </p>
+
+                        <a
+                            href="cinema-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Cinema 04 -->
+                <div class="cinema-card">
+
+                    <img
+                        src="../assets/images/cinema/cinema-house-04.jpg"
+                        alt="Thashow Central Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+
+                        <h3>
+                            Thashow Central Cinema
+                        </h3>
+
+                        <p>
+                            5 Halls • 6–10 Movies • 4 Food Options
+                        </p>
+
+                        <a
+                            href="cinema-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Cinema 05 -->
+                <div class="cinema-card">
+
+                    <img
+                        src="../assets/images/cinema/cinema-house-05.jpg"
+                        alt="Thashow Platinum Cinema"
+                    >
+
+                    <div class="cinema-card-content">
+
+                        <h3>
+                            Thashow Platinum Cinema
+                        </h3>
+
+                        <p>
+                            5 Halls • 6–10 Movies • 4 Food Options
+                        </p>
+
+                        <a
+                            href="cinema-details.html"
+                            class="primary-button"
+                        >
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Experience -->
         <section class="experience-section">
 
-            <div class="container">
+            <div class="section-container">
 
                 <p class="section-label">
-                    THASHOWBOOK EXPERIENCE
+                    SIMPLE BOOKING
                 </p>
 
                 <h2>
-                    Your Movie Experience Starts Here
+                    Your Movie Experience
                 </h2>
 
-                <p class="section-description">
-                    Discover movies, select a cinema, choose your show,
-                    reserve your seats and enjoy cinema food.
-                </p>
 
                 <div class="experience-grid">
 
-                    <article class="experience-card">
+                    <div class="experience-card">
 
-                        <span class="card-number">
-                            01
-                        </span>
-
-                        <h3>Pick</h3>
+                        <h3>
+                            Pick
+                        </h3>
 
                         <p>
                             Choose your favourite movie and cinema.
                         </p>
 
-                    </article>
+                    </div>
 
 
-                    <article class="experience-card">
+                    <div class="experience-card">
 
-                        <span class="card-number">
-                            02
-                        </span>
-
-                        <h3>Book</h3>
+                        <h3>
+                            Book
+                        </h3>
 
                         <p>
-                            Select your date, showtime and preferred seats.
+                            Select your date, showtime and seats.
                         </p>
 
-                    </article>
+                    </div>
 
 
-                    <article class="experience-card">
+                    <div class="experience-card">
 
-                        <span class="card-number">
-                            03
-                        </span>
-
-                        <h3>Watch</h3>
+                        <h3>
+                            Watch
+                        </h3>
 
                         <p>
-                            Enjoy your movie with cinema food.
+                            Enjoy your movie experience.
                         </p>
 
-                    </article>
+                    </div>
 
                 </div>
 
@@ -565,11 +565,12 @@
     </main>
 
 
+    <!-- Footer -->
     <footer class="site-footer">
 
-        <div class="container footer-content">
+        <div class="footer-container">
 
-            <div>
+            <div class="footer-brand">
 
                 <h3>
                     thashowbook
@@ -581,9 +582,18 @@
 
             </div>
 
-            <p class="copyright">
-                © 2026 thashowbook. All rights reserved.
-            </p>
+
+            <div class="footer-info">
+
+                <p>
+                    Customer Movie Booking Platform
+                </p>
+
+                <p>
+                    © 2026 thashowbook
+                </p>
+
+            </div>
 
         </div>
 
@@ -593,5 +603,4 @@
     <script src="../js/script.js"></script>
 
 </body>
-
 </html>
