@@ -4,16 +4,6 @@
    Frontend Only - LocalStorage Based
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
-    initializeMovieFilters();
-    initializeMovieSelection();
-    initializeSeatSelection();
-    initializeCheckout();
-    initializeLogin();
-    initializeBookingTabs();
-    loadBookingData();
-});
-
 
 /* =========================================================
    01. COMMON HELPERS
@@ -28,6 +18,7 @@ function getStorage(key, fallback) {
         }
 
         return JSON.parse(value);
+
     } catch (error) {
         return fallback;
     }
@@ -35,383 +26,1039 @@ function getStorage(key, fallback) {
 
 
 function setStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
+    try {
+        localStorage.setItem(
+            key,
+            JSON.stringify(value)
+        );
+    } catch (error) {
+        console.error(
+            "Storage error:",
+            error
+        );
+    }
 }
 
 
 function generateBookingId() {
+
     const now = new Date();
 
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, "0");
-    const day = String(now.getDate()).padStart(2, "0");
+    const year =
+        now.getFullYear();
 
-    const randomNumber = Math.floor(100 + Math.random() * 900);
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(2, "0");
 
-    return `TSB-${year}${month}${day}-${randomNumber}`;
+    const day =
+        String(
+            now.getDate()
+        ).padStart(2, "0");
+
+    const randomNumber =
+        Math.floor(
+            100 + Math.random() * 900
+        );
+
+    return (
+        `TSB-${year}${month}${day}-${randomNumber}`
+    );
 }
 
 
 function getSelectedShow() {
-    return getStorage("thashowbookSelectedShow", {
-        movie: "Movie Title 01",
-        movieImage: "images/movies/movie-01.jpg",
-        genre: "Action · Drama · Hindi",
-        cinema: "Thashow Central Cinema",
-        date: "18 Sep 2026",
-        time: "6:30 PM",
-        format: "2D"
-    });
+
+    const savedShow =
+        getStorage(
+            "thashowbookSelectedShow",
+            null
+        );
+
+    if (savedShow) {
+        return savedShow;
+    }
+
+    return {
+        movie:
+            "AAGAAZ",
+
+        movieImage:
+            "images/movies/movie-01.jpg",
+
+        genre:
+            "Action",
+
+        cinema:
+            "Thashow Central Cinema",
+
+        date:
+            "19 Sep 2026",
+
+        time:
+            "6:30 PM",
+
+        format:
+            "2D"
+    };
 }
 
 
 function saveSelectedShow(show) {
-    setStorage("thashowbookSelectedShow", show);
+
+    setStorage(
+        "thashowbookSelectedShow",
+        show
+    );
 }
 
 
 /* =========================================================
-   02. MOVIE SEARCH & FILTER
+   02. MOVIE DATABASE
+   ========================================================= */
+
+const movieDatabase = {
+
+    "AAGAAZ": {
+        title: "AAGAAZ",
+        image: "images/movies/movie-01.jpg",
+        genre: "Action",
+        language: "Hindi",
+        duration: "2h 24m",
+        release: "2026",
+        description:
+            "A gripping Indian action drama filled with intense moments, powerful characters and an unforgettable cinematic journey."
+    },
+
+    "RAAZ": {
+        title: "RAAZ",
+        image: "images/movies/movie-02.jpg",
+        genre: "Thriller",
+        language: "Hindi",
+        duration: "2h 16m",
+        release: "2026",
+        description:
+            "A mysterious thriller where hidden secrets, strange clues and unexpected discoveries lead to a shocking mystery."
+    },
+
+    "DIL SE DIL TAK": {
+        title: "DIL SE DIL TAK",
+        image: "images/movies/movie-03.jpg",
+        genre: "Romance",
+        language: "Gujarati",
+        duration: "2h 18m",
+        release: "2026",
+        description:
+            "A heartfelt romantic drama about relationships, emotions and two people discovering what truly matters in life."
+    },
+
+    "HASO TOH JIVO": {
+        title: "HASO TOH JIVO",
+        image: "images/movies/movie-04.jpg",
+        genre: "Comedy",
+        language: "Hindi",
+        duration: "2h 05m",
+        release: "2026",
+        description:
+            "A fun-filled comedy about friendship, unforgettable situations and three friends who believe that life is better when you laugh."
+    },
+
+    "ANTARIKSH": {
+        title: "ANTARIKSH",
+        image: "images/movies/movie-05.jpg",
+        genre: "Science Fiction",
+        language: "Hindi",
+        duration: "2h 28m",
+        release: "2026",
+        description:
+            "A futuristic science-fiction adventure that takes the audience beyond Earth into an extraordinary journey through space."
+    },
+
+    "APNO GHAR": {
+        title: "APNO GHAR",
+        image: "images/movies/movie-06.jpg",
+        genre: "Family Drama",
+        language: "Hindi",
+        duration: "2h 20m",
+        release: "2026",
+        description:
+            "A warm family drama celebrating relationships, memories, togetherness and the meaning of having a place called home."
+    },
+
+    "RAHASYA": {
+        title: "RAHASYA",
+        image: "images/movies/movie-07.jpg",
+        genre: "Mystery",
+        language: "Hindi",
+        duration: "2h 22m",
+        release: "2026",
+        description:
+            "A suspenseful mystery filled with hidden clues, unexplained events and a journey to uncover the truth."
+    },
+
+    "SAFAR": {
+        title: "SAFAR",
+        image: "images/movies/movie-08.jpg",
+        genre: "Adventure",
+        language: "Hindi",
+        duration: "2h 30m",
+        release: "2026",
+        description:
+            "An adventurous journey across breathtaking landscapes where courage, friendship and discovery come together."
+    },
+
+    "JOSH": {
+        title: "JOSH",
+        image: "images/movies/movie-09.jpg",
+        genre: "Sports Drama",
+        language: "Hindi",
+        duration: "2h 15m",
+        release: "2026",
+        description:
+            "An inspiring sports drama about determination, discipline, teamwork and the journey towards achieving a dream."
+    },
+
+    "ANDHERI RAAT": {
+        title: "ANDHERI RAAT",
+        image: "images/movies/movie-10.jpg",
+        genre: "Horror Mystery",
+        language: "Hindi",
+        duration: "2h 12m",
+        release: "2026",
+        description:
+            "A dark mystery set around strange events and hidden secrets surrounding an isolated old mansion."
+    }
+};
+
+
+/* =========================================================
+   03. MOVIE SEARCH & FILTER
    ========================================================= */
 
 function initializeMovieFilters() {
 
-    const movieGrid = document.getElementById("movieGrid");
+    const movieGrid =
+        document.getElementById(
+            "movieGrid"
+        );
 
     if (!movieGrid) {
         return;
     }
 
-    const movieItems = Array.from(
-        movieGrid.querySelectorAll(".movie-item")
-    );
-
-    const filterButtons = document.querySelectorAll(
-        ".filter-button"
-    );
-
-    const searchInput = document.getElementById("movieSearch");
-
-    let selectedFilter = "all";
-
-
-    function filterMovies() {
-
-        const searchText = searchInput
-            ? searchInput.value.trim().toLowerCase()
-            : "";
-
-        let visibleMovies = 0;
-
-        movieItems.forEach((movie) => {
-
-            const title = (
-                movie.dataset.title || ""
-            ).toLowerCase();
-
-            const genre = (
-                movie.dataset.genre || ""
-            ).toLowerCase();
-
-            const matchesSearch =
-                title.includes(searchText);
-
-            const matchesFilter =
-                selectedFilter === "all" ||
-                genre.includes(selectedFilter);
-
-            const shouldShow =
-                matchesSearch && matchesFilter;
-
-            movie.hidden = !shouldShow;
-
-            if (shouldShow) {
-                visibleMovies++;
-            }
-        });
-
-
-        const emptyState = document.getElementById(
-            "movieEmptyState"
+    const movieItems =
+        Array.from(
+            movieGrid.querySelectorAll(
+                ".movie-item, .movie-card, [data-title]"
+            )
         );
 
-        if (emptyState) {
-            emptyState.hidden = visibleMovies !== 0;
-        }
-    }
-
-
-    filterButtons.forEach((button) => {
-
-        button.addEventListener("click", () => {
-
-            filterButtons.forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            button.classList.add("active");
-
-            selectedFilter =
-                button.dataset.filter || "all";
-
-            filterMovies();
-        });
-
-    });
-
-
-    if (searchInput) {
-        searchInput.addEventListener(
-            "input",
-            filterMovies
+    const filterButtons =
+        document.querySelectorAll(
+            ".filter-button"
         );
-    }
 
-
-    filterMovies();
-}
-
-
-/* =========================================================
-   03. MOVIE DETAILS
-   ========================================================= */
-
-function initializeMovieSelection() {
-
-    const dateButtons = document.querySelectorAll(
-        ".date-button"
-    );
-
-    const showtimeButtons = document.querySelectorAll(
-        ".showtime-button"
-    );
-
-    const cinemaInputs = document.querySelectorAll(
-        'input[name="cinema"]'
-    );
-
+    const searchInput =
+        document.getElementById(
+            "movieSearch"
+        );
 
     if (
-        dateButtons.length === 0 &&
-        showtimeButtons.length === 0 &&
-        cinemaInputs.length === 0
+        movieItems.length === 0
     ) {
         return;
     }
 
+    let selectedFilter =
+        "all";
 
-    let selectedDate =
-        document.querySelector(".date-button.active");
 
-    let selectedTime =
-        document.querySelector(".showtime-button.active");
+    const filterAliases = {
 
-    let selectedCinema =
-        document.querySelector(
-            'input[name="cinema"]:checked'
+        all: [
+            "all"
+        ],
+
+        action: [
+            "action"
+        ],
+
+        thriller: [
+            "thriller"
+        ],
+
+        romance: [
+            "romance",
+            "romantic",
+            "romantic drama"
+        ],
+
+        comedy: [
+            "comedy"
+        ],
+
+        "sci-fi": [
+            "sci-fi",
+            "science fiction",
+            "science-fiction",
+            "scifi"
+        ],
+
+        family: [
+            "family",
+            "family drama"
+        ],
+
+        mystery: [
+            "mystery"
+        ],
+
+        adventure: [
+            "adventure"
+        ],
+
+        sports: [
+            "sports",
+            "sports drama"
+        ],
+
+        horror: [
+            "horror",
+            "horror mystery"
+        ]
+    };
+
+
+    function getMovieTitle(movie) {
+
+        return (
+            movie.dataset.title ||
+
+            movie.querySelector(
+                ".movie-title"
+            )?.textContent ||
+
+            movie.querySelector(
+                "h3"
+            )?.textContent ||
+
+            movie.querySelector(
+                "h2"
+            )?.textContent ||
+
+            ""
+        )
+            .trim()
+            .toLowerCase();
+    }
+
+
+    function getMovieGenre(movie) {
+
+        const datasetGenre =
+            movie.dataset.genre ||
+            movie.getAttribute(
+                "data-category"
+            ) ||
+            "";
+
+
+        const textGenre =
+            movie.querySelector(
+                ".movie-genre"
+            )?.textContent ||
+
+            movie.querySelector(
+                ".movie-meta"
+            )?.textContent ||
+
+            "";
+
+
+        return (
+            `${datasetGenre} ${textGenre}`
+        )
+            .trim()
+            .toLowerCase();
+    }
+
+
+    function filterMovies() {
+
+        const searchText =
+            searchInput
+                ? searchInput.value
+                    .trim()
+                    .toLowerCase()
+                : "";
+
+
+        const aliases =
+            filterAliases[
+                selectedFilter
+            ] || [
+                selectedFilter
+            ];
+
+
+        let visibleMovies = 0;
+
+
+        movieItems.forEach(
+            function (movie) {
+
+                const title =
+                    getMovieTitle(
+                        movie
+                    );
+
+
+                const genre =
+                    getMovieGenre(
+                        movie
+                    );
+
+
+                const matchesSearch =
+                    !searchText ||
+
+                    title.includes(
+                        searchText
+                    ) ||
+
+                    genre.includes(
+                        searchText
+                    );
+
+
+                const matchesFilter =
+                    selectedFilter === "all" ||
+
+                    aliases.some(
+                        function (alias) {
+
+                            return genre.includes(
+                                alias
+                            );
+
+                        }
+                    );
+
+
+                const shouldShow =
+                    matchesSearch &&
+                    matchesFilter;
+
+
+                movie.hidden =
+                    !shouldShow;
+
+
+                if (shouldShow) {
+                    visibleMovies++;
+                }
+
+            }
         );
 
 
-    dateButtons.forEach((button) => {
-
-        button.addEventListener("click", () => {
-
-            dateButtons.forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            button.classList.add("active");
-
-            selectedDate = button;
-
-            updateSelectedShow();
-        });
-
-    });
-
-
-    showtimeButtons.forEach((button) => {
-
-        button.addEventListener("click", () => {
-
-            showtimeButtons.forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            button.classList.add("active");
-
-            selectedTime = button;
-
-            updateSelectedShow();
-        });
-
-    });
-
-
-    cinemaInputs.forEach((input) => {
-
-        input.addEventListener("change", () => {
-
-            selectedCinema = input;
-
-            updateSelectedShow();
-        });
-
-    });
-
-
-    function getDateText(button) {
-
-        if (!button) {
-            return "18 Sep 2026";
-        }
-
-        const day =
-            button.querySelector(".date-day")?.textContent
-            .trim() || "";
-
-        const number =
-            button.querySelector("strong")?.textContent
-            .trim() || "";
-
-        const month =
-            button.querySelector(".date-month")?.textContent
-            .trim() || "";
-
-        return `${number} ${month} 2026`;
-    }
-
-
-    function getCinemaName() {
-
-        if (!selectedCinema) {
-            return "Thashow Central Cinema";
-        }
-
-        const card =
-            selectedCinema.closest(
-                ".show-cinema-card"
+        const emptyState =
+            document.getElementById(
+                "movieEmptyState"
             );
 
-        const name =
-            card?.querySelector("h4")?.textContent
-            .trim();
 
-        return name || "Thashow Central Cinema";
+        if (emptyState) {
+
+            emptyState.hidden =
+                visibleMovies !== 0;
+
+        }
+
     }
 
 
-    function updateSelectedShow() {
+    filterButtons.forEach(
+        function (button) {
 
-        const previousShow = getSelectedShow();
+            button.addEventListener(
+                "click",
+                function () {
 
-        const show = {
-            movie:
-                previousShow.movie ||
-                "Movie Title 01",
+                    filterButtons.forEach(
+                        function (item) {
 
-            movieImage:
-                previousShow.movieImage ||
-                "images/movies/movie-01.jpg",
+                            item.classList.remove(
+                                "active"
+                            );
 
-            genre:
-                previousShow.genre ||
-                "Action · Drama · Hindi",
+                        }
+                    );
 
-            cinema:
-                getCinemaName(),
 
-            date:
-                getDateText(selectedDate),
+                    button.classList.add(
+                        "active"
+                    );
 
-            time:
-                selectedTime?.dataset.time ||
-                previousShow.time ||
-                "6:30 PM",
 
-            format:
-                previousShow.format ||
-                "2D"
-        };
+                    selectedFilter =
+                        (
+                            button.dataset.filter ||
+                            "all"
+                        )
+                            .trim()
+                            .toLowerCase();
 
-        saveSelectedShow(show);
+
+                    filterMovies();
+
+                }
+            );
+
+        }
+    );
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            filterMovies
+        );
+
     }
 
 
-    updateSelectedShow();
+    const activeButton =
+        document.querySelector(
+            ".filter-button.active"
+        );
+
+
+    if (activeButton) {
+
+        selectedFilter =
+            (
+                activeButton.dataset.filter ||
+                "all"
+            )
+                .trim()
+                .toLowerCase();
+
+    }
+
+
+    filterMovies();
+
 }
 
 
 /* =========================================================
-   04. SEAT SELECTION
+   04. GET MOVIE FROM URL
+   ========================================================= */
+
+function getSelectedMovieName() {
+
+    const urlParams =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const movieParameter =
+        urlParams.get(
+            "movie"
+        );
+
+
+    if (!movieParameter) {
+        return "AAGAAZ";
+    }
+
+
+    return decodeURIComponent(
+        movieParameter
+    )
+        .trim()
+        .toUpperCase();
+}
+
+
+/* =========================================================
+   05. LOAD MOVIE DETAILS
+   ========================================================= */
+
+function loadMovieDetails() {
+
+    const movieTitleElement =
+        document.getElementById(
+            "movieDetailsTitle"
+        );
+
+
+    if (!movieTitleElement) {
+        return;
+    }
+
+
+    const selectedMovieName =
+        getSelectedMovieName();
+
+
+    const movie =
+        movieDatabase[
+            selectedMovieName
+        ];
+
+
+    if (!movie) {
+        return;
+    }
+
+
+    const poster =
+        document.getElementById(
+            "movieDetailsPoster"
+        );
+
+
+    if (poster) {
+
+        poster.src =
+            movie.image;
+
+        poster.alt =
+            movie.title;
+
+    }
+
+
+    const fields = {
+
+        movieDetailsTitle:
+            movie.title,
+
+        movieDetailsGenre:
+            movie.genre,
+
+        movieDetailsLanguage:
+            movie.language,
+
+        movieDetailsDuration:
+            movie.duration,
+
+        movieDetailsDescription:
+            movie.description,
+
+        movieDetailsRelease:
+            movie.release,
+
+        movieDetailsRuntime:
+            movie.duration,
+
+        movieDetailsLanguageInfo:
+            movie.language,
+
+        informationMovieName:
+            movie.title,
+
+        informationGenre:
+            movie.genre,
+
+        informationLanguage:
+            movie.language,
+
+        informationDuration:
+            movie.duration,
+
+        movieInformationDescription:
+            movie.description
+    };
+
+
+    Object.keys(fields).forEach(
+        function (id) {
+
+            const element =
+                document.getElementById(
+                    id
+                );
+
+
+            if (element) {
+
+                element.textContent =
+                    fields[id];
+
+            }
+
+        }
+    );
+
+
+    document.title =
+        movie.title +
+        " | thashowbook";
+
+
+    localStorage.setItem(
+        "selectedMovie",
+        JSON.stringify(
+            movie
+        )
+    );
+
+}
+
+
+/* =========================================================
+   06. SHOWTIME SELECTION
+   ========================================================= */
+
+function setupShowtimeSelection() {
+
+    const showtimeButtons =
+        document.querySelectorAll(
+            ".showtime-button"
+        );
+
+
+    showtimeButtons.forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    showtimeButtons.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    localStorage.setItem(
+                        "selectedShowtime",
+                        button.dataset.time ||
+                        button.textContent.trim()
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   07. CINEMA SELECTION
+   ========================================================= */
+
+function setupCinemaSelection() {
+
+    const cinemaInputs =
+        document.querySelectorAll(
+            'input[name="cinema"]'
+        );
+
+
+    cinemaInputs.forEach(
+        function (input) {
+
+            input.addEventListener(
+                "change",
+                function () {
+
+                    localStorage.setItem(
+                        "selectedCinema",
+                        input.value
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   08. CONTINUE TO SEATS
+   ========================================================= */
+
+function setupContinueButton() {
+
+    const continueButton =
+        document.getElementById(
+            "continueToSeats"
+        );
+
+
+    if (!continueButton) {
+        return;
+    }
+
+
+    continueButton.addEventListener(
+        "click",
+        function (event) {
+
+            const selectedCinema =
+                document.querySelector(
+                    'input[name="cinema"]:checked'
+                );
+
+
+            const selectedDate =
+                document.querySelector(
+                    ".date-button.active"
+                );
+
+
+            const selectedShowtime =
+                document.querySelector(
+                    ".showtime-button.active"
+                );
+
+
+            if (!selectedCinema) {
+
+                event.preventDefault();
+
+                showMessage(
+                    "Please select a cinema first.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!selectedDate) {
+
+                event.preventDefault();
+
+                showMessage(
+                    "Please select a date first.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (!selectedShowtime) {
+
+                event.preventDefault();
+
+                showMessage(
+                    "Please select a showtime first.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            const movieName =
+                getSelectedMovieName();
+
+
+            const movie =
+                movieDatabase[
+                    movieName
+                ];
+
+
+            const show = {
+
+                movie:
+                    movie
+                        ? movie.title
+                        : movieName,
+
+                movieImage:
+                    movie
+                        ? movie.image
+                        : "images/movies/movie-01.jpg",
+
+                genre:
+                    movie
+                        ? movie.genre
+                        : "Movie",
+
+                cinema:
+                    selectedCinema.value,
+
+                date:
+                    selectedDate.dataset.date,
+
+                time:
+                    selectedShowtime.dataset.time ||
+                    selectedShowtime.textContent.trim(),
+
+                format:
+                    selectedShowtime.dataset.format ||
+                    "2D"
+            };
+
+
+            saveSelectedShow(
+                show
+            );
+
+
+            localStorage.setItem(
+                "selectedDate",
+                selectedDate.dataset.date
+            );
+
+
+            localStorage.setItem(
+                "selectedCinema",
+                selectedCinema.value
+            );
+
+
+            localStorage.setItem(
+                "selectedShowtime",
+                selectedShowtime.dataset.time ||
+                selectedShowtime.textContent.trim()
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   09. SEAT SELECTION
    ========================================================= */
 
 function initializeSeatSelection() {
 
-    const seatMap = document.getElementById("seatMap");
+    const seatMap =
+        document.getElementById(
+            "seatMap"
+        );
+
 
     if (!seatMap) {
         return;
     }
 
-    const seats = Array.from(
-        seatMap.querySelectorAll(".seat")
-    );
+
+    const seats =
+        Array.from(
+            seatMap.querySelectorAll(
+                ".seat"
+            )
+        );
+
 
     const selectedSeatsElement =
-        document.getElementById("selectedSeats");
+        document.getElementById(
+            "selectedSeats"
+        );
+
 
     const ticketCountElement =
-        document.getElementById("ticketCount");
+        document.getElementById(
+            "ticketCount"
+        );
+
 
     const totalElement =
-        document.getElementById("seatTotal");
+        document.getElementById(
+            "seatTotal"
+        );
+
 
     const continueButton =
-        document.getElementById("continueToCheckout");
+        document.getElementById(
+            "continueToCheckout"
+        );
 
 
-    let selectedSeats = getStorage(
-        "thashowbookSelectedSeats",
-        []
-    );
+    let selectedSeats =
+        getStorage(
+            "thashowbookSelectedSeats",
+            []
+        );
+
+
+    if (!Array.isArray(selectedSeats)) {
+        selectedSeats = [];
+    }
 
 
     function updateSeatUI() {
 
-        seats.forEach((seat) => {
+        seats.forEach(
+            function (seat) {
 
-            const seatName =
-                seat.dataset.seat;
+                const seatName =
+                    seat.dataset.seat;
 
-            if (
-                selectedSeats.some(
-                    (item) =>
-                        item.seat === seatName
-                )
-            ) {
-                seat.classList.add("selected");
-            } else {
-                seat.classList.remove("selected");
+
+                const isSelected =
+                    selectedSeats.some(
+                        function (item) {
+
+                            return (
+                                item.seat ===
+                                seatName
+                            );
+
+                        }
+                    );
+
+
+                if (isSelected) {
+
+                    seat.classList.add(
+                        "selected"
+                    );
+
+                } else {
+
+                    seat.classList.remove(
+                        "selected"
+                    );
+
+                }
+
             }
-
-        });
+        );
 
 
         if (selectedSeatsElement) {
 
-            if (selectedSeats.length === 0) {
+            selectedSeatsElement.textContent =
+                selectedSeats.length > 0
+                    ? selectedSeats
+                        .map(
+                            function (item) {
+                                return item.seat;
+                            }
+                        )
+                        .join(", ")
+                    : "No seats selected";
 
-                selectedSeatsElement.textContent =
-                    "No seats selected";
-
-            } else {
-
-                selectedSeatsElement.textContent =
-                    selectedSeats
-                        .map((item) => item.seat)
-                        .join(", ");
-            }
         }
 
 
@@ -419,20 +1066,31 @@ function initializeSeatSelection() {
 
             ticketCountElement.textContent =
                 selectedSeats.length;
+
         }
 
 
-        const total = selectedSeats.reduce(
-            (sum, item) =>
-                sum + Number(item.price),
-            0
-        );
+        const total =
+            selectedSeats.reduce(
+                function (sum, item) {
+
+                    return (
+                        sum +
+                        Number(
+                            item.price || 0
+                        )
+                    );
+
+                },
+                0
+            );
 
 
         if (totalElement) {
 
             totalElement.textContent =
                 `₹${total}`;
+
         }
 
 
@@ -440,60 +1098,97 @@ function initializeSeatSelection() {
             "thashowbookSelectedSeats",
             selectedSeats
         );
+
     }
 
 
-    seats.forEach((seat) => {
+    seats.forEach(
+        function (seat) {
 
-        seat.addEventListener("click", () => {
+            seat.addEventListener(
+                "click",
+                function () {
 
-            if (seat.disabled) {
-                return;
-            }
-
-            const seatName =
-                seat.dataset.seat;
-
-            const price =
-                Number(seat.dataset.price) || 0;
-
-            const existingIndex =
-                selectedSeats.findIndex(
-                    (item) =>
-                        item.seat === seatName
-                );
+                    if (
+                        seat.disabled ||
+                        seat.classList.contains(
+                            "booked"
+                        )
+                    ) {
+                        return;
+                    }
 
 
-            if (existingIndex >= 0) {
-
-                selectedSeats.splice(
-                    existingIndex,
-                    1
-                );
-
-            } else {
-
-                selectedSeats.push({
-                    seat: seatName,
-                    price: price
-                });
-
-            }
+                    const seatName =
+                        seat.dataset.seat;
 
 
-            updateSeatUI();
-        });
+                    if (!seatName) {
+                        return;
+                    }
 
-    });
+
+                    const price =
+                        Number(
+                            seat.dataset.price
+                        ) || 0;
+
+
+                    const existingIndex =
+                        selectedSeats.findIndex(
+                            function (item) {
+
+                                return (
+                                    item.seat ===
+                                    seatName
+                                );
+
+                            }
+                        );
+
+
+                    if (
+                        existingIndex >= 0
+                    ) {
+
+                        selectedSeats.splice(
+                            existingIndex,
+                            1
+                        );
+
+                    } else {
+
+                        selectedSeats.push(
+                            {
+                                seat:
+                                    seatName,
+
+                                price:
+                                    price
+                            }
+                        );
+
+                    }
+
+
+                    updateSeatUI();
+
+                }
+            );
+
+        }
+    );
 
 
     if (continueButton) {
 
         continueButton.addEventListener(
             "click",
-            (event) => {
+            function (event) {
 
-                if (selectedSeats.length === 0) {
+                if (
+                    selectedSeats.length === 0
+                ) {
 
                     event.preventDefault();
 
@@ -505,57 +1200,85 @@ function initializeSeatSelection() {
                     return;
                 }
 
-                const show = getSelectedShow();
+
+                const show =
+                    getSelectedShow();
+
 
                 setStorage(
                     "thashowbookBookingDraft",
                     {
-                        show: show,
-                        seats: selectedSeats
+                        show:
+                            show,
+
+                        seats:
+                            selectedSeats
                     }
                 );
+
             }
         );
+
     }
 
 
     updateSeatUI();
+
 }
 
 
 /* =========================================================
-   05. CHECKOUT
+   10. CHECKOUT
    ========================================================= */
 
 function initializeCheckout() {
 
     const checkoutForm =
-        document.getElementById("checkoutForm");
+        document.getElementById(
+            "checkoutForm"
+        );
+
 
     const confirmButton =
         document.getElementById(
             "confirmBookingButton"
         );
 
-    if (!checkoutForm && !confirmButton) {
+
+    if (
+        !checkoutForm &&
+        !confirmButton
+    ) {
         return;
     }
 
 
-    const draft = getStorage(
-        "thashowbookBookingDraft",
-        null
-    );
+    const draft =
+        getStorage(
+            "thashowbookBookingDraft",
+            null
+        );
+
 
     const show =
-        draft?.show || getSelectedShow();
+        draft?.show ||
+        getSelectedShow();
 
-    const seats =
-        draft?.seats ||
-        getStorage(
-            "thashowbookSelectedSeats",
-            []
-        );
+
+    let seats =
+        Array.isArray(
+            draft?.seats
+        )
+            ? draft.seats
+            : getStorage(
+                "thashowbookSelectedSeats",
+                []
+            );
+
+
+    if (!Array.isArray(seats)) {
+        seats = [];
+    }
 
 
     const checkoutSeats =
@@ -563,20 +1286,24 @@ function initializeCheckout() {
             "checkoutSeats"
         );
 
+
     const ticketPrice =
         document.getElementById(
             "ticketPrice"
         );
+
 
     const convenienceFee =
         document.getElementById(
             "convenienceFee"
         );
 
+
     const taxAmount =
         document.getElementById(
             "taxAmount"
         );
+
 
     const checkoutTotal =
         document.getElementById(
@@ -586,20 +1313,34 @@ function initializeCheckout() {
 
     const baseTicketPrice =
         seats.reduce(
-            (sum, item) =>
-                sum + Number(item.price),
+            function (sum, item) {
+
+                return (
+                    sum +
+                    Number(
+                        item?.price || 0
+                    )
+                );
+
+            },
             0
         );
 
+
     const convenience =
         seats.length > 0
-            ? 20 * seats.length
+            ? seats.length * 25
             : 0;
+
 
     const tax =
         Math.round(
-            baseTicketPrice * 0.05
+            (
+                baseTicketPrice +
+                convenience
+            ) * 0.18
         );
+
 
     const total =
         baseTicketPrice +
@@ -611,50 +1352,295 @@ function initializeCheckout() {
 
         checkoutSeats.textContent =
             seats.length > 0
-                ? seats.map(
-                    (item) => item.seat
-                ).join(", ")
+                ? seats
+                    .map(
+                        function (item) {
+                            return item.seat;
+                        }
+                    )
+                    .join(", ")
                 : "No seats selected";
+
     }
 
 
     if (ticketPrice) {
+
         ticketPrice.textContent =
             `₹${baseTicketPrice}`;
+
     }
 
 
     if (convenienceFee) {
+
         convenienceFee.textContent =
             `₹${convenience}`;
+
     }
 
 
     if (taxAmount) {
+
         taxAmount.textContent =
             `₹${tax}`;
+
     }
 
 
     if (checkoutTotal) {
+
         checkoutTotal.textContent =
             `₹${total}`;
+
     }
 
 
-    updateCheckoutMovie(show);
+    updateCheckoutMovie(
+        show
+    );
 
 
     initializePaymentMethods();
+
+
+    function getField(
+        name,
+        id
+    ) {
+
+        return (
+            checkoutForm?.elements?.namedItem(
+                name
+            ) ||
+
+            document.getElementById(
+                id
+            )
+        );
+
+    }
+
+
+    function validateCustomerDetails() {
+
+        const nameInput =
+            getField(
+                "fullName",
+                "fullName"
+            );
+
+
+        const emailInput =
+            getField(
+                "email",
+                "email"
+            );
+
+
+        const phoneInput =
+            getField(
+                "phone",
+                "phone"
+            );
+
+
+        const cityInput =
+            getField(
+                "city",
+                "city"
+            );
+
+
+        const name =
+            nameInput?.value.trim() ||
+            "";
+
+
+        const email =
+            emailInput?.value.trim() ||
+            "";
+
+
+        const phone =
+            phoneInput?.value.trim() ||
+            "";
+
+
+        const city =
+            cityInput?.value.trim() ||
+            "";
+
+
+        if (
+            name.length < 2
+        ) {
+
+            showMessage(
+                "Please enter your full name.",
+                "error"
+            );
+
+            nameInput?.focus();
+
+            return false;
+        }
+
+
+        if (
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                .test(email)
+        ) {
+
+            showMessage(
+                "Please enter a valid email address.",
+                "error"
+            );
+
+            emailInput?.focus();
+
+            return false;
+        }
+
+
+        if (
+            !/^\d{10}$/.test(
+                phone
+            )
+        ) {
+
+            showMessage(
+                "Please enter a valid 10-digit mobile number.",
+                "error"
+            );
+
+            phoneInput?.focus();
+
+            return false;
+        }
+
+
+        if (
+            city.length < 2
+        ) {
+
+            showMessage(
+                "Please enter your city.",
+                "error"
+            );
+
+            cityInput?.focus();
+
+            return false;
+        }
+
+
+        return true;
+    }
+
+
+    function saveCustomerDetails() {
+
+        const nameInput =
+            getField(
+                "fullName",
+                "fullName"
+            );
+
+
+        const emailInput =
+            getField(
+                "email",
+                "email"
+            );
+
+
+        const phoneInput =
+            getField(
+                "phone",
+                "phone"
+            );
+
+
+        const cityInput =
+            getField(
+                "city",
+                "city"
+            );
+
+
+        const customer = {
+
+            name:
+                nameInput?.value.trim() ||
+                "",
+
+            email:
+                emailInput?.value.trim() ||
+                "",
+
+            phone:
+                phoneInput?.value.trim() ||
+                "",
+
+            city:
+                cityInput?.value.trim() ||
+                ""
+        };
+
+
+        setStorage(
+            "thashowbookCustomer",
+            customer
+        );
+
+
+        return customer;
+    }
+
+
+    if (checkoutForm) {
+
+        checkoutForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                if (
+                    !validateCustomerDetails()
+                ) {
+                    return;
+                }
+
+
+                saveCustomerDetails();
+
+
+                showMessage(
+                    "Customer details saved.",
+                    "success"
+                );
+
+            }
+        );
+
+    }
 
 
     if (confirmButton) {
 
         confirmButton.addEventListener(
             "click",
-            () => {
+            function (event) {
 
-                if (seats.length === 0) {
+                event.preventDefault();
+
+
+                if (
+                    seats.length === 0
+                ) {
 
                     showMessage(
                         "Please select your seats first.",
@@ -666,45 +1652,47 @@ function initializeCheckout() {
 
 
                 if (!checkoutForm) {
+
+                    showMessage(
+                        "Checkout form not found.",
+                        "error"
+                    );
+
                     return;
                 }
 
 
-                if (!validateCheckoutForm()) {
+                if (
+                    !validateCustomerDetails()
+                ) {
                     return;
                 }
 
 
-                const formData =
-                    new FormData(checkoutForm);
+                const customer =
+                    saveCustomerDetails();
 
-                const paymentMethod =
+
+                const paymentInput =
                     document.querySelector(
                         'input[name="paymentMethod"]:checked'
-                    )?.value || "upi";
+                    );
 
 
-                const customer = {
-                    name:
-                        String(
-                            formData.get("fullName")
-                        ).trim(),
+                const paymentMethod =
+                    paymentInput?.value ||
+                    "cash";
 
-                    email:
-                        String(
-                            formData.get("email")
-                        ).trim(),
 
-                    phone:
-                        String(
-                            formData.get("phone")
-                        ).trim(),
+                const movieName =
+                    show.movie ||
+                    "AAGAAZ";
 
-                    city:
-                        String(
-                            formData.get("city")
-                        ).trim()
-                };
+
+                const movie =
+                    movieDatabase[
+                        movieName
+                    ];
 
 
                 const booking = {
@@ -713,25 +1701,41 @@ function initializeCheckout() {
                         generateBookingId(),
 
                     movie:
-                        show.movie,
+                        movieName,
 
                     movieImage:
-                        show.movieImage,
+                        show.movieImage ||
+
+                        movie?.image ||
+
+                        "images/movies/movie-01.jpg",
 
                     genre:
-                        show.genre,
+                        show.genre ||
+
+                        movie?.genre ||
+
+                        "Movie",
 
                     cinema:
-                        show.cinema,
+                        show.cinema ||
+
+                        "Thashow Central Cinema",
 
                     date:
-                        show.date,
+                        show.date ||
+
+                        "",
 
                     time:
-                        show.time,
+                        show.time ||
+
+                        "",
 
                     format:
-                        show.format,
+                        show.format ||
+
+                        "2D",
 
                     seats:
                         seats,
@@ -755,19 +1759,29 @@ function initializeCheckout() {
                         total,
 
                     createdAt:
-                        new Date().toISOString()
-
+                        new Date()
+                            .toISOString()
                 };
 
 
-                const bookings =
+                const savedBookings =
                     getStorage(
                         "thashowbookBookings",
                         []
                     );
 
 
-                bookings.unshift(booking);
+                const bookings =
+                    Array.isArray(
+                        savedBookings
+                    )
+                        ? savedBookings
+                        : [];
+
+
+                bookings.push(
+                    booking
+                );
 
 
                 setStorage(
@@ -782,95 +1796,128 @@ function initializeCheckout() {
                 );
 
 
+                localStorage.removeItem(
+                    "thashowbookBookingDraft"
+                );
+
+
+                localStorage.removeItem(
+                    "thashowbookSelectedSeats"
+                );
+
+
                 window.location.href =
                     "confirmation.html";
+
             }
         );
+
     }
+
 }
 
 
 /* =========================================================
-   06. CHECKOUT MOVIE DATA
+   11. CHECKOUT MOVIE SUMMARY
    ========================================================= */
 
-function updateCheckoutMovie(show) {
+function updateCheckoutMovie(
+    show
+) {
 
-    const movieImage =
-        document.querySelector(
-            ".summary-movie img"
-        );
+    if (!show) {
+        return;
+    }
+
 
     const movieTitle =
-        document.querySelector(
-            ".summary-movie h3"
+        document.getElementById(
+            "checkoutMovie"
         );
 
-    const movieGenre =
-        document.querySelector(
-            ".summary-movie p"
+
+    const cinema =
+        document.getElementById(
+            "checkoutCinema"
         );
 
-    if (movieImage) {
-        movieImage.src =
-            show.movieImage;
-        movieImage.alt =
-            `${show.movie} poster`;
-    }
+
+    const date =
+        document.getElementById(
+            "checkoutDate"
+        );
+
+
+    const time =
+        document.getElementById(
+            "checkoutTime"
+        );
+
+
+    const movieImage =
+        document.getElementById(
+            "checkoutMovieImage"
+        );
+
 
     if (movieTitle) {
+
         movieTitle.textContent =
-            show.movie;
-    }
+            show.movie ||
+            "Movie";
 
-    if (movieGenre) {
-        movieGenre.textContent =
-            show.genre;
     }
 
 
-    const summaryRows =
-        document.querySelectorAll(
-            ".booking-summary-row"
-        );
+    if (cinema) {
+
+        cinema.textContent =
+            show.cinema ||
+            "Cinema";
+
+    }
 
 
-    summaryRows.forEach((row) => {
+    if (date) {
 
-        const label =
-            row.querySelector("span")
-                ?.textContent
-                .trim()
-                .toLowerCase();
+        date.textContent =
+            show.date ||
+            "Date";
 
-        const value =
-            row.querySelector("strong");
+    }
 
-        if (!value) {
-            return;
-        }
 
-        if (label === "cinema") {
-            value.textContent =
-                show.cinema;
-        }
+    if (time) {
 
-        if (label === "date") {
-            value.textContent =
-                show.date;
-        }
+        time.textContent =
+            show.time ||
+            "Time";
 
-        if (label === "showtime") {
-            value.textContent =
-                show.time;
-        }
+    }
 
-    });
+
+    if (movieImage) {
+
+        movieImage.src =
+            show.movieImage ||
+
+            movieDatabase[
+                show.movie
+            ]?.image ||
+
+            "images/movies/movie-01.jpg";
+
+
+        movieImage.alt =
+            `${show.movie || "Movie"} poster`;
+
+    }
+
 }
 
 
 /* =========================================================
-   07. PAYMENT METHODS
+   12. PAYMENT METHODS
    ========================================================= */
 
 function initializePaymentMethods() {
@@ -880,10 +1927,12 @@ function initializePaymentMethods() {
             'input[name="paymentMethod"]'
         );
 
+
     const upiPayment =
         document.getElementById(
             "upiPayment"
         );
+
 
     const cardPayment =
         document.getElementById(
@@ -892,8 +1941,7 @@ function initializePaymentMethods() {
 
 
     if (
-        paymentInputs.length === 0 ||
-        (!upiPayment && !cardPayment)
+        paymentInputs.length === 0
     ) {
         return;
     }
@@ -908,198 +1956,42 @@ function initializePaymentMethods() {
 
 
         if (upiPayment) {
+
             upiPayment.hidden =
                 selected !== "upi";
+
         }
 
 
         if (cardPayment) {
+
             cardPayment.hidden =
                 selected !== "card";
+
         }
 
     }
 
 
-    paymentInputs.forEach((input) => {
+    paymentInputs.forEach(
+        function (input) {
 
-        input.addEventListener(
-            "change",
-            updatePaymentFields
-        );
+            input.addEventListener(
+                "change",
+                updatePaymentFields
+            );
 
-    });
+        }
+    );
 
 
     updatePaymentFields();
+
 }
 
 
 /* =========================================================
-   08. CHECKOUT VALIDATION
-   ========================================================= */
-
-function validateCheckoutForm() {
-
-    const fullName =
-        document.getElementById("fullName");
-
-    const email =
-        document.getElementById("email");
-
-    const phone =
-        document.getElementById("phone");
-
-    const city =
-        document.getElementById("city");
-
-
-    let valid = true;
-
-
-    clearFieldError(
-        fullName,
-        document.getElementById(
-            "fullNameError"
-        )
-    );
-
-    clearFieldError(
-        email,
-        document.getElementById(
-            "emailError"
-        )
-    );
-
-    clearFieldError(
-        phone,
-        document.getElementById(
-            "phoneError"
-        )
-    );
-
-    clearFieldError(
-        city,
-        document.getElementById(
-            "cityError"
-        )
-    );
-
-
-    if (
-        !fullName ||
-        fullName.value.trim().length < 2
-    ) {
-
-        setFieldError(
-            fullName,
-            document.getElementById(
-                "fullNameError"
-            ),
-            "Please enter your full name."
-        );
-
-        valid = false;
-    }
-
-
-    if (
-        !email ||
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-            email.value.trim()
-        )
-    ) {
-
-        setFieldError(
-            email,
-            document.getElementById(
-                "emailError"
-            ),
-            "Please enter a valid email address."
-        );
-
-        valid = false;
-    }
-
-
-    if (
-        !phone ||
-        !/^\d{10}$/.test(
-            phone.value.trim()
-        )
-    ) {
-
-        setFieldError(
-            phone,
-            document.getElementById(
-                "phoneError"
-            ),
-            "Please enter a valid 10-digit mobile number."
-        );
-
-        valid = false;
-    }
-
-
-    if (
-        !city ||
-        city.value.trim().length < 2
-    ) {
-
-        setFieldError(
-            city,
-            document.getElementById(
-                "cityError"
-            ),
-            "Please enter your city."
-        );
-
-        valid = false;
-    }
-
-
-    return valid;
-}
-
-
-function setFieldError(
-    input,
-    errorElement,
-    message
-) {
-
-    if (input) {
-        input.classList.add(
-            "input-error"
-        );
-    }
-
-    if (errorElement) {
-        errorElement.textContent =
-            message;
-    }
-}
-
-
-function clearFieldError(
-    input,
-    errorElement
-) {
-
-    if (input) {
-        input.classList.remove(
-            "input-error"
-        );
-    }
-
-    if (errorElement) {
-        errorElement.textContent = "";
-    }
-}
-
-
-/* =========================================================
-   09. LOGIN / REGISTER
+   13. LOGIN / REGISTER
    ========================================================= */
 
 function initializeLogin() {
@@ -1109,20 +2001,36 @@ function initializeLogin() {
             "loginForm"
         );
 
+
     const registerForm =
         document.getElementById(
             "registerForm"
         );
+
+
+    const loginSection =
+        document.getElementById(
+            "loginSection"
+        );
+
+
+    const registerSection =
+        document.getElementById(
+            "registerSection"
+        );
+
 
     const showRegisterButton =
         document.getElementById(
             "showRegister"
         );
 
-    const registerSection =
+
+    const showLoginButton =
         document.getElementById(
-            "registerSection"
+            "showLogin"
         );
+
 
     const togglePassword =
         document.getElementById(
@@ -1130,11 +2038,65 @@ function initializeLogin() {
         );
 
 
-    if (
-        !loginForm &&
-        !registerForm
-    ) {
-        return;
+    const toggleRegisterPassword =
+        document.getElementById(
+            "toggleRegisterPassword"
+        );
+
+
+    if (togglePassword) {
+
+        togglePassword.addEventListener(
+            "click",
+            function () {
+
+                const input =
+                    document.getElementById(
+                        "loginPassword"
+                    );
+
+
+                if (!input) {
+                    return;
+                }
+
+
+                input.type =
+                    input.type === "password"
+                        ? "text"
+                        : "password";
+
+            }
+        );
+
+    }
+
+
+    if (toggleRegisterPassword) {
+
+        toggleRegisterPassword.addEventListener(
+            "click",
+            function () {
+
+                const input =
+                    document.getElementById(
+                        "registerPassword"
+                    );
+
+
+                if (!input) {
+                    return;
+                }
+
+
+                input.type =
+                    input.type === "password"
+                        ? "text"
+                        : "password";
+
+            }
+        );
+
     }
 
 
@@ -1142,65 +2104,45 @@ function initializeLogin() {
 
         showRegisterButton.addEventListener(
             "click",
-            () => {
+            function () {
 
-                if (!registerSection) {
-                    return;
+                if (loginSection) {
+                    loginSection.hidden =
+                        true;
                 }
 
-                registerSection.hidden =
-                    !registerSection.hidden;
 
-                if (
-                    !registerSection.hidden
-                ) {
-                    registerSection.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
+                if (registerSection) {
+                    registerSection.hidden =
+                        false;
                 }
+
             }
         );
+
     }
 
 
-    if (togglePassword) {
+    if (showLoginButton) {
 
-        togglePassword.addEventListener(
+        showLoginButton.addEventListener(
             "click",
-            () => {
+            function () {
 
-                const password =
-                    document.getElementById(
-                        "loginPassword"
-                    );
-
-                if (!password) {
-                    return;
+                if (registerSection) {
+                    registerSection.hidden =
+                        true;
                 }
 
 
-                if (
-                    password.type === "password"
-                ) {
-
-                    password.type =
-                        "text";
-
-                    togglePassword.textContent =
-                        "Hide";
-
-                } else {
-
-                    password.type =
-                        "password";
-
-                    togglePassword.textContent =
-                        "Show";
+                if (loginSection) {
+                    loginSection.hidden =
+                        false;
                 }
 
             }
         );
+
     }
 
 
@@ -1208,111 +2150,53 @@ function initializeLogin() {
 
         loginForm.addEventListener(
             "submit",
-            (event) => {
+            function (event) {
 
                 event.preventDefault();
 
-                const email =
+
+                const emailInput =
                     document.getElementById(
                         "loginEmail"
                     );
 
-                const password =
+
+                const passwordInput =
                     document.getElementById(
                         "loginPassword"
                     );
 
-                const emailError =
+
+                const rememberInput =
                     document.getElementById(
-                        "loginEmailError"
-                    );
-
-                const passwordError =
-                    document.getElementById(
-                        "loginPasswordError"
-                    );
-
-                const message =
-                    document.getElementById(
-                        "loginMessage"
+                        "rememberMe"
                     );
 
 
-                clearFieldError(
-                    email,
-                    emailError
-                );
-
-                clearFieldError(
-                    password,
-                    passwordError
-                );
+                const email =
+                    emailInput
+                        ? emailInput.value
+                            .trim()
+                            .toLowerCase()
+                        : "";
 
 
-                let valid = true;
+                const password =
+                    passwordInput
+                        ? passwordInput.value
+                        : "";
 
 
-                if (
-                    !email ||
-                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                        email.value.trim()
-                    )
-                ) {
-
-                    setFieldError(
-                        email,
-                        emailError,
-                        "Please enter a valid email address."
-                    );
-
-                    valid = false;
-                }
+                const rememberMe =
+                    rememberInput
+                        ? rememberInput.checked
+                        : false;
 
 
-                if (
-                    !password ||
-                    password.value.length < 4
-                ) {
+                if (!email) {
 
-                    setFieldError(
-                        password,
-                        passwordError,
-                        "Password must contain at least 4 characters."
-                    );
-
-                    valid = false;
-                }
-
-
-                if (!valid) {
-                    return;
-                }
-
-
-                const users =
-                    getStorage(
-                        "thashowbookUsers",
-                        []
-                    );
-
-
-                const user =
-                    users.find(
-                        (item) =>
-                            item.email.toLowerCase() ===
-                            email.value
-                                .trim()
-                                .toLowerCase() &&
-                            item.password ===
-                            password.value
-                    );
-
-
-                if (!user) {
-
-                    showAuthMessage(
-                        message,
-                        "Account not found or password is incorrect.",
+                    showMessage(
+                        "Please enter your email.",
                         "error"
                     );
 
@@ -1320,217 +2204,22 @@ function initializeLogin() {
                 }
 
 
-                setStorage(
-                    "thashowbookCurrentUser",
-                    {
-                        name: user.name,
-                        email: user.email,
-                        phone: user.phone
-                    }
-                );
+                if (!password) {
 
-
-                showAuthMessage(
-                    message,
-                    `Welcome back, ${user.name}!`,
-                    "success"
-                );
-
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        "index.html";
-
-                }, 700);
-
-            }
-        );
-    }
-
-
-    if (registerForm) {
-
-        registerForm.addEventListener(
-            "submit",
-            (event) => {
-
-                event.preventDefault();
-
-
-                const name =
-                    document.getElementById(
-                        "registerName"
+                    showMessage(
+                        "Please enter your password.",
+                        "error"
                     );
 
-                const email =
-                    document.getElementById(
-                        "registerEmail"
-                    );
-
-                const phone =
-                    document.getElementById(
-                        "registerPhone"
-                    );
-
-                const password =
-                    document.getElementById(
-                        "registerPassword"
-                    );
-
-                const confirmPassword =
-                    document.getElementById(
-                        "confirmPassword"
-                    );
-
-                const message =
-                    document.getElementById(
-                        "registerMessage"
-                    );
-
-
-                const errors = {
-
-                    name:
-                        document.getElementById(
-                            "registerNameError"
-                        ),
-
-                    email:
-                        document.getElementById(
-                            "registerEmailError"
-                        ),
-
-                    phone:
-                        document.getElementById(
-                            "registerPhoneError"
-                        ),
-
-                    password:
-                        document.getElementById(
-                            "registerPasswordError"
-                        ),
-
-                    confirm:
-                        document.getElementById(
-                            "confirmPasswordError"
-                        )
-
-                };
-
-
-                clearFieldError(
-                    name,
-                    errors.name
-                );
-
-                clearFieldError(
-                    email,
-                    errors.email
-                );
-
-                clearFieldError(
-                    phone,
-                    errors.phone
-                );
-
-                clearFieldError(
-                    password,
-                    errors.password
-                );
-
-                clearFieldError(
-                    confirmPassword,
-                    errors.confirm
-                );
-
-
-                let valid = true;
-
-
-                if (
-                    !name ||
-                    name.value.trim().length < 2
-                ) {
-
-                    setFieldError(
-                        name,
-                        errors.name,
-                        "Please enter your full name."
-                    );
-
-                    valid = false;
-                }
-
-
-                if (
-                    !email ||
-                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-                        email.value.trim()
-                    )
-                ) {
-
-                    setFieldError(
-                        email,
-                        errors.email,
-                        "Please enter a valid email address."
-                    );
-
-                    valid = false;
-                }
-
-
-                if (
-                    !phone ||
-                    !/^\d{10}$/.test(
-                        phone.value.trim()
-                    )
-                ) {
-
-                    setFieldError(
-                        phone,
-                        errors.phone,
-                        "Please enter a valid 10-digit mobile number."
-                    );
-
-                    valid = false;
-                }
-
-
-                if (
-                    !password ||
-                    password.value.length < 4
-                ) {
-
-                    setFieldError(
-                        password,
-                        errors.password,
-                        "Password must contain at least 4 characters."
-                    );
-
-                    valid = false;
-                }
-
-
-                if (
-                    !confirmPassword ||
-                    confirmPassword.value !==
-                    password.value
-                ) {
-
-                    setFieldError(
-                        confirmPassword,
-                        errors.confirm,
-                        "Passwords do not match."
-                    );
-
-                    valid = false;
-                }
-
-
-                if (!valid) {
                     return;
                 }
+
+
+                let userData =
+                    getStorage(
+                        "thashowbookUser",
+                        null
+                    );
 
 
                 const users =
@@ -1540,20 +2229,295 @@ function initializeLogin() {
                     );
 
 
+                if (
+                    !userData &&
+                    Array.isArray(users)
+                ) {
+
+                    userData =
+                        users.find(
+                            function (user) {
+
+                                return (
+                                    user.email
+                                        ?.toLowerCase() ===
+                                    email
+                                );
+
+                            }
+                        ) || null;
+
+                }
+
+
+                if (
+                    userData &&
+                    userData.email
+                ) {
+
+                    if (
+                        userData.email
+                            .toLowerCase() !==
+                        email
+                    ) {
+
+                        showMessage(
+                            "Email address is not registered.",
+                            "error"
+                        );
+
+                        return;
+                    }
+
+
+                    if (
+                        userData.password &&
+                        userData.password !==
+                        password
+                    ) {
+
+                        showMessage(
+                            "Incorrect password.",
+                            "error"
+                        );
+
+                        return;
+                    }
+
+                }
+
+
+                const loggedInUser = {
+
+                    name:
+                        userData?.name ||
+                        "thashowbook User",
+
+                    email:
+                        email,
+
+                    phone:
+                        userData?.phone ||
+                        "",
+
+                    loggedIn:
+                        true,
+
+                    loginTime:
+                        new Date()
+                            .toISOString()
+                };
+
+
+                setStorage(
+                    "thashowbookLoggedIn",
+                    loggedInUser
+                );
+
+
+                if (rememberMe) {
+
+                    localStorage.setItem(
+                        "thashowbookRememberMe",
+                        "true"
+                    );
+
+                } else {
+
+                    localStorage.removeItem(
+                        "thashowbookRememberMe"
+                    );
+
+                }
+
+
+                showMessage(
+                    "Login successful. Welcome to thashowbook!",
+                    "success"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "index.html";
+
+                    },
+                    700
+                );
+
+            }
+        );
+
+    }
+
+
+    if (registerForm) {
+
+        registerForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const nameInput =
+                    document.getElementById(
+                        "registerName"
+                    );
+
+
+                const emailInput =
+                    document.getElementById(
+                        "registerEmail"
+                    );
+
+
+                const phoneInput =
+                    document.getElementById(
+                        "registerPhone"
+                    );
+
+
+                const passwordInput =
+                    document.getElementById(
+                        "registerPassword"
+                    );
+
+
+                const confirmPasswordInput =
+                    document.getElementById(
+                        "registerConfirmPassword"
+                    );
+
+
+                const name =
+                    nameInput?.value.trim() ||
+                    "";
+
+
+                const email =
+                    emailInput?.value
+                        .trim()
+                        .toLowerCase() ||
+                    "";
+
+
+                const phone =
+                    phoneInput?.value.trim() ||
+                    "";
+
+
+                const password =
+                    passwordInput?.value ||
+                    "";
+
+
+                const confirmPassword =
+                    confirmPasswordInput?.value ||
+                    "";
+
+
+                if (
+                    name.length < 2
+                ) {
+
+                    showMessage(
+                        "Please enter your full name.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                        .test(email)
+                ) {
+
+                    showMessage(
+                        "Please enter a valid email address.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    phone &&
+                    !/^\d{10}$/.test(
+                        phone
+                    )
+                ) {
+
+                    showMessage(
+                        "Please enter a valid 10-digit mobile number.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    password.length < 4
+                ) {
+
+                    showMessage(
+                        "Password must contain at least 4 characters.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                if (
+                    password !==
+                    confirmPassword
+                ) {
+
+                    showMessage(
+                        "Passwords do not match.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                let users =
+                    getStorage(
+                        "thashowbookUsers",
+                        []
+                    );
+
+
+                if (!Array.isArray(users)) {
+                    users = [];
+                }
+
+
                 const emailExists =
                     users.some(
-                        (user) =>
-                            user.email.toLowerCase() ===
-                            email.value
-                                .trim()
-                                .toLowerCase()
+                        function (user) {
+
+                            return (
+                                user.email
+                                    ?.toLowerCase() ===
+                                email
+                            );
+
+                        }
                     );
 
 
                 if (emailExists) {
 
-                    showAuthMessage(
-                        message,
+                    showMessage(
                         "An account with this email already exists.",
                         "error"
                     );
@@ -1565,23 +2529,22 @@ function initializeLogin() {
                 const newUser = {
 
                     name:
-                        name.value.trim(),
+                        name,
 
                     email:
-                        email.value
-                            .trim()
-                            .toLowerCase(),
+                        email,
 
                     phone:
-                        phone.value.trim(),
+                        phone,
 
                     password:
-                        password.value
-
+                        password
                 };
 
 
-                users.push(newUser);
+                users.push(
+                    newUser
+                );
 
 
                 setStorage(
@@ -1591,142 +2554,214 @@ function initializeLogin() {
 
 
                 setStorage(
-                    "thashowbookCurrentUser",
-                    {
-                        name: newUser.name,
-                        email: newUser.email,
-                        phone: newUser.phone
-                    }
+                    "thashowbookUser",
+                    newUser
                 );
 
 
-                showAuthMessage(
-                    message,
-                    "Account created successfully!",
+                showMessage(
+                    "Registration successful. Please login.",
                     "success"
                 );
 
 
-                registerForm.reset();
-
-
-                setTimeout(() => {
-
-                    window.location.href =
-                        "index.html";
-
-                }, 800);
-
-            }
-        );
-    }
-}
-
-
-/* =========================================================
-   10. AUTH MESSAGE
-   ========================================================= */
-
-function showAuthMessage(
-    element,
-    message,
-    type
-) {
-
-    if (!element) {
-        return;
-    }
-
-    element.textContent = message;
-
-    element.className =
-        `auth-message ${type}`;
-
-    element.hidden = false;
-}
-
-
-/* =========================================================
-   11. BOOKING TABS
-   ========================================================= */
-
-function initializeBookingTabs() {
-
-    const tabs =
-        document.querySelectorAll(
-            ".booking-tab"
-        );
-
-    const upcomingPanel =
-        document.getElementById(
-            "upcomingBookings"
-        );
-
-    const pastPanel =
-        document.getElementById(
-            "pastBookings"
-        );
-
-
-    if (
-        tabs.length === 0 ||
-        !upcomingPanel ||
-        !pastPanel
-    ) {
-        return;
-    }
-
-
-    tabs.forEach((tab) => {
-
-        tab.addEventListener(
-            "click",
-            () => {
-
-                tabs.forEach((item) => {
-                    item.classList.remove(
-                        "active"
-                    );
-                });
-
-                tab.classList.add(
-                    "active"
-                );
-
-
-                const target =
-                    tab.dataset.bookingTab;
-
-
-                if (target === "past") {
-
-                    upcomingPanel.hidden =
+                if (registerSection) {
+                    registerSection.hidden =
                         true;
+                }
 
-                    pastPanel.hidden =
+
+                if (loginSection) {
+                    loginSection.hidden =
                         false;
-
-                } else {
-
-                    upcomingPanel.hidden =
-                        false;
-
-                    pastPanel.hidden =
-                        true;
                 }
 
             }
         );
 
-    });
+    }
+
 }
 
 
 /* =========================================================
-   12. LOAD BOOKINGS
+   14. MOVIE SELECTION
+   ========================================================= */
+
+function initializeMovieSelection() {
+
+    const movieItems =
+        document.querySelectorAll(
+            ".movie-item, .movie-card"
+        );
+
+
+    if (
+        movieItems.length === 0
+    ) {
+        return;
+    }
+
+
+    movieItems.forEach(
+        function (movie) {
+
+            movie.addEventListener(
+                "click",
+                function (event) {
+
+                    const clickedButton =
+                        event.target.closest(
+                            "button, a"
+                        );
+
+
+                    if (
+                        clickedButton &&
+                        clickedButton.href
+                    ) {
+                        return;
+                    }
+
+
+                    const title =
+                        movie.dataset.title ||
+
+                        movie.querySelector(
+                            ".movie-title"
+                        )?.textContent ||
+
+                        movie.querySelector(
+                            "h3"
+                        )?.textContent ||
+
+                        "";
+
+
+                    if (!title.trim()) {
+                        return;
+                    }
+
+
+                    const encodedTitle =
+                        encodeURIComponent(
+                            title.trim()
+                        );
+
+
+                    window.location.href =
+                        "movie-details.html?movie=" +
+                        encodedTitle;
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   15. BOOKING TABS
+   ========================================================= */
+
+function initializeBookingTabs() {
+
+    const tabButtons =
+        document.querySelectorAll(
+            ".booking-tab"
+        );
+
+
+    const tabPanels =
+        document.querySelectorAll(
+            ".booking-panel"
+        );
+
+
+    if (
+        tabButtons.length === 0
+    ) {
+        return;
+    }
+
+
+    tabButtons.forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const target =
+                        button.dataset.target;
+
+
+                    tabButtons.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    tabPanels.forEach(
+                        function (panel) {
+
+                            panel.hidden =
+                                true;
+
+                        }
+                    );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    const targetPanel =
+                        document.getElementById(
+                            target
+                        );
+
+
+                    if (targetPanel) {
+
+                        targetPanel.hidden =
+                            false;
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   16. BOOKING DATA
    ========================================================= */
 
 function loadBookingData() {
+
+    const container =
+        document.getElementById(
+            "bookingList"
+        );
+
+
+    if (!container) {
+        return;
+    }
+
 
     const bookings =
         getStorage(
@@ -1735,421 +2770,256 @@ function loadBookingData() {
         );
 
 
-    updateBookingsPage(bookings);
-    updateConfirmationPage(bookings);
-}
+    container.innerHTML =
+        "";
 
 
-/* =========================================================
-   13. UPDATE BOOKINGS PAGE
-   ========================================================= */
-
-function updateBookingsPage(bookings) {
-
-    const upcomingList =
+    const emptyState =
         document.getElementById(
-            "upcomingBookingList"
-        );
-
-    const pastList =
-        document.getElementById(
-            "pastBookingList"
+            "bookingEmptyState"
         );
 
 
     if (
-        !upcomingList &&
-        !pastList
+        !Array.isArray(bookings) ||
+        bookings.length === 0
     ) {
+
+        if (emptyState) {
+            emptyState.hidden =
+                false;
+        }
+
         return;
     }
 
 
-    if (upcomingList) {
-
-        const upcomingBookings =
-            bookings.filter(
-                (booking) =>
-                    !isPastBooking(booking)
-            );
-
-        renderBookingList(
-            upcomingList,
-            upcomingBookings
-        );
-
-
-        const empty =
-            document.getElementById(
-                "upcomingEmptyState"
-            );
-
-        if (empty) {
-            empty.hidden =
-                upcomingBookings.length !== 0;
-        }
+    if (emptyState) {
+        emptyState.hidden =
+            true;
     }
 
 
-    if (pastList) {
-
-        const pastBookings =
-            bookings.filter(
-                (booking) =>
-                    isPastBooking(booking)
-            );
-
-        renderBookingList(
-            pastList,
-            pastBookings
-        );
-
-
-        const empty =
-            document.getElementById(
-                "pastEmptyState"
-            );
-
-        if (empty) {
-            empty.hidden =
-                pastBookings.length !== 0;
-        }
-    }
-}
-
-
-function isPastBooking(booking) {
-
-    if (!booking.date) {
-        return false;
-    }
-
-
-    const dateMatch =
-        booking.date.match(
-            /(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})/
-        );
-
-
-    if (!dateMatch) {
-        return false;
-    }
-
-
-    const day =
-        Number(dateMatch[1]);
-
-    const monthText =
-        dateMatch[2].toLowerCase();
-
-    const year =
-        Number(dateMatch[3]);
-
-
-    const months = {
-        jan: 0,
-        feb: 1,
-        mar: 2,
-        apr: 3,
-        may: 4,
-        jun: 5,
-        jul: 6,
-        aug: 7,
-        sep: 8,
-        oct: 9,
-        nov: 10,
-        dec: 11
-    };
-
-
-    const month =
-        months[monthText];
-
-
-    if (month === undefined) {
-        return false;
-    }
-
-
-    const bookingDate =
-        new Date(
-            year,
-            month,
-            day
-        );
-
-
-    const today =
-        new Date();
-
-    today.setHours(
-        0,
-        0,
-        0,
-        0
-    );
-
-
-    return bookingDate < today;
-}
-
-
-/* =========================================================
-   14. RENDER BOOKING LIST
-   ========================================================= */
-
-function renderBookingList(
-    container,
     bookings
-) {
+        .slice()
+        .reverse()
+        .forEach(
+            function (booking) {
 
-    container.innerHTML = "";
-
-
-    bookings.forEach((booking) => {
-
-        const article =
-            document.createElement("article");
-
-        article.className =
-            "booking-card";
+                const article =
+                    document.createElement(
+                        "article"
+                    );
 
 
-        const posterWrapper =
-            document.createElement("div");
-
-        posterWrapper.className =
-            "booking-card-poster";
+                article.className =
+                    "booking-card";
 
 
-        const poster =
-            document.createElement("img");
-
-        poster.src =
-            booking.movieImage ||
-            "images/movies/movie-01.jpg";
-
-        poster.alt =
-            `${booking.movie} poster`;
+                const posterWrapper =
+                    document.createElement(
+                        "div"
+                    );
 
 
-        posterWrapper.appendChild(
-            poster
+                posterWrapper.className =
+                    "booking-poster";
+
+
+                const poster =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                poster.src =
+                    booking.movieImage ||
+                    "images/movies/movie-01.jpg";
+
+
+                poster.alt =
+                    booking.movie ||
+                    "Movie";
+
+
+                posterWrapper.appendChild(
+                    poster
+                );
+
+
+                const main =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                main.className =
+                    "booking-main";
+
+
+                const top =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                top.className =
+                    "booking-top";
+
+
+                const title =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                title.textContent =
+                    booking.movie ||
+                    "Movie";
+
+
+                const bookingId =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                bookingId.textContent =
+                    booking.bookingId ||
+                    "";
+
+
+                top.appendChild(
+                    title
+                );
+
+
+                top.appendChild(
+                    bookingId
+                );
+
+
+                const details =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                details.className =
+                    "booking-details";
+
+
+                addBookingDetail(
+                    details,
+                    "Cinema",
+                    booking.cinema ||
+                    "Cinema"
+                );
+
+
+                addBookingDetail(
+                    details,
+                    "Date",
+                    booking.date ||
+                    "Date"
+                );
+
+
+                addBookingDetail(
+                    details,
+                    "Time",
+                    booking.time ||
+                    "Time"
+                );
+
+
+                const seatText =
+                    Array.isArray(
+                        booking.seats
+                    )
+                        ? booking.seats
+                            .map(
+                                function (seat) {
+                                    return seat.seat;
+                                }
+                            )
+                            .join(", ")
+                        : "Not available";
+
+
+                addBookingDetail(
+                    details,
+                    "Seats",
+                    seatText
+                );
+
+
+                addBookingDetail(
+                    details,
+                    "Payment",
+                    formatPaymentMethod(
+                        booking.payment
+                    )
+                );
+
+
+                const bottom =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                bottom.className =
+                    "booking-bottom";
+
+
+                const total =
+                    document.createElement(
+                        "strong"
+                    );
+
+
+                total.textContent =
+                    `₹${booking.total || 0}`;
+
+
+                bottom.appendChild(
+                    total
+                );
+
+
+                main.appendChild(
+                    top
+                );
+
+
+                main.appendChild(
+                    details
+                );
+
+
+                main.appendChild(
+                    bottom
+                );
+
+
+                article.appendChild(
+                    posterWrapper
+                );
+
+
+                article.appendChild(
+                    main
+                );
+
+
+                container.appendChild(
+                    article
+                );
+
+            }
         );
 
-
-        const main =
-            document.createElement("div");
-
-        main.className =
-            "booking-card-main";
-
-
-        const top =
-            document.createElement("div");
-
-        top.className =
-            "booking-card-top";
-
-
-        const titleArea =
-            document.createElement("div");
-
-
-        const status =
-            document.createElement("span");
-
-        status.className =
-            "booking-status";
-
-
-        if (isPastBooking(booking)) {
-
-            status.classList.add(
-                "past-status"
-            );
-
-            status.textContent =
-                "COMPLETED";
-
-        } else {
-
-            status.textContent =
-                "CONFIRMED";
-        }
-
-
-        const title =
-            document.createElement("h2");
-
-        title.textContent =
-            booking.movie;
-
-
-        const genre =
-            document.createElement("p");
-
-        genre.className =
-            "booking-genre";
-
-        genre.textContent =
-            booking.genre ||
-            "Movie";
-
-
-        titleArea.appendChild(status);
-        titleArea.appendChild(title);
-        titleArea.appendChild(genre);
-
-
-        const bookingId =
-            document.createElement("div");
-
-        bookingId.className =
-            "booking-id";
-
-
-        const idLabel =
-            document.createElement("span");
-
-        idLabel.textContent =
-            "BOOKING ID";
-
-
-        const idValue =
-            document.createElement("strong");
-
-        idValue.textContent =
-            booking.bookingId;
-
-
-        bookingId.appendChild(idLabel);
-        bookingId.appendChild(idValue);
-
-
-        top.appendChild(titleArea);
-        top.appendChild(bookingId);
-
-
-        const details =
-            document.createElement("div");
-
-        details.className =
-            "booking-details";
-
-
-        addBookingDetail(
-            details,
-            "CINEMA",
-            booking.cinema
-        );
-
-        addBookingDetail(
-            details,
-            "DATE",
-            booking.date
-        );
-
-        addBookingDetail(
-            details,
-            "SHOWTIME",
-            booking.time
-        );
-
-        addBookingDetail(
-            details,
-            "SEATS",
-            booking.seats
-                ?.map(
-                    (seat) => seat.seat
-                )
-                .join(", ") ||
-                "Not available"
-        );
-
-
-        const bottom =
-            document.createElement("div");
-
-        bottom.className =
-            "booking-card-bottom";
-
-
-        const price =
-            document.createElement("div");
-
-        price.className =
-            "booking-price";
-
-
-        const priceLabel =
-            document.createElement("span");
-
-        priceLabel.textContent =
-            "TOTAL";
-
-
-        const priceValue =
-            document.createElement("strong");
-
-        priceValue.textContent =
-            `₹${booking.total || 0}`;
-
-
-        price.appendChild(
-            priceLabel
-        );
-
-        price.appendChild(
-            priceValue
-        );
-
-
-        const actions =
-            document.createElement("div");
-
-        actions.className =
-            "booking-actions";
-
-
-        const viewButton =
-            document.createElement("a");
-
-        viewButton.href =
-            "confirmation.html";
-
-        viewButton.className =
-            "booking-view-button";
-
-        viewButton.textContent =
-            "View Ticket";
-
-
-        actions.appendChild(
-            viewButton
-        );
-
-
-        bottom.appendChild(price);
-        bottom.appendChild(actions);
-
-
-        main.appendChild(top);
-        main.appendChild(details);
-        main.appendChild(bottom);
-
-
-        article.appendChild(
-            posterWrapper
-        );
-
-        article.appendChild(main);
-
-
-        container.appendChild(
-            article
-        );
-    });
 }
 
 
@@ -2160,21 +3030,30 @@ function addBookingDetail(
 ) {
 
     const item =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     item.className =
         "booking-detail-item";
 
 
     const labelElement =
-        document.createElement("span");
+        document.createElement(
+            "span"
+        );
+
 
     labelElement.textContent =
         label;
 
 
     const valueElement =
-        document.createElement("strong");
+        document.createElement(
+            "strong"
+        );
+
 
     valueElement.textContent =
         value;
@@ -2184,22 +3063,24 @@ function addBookingDetail(
         labelElement
     );
 
+
     item.appendChild(
         valueElement
     );
 
 
-    parent.appendChild(item);
+    parent.appendChild(
+        item
+    );
+
 }
 
 
 /* =========================================================
-   15. CONFIRMATION PAGE
+   17. CONFIRMATION PAGE
    ========================================================= */
 
-function updateConfirmationPage(
-    bookings
-) {
+function updateConfirmationPage() {
 
     const latestBooking =
         getStorage(
@@ -2218,25 +3099,30 @@ function updateConfirmationPage(
             "bookingId"
         );
 
+
     const confirmedSeats =
         document.getElementById(
             "confirmedSeats"
         );
+
 
     const confirmedTicketCount =
         document.getElementById(
             "confirmedTicketCount"
         );
 
+
     const confirmedCustomerName =
         document.getElementById(
             "confirmedCustomerName"
         );
 
+
     const confirmedPayment =
         document.getElementById(
             "confirmedPayment"
         );
+
 
     const confirmedTotal =
         document.getElementById(
@@ -2244,35 +3130,46 @@ function updateConfirmationPage(
         );
 
 
-    const movieTicket =
-        document.getElementById(
-            "movieTicket"
-        );
-
-
     if (bookingId) {
+
         bookingId.textContent =
-            latestBooking.bookingId;
+            latestBooking.bookingId ||
+            "";
+
     }
+
+
+    const seats =
+        Array.isArray(
+            latestBooking.seats
+        )
+            ? latestBooking.seats
+            : [];
 
 
     if (confirmedSeats) {
 
         confirmedSeats.textContent =
-            latestBooking.seats
-                ?.map(
-                    (seat) => seat.seat
-                )
-                .join(", ") ||
-                "Not available";
+            seats.length > 0
+
+                ? seats
+                    .map(
+                        function (seat) {
+                            return seat.seat;
+                        }
+                    )
+                    .join(", ")
+
+                : "Not available";
+
     }
 
 
     if (confirmedTicketCount) {
 
         confirmedTicketCount.textContent =
-            latestBooking.seats
-                ?.length || 0;
+            seats.length;
+
     }
 
 
@@ -2281,6 +3178,7 @@ function updateConfirmationPage(
         confirmedCustomerName.textContent =
             latestBooking.customer?.name ||
             "Movie Guest";
+
     }
 
 
@@ -2290,6 +3188,7 @@ function updateConfirmationPage(
             formatPaymentMethod(
                 latestBooking.payment
             );
+
     }
 
 
@@ -2297,7 +3196,14 @@ function updateConfirmationPage(
 
         confirmedTotal.textContent =
             `₹${latestBooking.total || 0}`;
+
     }
+
+
+    const movieTicket =
+        document.getElementById(
+            "movieTicket"
+        );
 
 
     if (!movieTicket) {
@@ -2310,10 +3216,12 @@ function updateConfirmationPage(
             ".ticket-movie img"
         );
 
+
     const movieTitle =
         movieTicket.querySelector(
             ".ticket-movie h2"
         );
+
 
     const movieGenre =
         movieTicket.querySelector(
@@ -2327,15 +3235,19 @@ function updateConfirmationPage(
             latestBooking.movieImage ||
             "images/movies/movie-01.jpg";
 
+
         movieImage.alt =
-            `${latestBooking.movie} poster`;
+            `${latestBooking.movie || "Movie"} poster`;
+
     }
 
 
     if (movieTitle) {
 
         movieTitle.textContent =
-            latestBooking.movie;
+            latestBooking.movie ||
+            "Movie";
+
     }
 
 
@@ -2344,6 +3256,7 @@ function updateConfirmationPage(
         movieGenre.textContent =
             latestBooking.genre ||
             "Movie";
+
     }
 
 
@@ -2353,91 +3266,390 @@ function updateConfirmationPage(
         );
 
 
-    ticketDetails.forEach((detail) => {
+    ticketDetails.forEach(
+        function (detail) {
 
-        const label =
-            detail.querySelector("span")
-                ?.textContent
-                .trim()
-                .toLowerCase();
+            const labelElement =
+                detail.querySelector(
+                    "span"
+                );
 
-        const value =
-            detail.querySelector("strong");
 
-        if (!value) {
-            return;
+            const valueElement =
+                detail.querySelector(
+                    "strong"
+                );
+
+
+            if (
+                !labelElement ||
+                !valueElement
+            ) {
+                return;
+            }
+
+
+            const label =
+                labelElement
+                    .textContent
+                    .trim()
+                    .toLowerCase();
+
+
+            if (
+                label.includes(
+                    "cinema"
+                )
+            ) {
+
+                valueElement.textContent =
+                    latestBooking.cinema ||
+                    "";
+
+            }
+
+
+            if (
+                label.includes(
+                    "date"
+                )
+            ) {
+
+                valueElement.textContent =
+                    latestBooking.date ||
+                    "";
+
+            }
+
+
+            if (
+                label.includes(
+                    "time"
+                )
+            ) {
+
+                valueElement.textContent =
+                    latestBooking.time ||
+                    "";
+
+            }
+
+
+            if (
+                label.includes(
+                    "seat"
+                )
+            ) {
+
+                valueElement.textContent =
+                    seats
+                        .map(
+                            function (seat) {
+                                return seat.seat;
+                            }
+                        )
+                        .join(", ");
+
+            }
+
         }
+    );
 
-
-        if (label === "cinema") {
-            value.textContent =
-                latestBooking.cinema;
-        }
-
-        if (label === "date") {
-            value.textContent =
-                latestBooking.date;
-        }
-
-        if (label === "showtime") {
-            value.textContent =
-                latestBooking.time;
-        }
-
-        if (label === "format") {
-            value.textContent =
-                latestBooking.format;
-        }
-
-        if (label === "seats") {
-
-            value.textContent =
-                latestBooking.seats
-                    ?.map(
-                        (seat) =>
-                            seat.seat
-                    )
-                    .join(", ") ||
-                    "Not available";
-        }
-
-        if (label === "tickets") {
-
-            value.textContent =
-                latestBooking.seats
-                    ?.length || 0;
-        }
-
-    });
 }
 
 
 /* =========================================================
-   16. PAYMENT NAME
+   18. DATE SELECTION
+   ========================================================= */
+
+function setupDynamicDates() {
+
+    const dayNames = [
+        "SUN",
+        "MON",
+        "TUE",
+        "WED",
+        "THU",
+        "FRI",
+        "SAT"
+    ];
+
+
+    const monthNames = [
+        "JAN",
+        "FEB",
+        "MAR",
+        "APR",
+        "MAY",
+        "JUN",
+        "JUL",
+        "AUG",
+        "SEP",
+        "OCT",
+        "NOV",
+        "DEC"
+    ];
+
+
+    const today =
+        new Date();
+
+
+    let dateButtonsFound =
+        false;
+
+
+    for (
+        let i = 0;
+        i < 5;
+        i++
+    ) {
+
+        const date =
+            new Date(
+                today
+            );
+
+
+        date.setDate(
+            today.getDate() + i
+        );
+
+
+        const dayElement =
+            document.getElementById(
+                "dateDay" +
+                (i + 1)
+            );
+
+
+        const numberElement =
+            document.getElementById(
+                "dateNumber" +
+                (i + 1)
+            );
+
+
+        const monthElement =
+            document.getElementById(
+                "dateMonth" +
+                (i + 1)
+            );
+
+
+        const buttonElement =
+            document.getElementById(
+                "dateButton" +
+                (i + 1)
+            );
+
+
+        if (
+            !dayElement ||
+            !numberElement ||
+            !monthElement ||
+            !buttonElement
+        ) {
+            continue;
+        }
+
+
+        dateButtonsFound =
+            true;
+
+
+        dayElement.textContent =
+            dayNames[
+                date.getDay()
+            ];
+
+
+        numberElement.textContent =
+            date.getDate();
+
+
+        monthElement.textContent =
+            monthNames[
+                date.getMonth()
+            ];
+
+
+        buttonElement.dataset.date =
+            formatDateForStorage(
+                date
+            );
+
+
+        buttonElement.dataset.displayDate =
+            date.toDateString();
+
+    }
+
+
+    if (dateButtonsFound) {
+
+        const firstButton =
+            document.getElementById(
+                "dateButton1"
+            );
+
+
+        if (firstButton) {
+
+            const buttons =
+                document.querySelectorAll(
+                    ".date-button"
+                );
+
+
+            buttons.forEach(
+                function (button) {
+
+                    button.classList.remove(
+                        "active"
+                    );
+
+                }
+            );
+
+
+            firstButton.classList.add(
+                "active"
+            );
+
+
+            localStorage.setItem(
+                "selectedDate",
+                firstButton.dataset.date
+            );
+
+        }
+
+    }
+
+
+    setupDateButtonClicks();
+
+}
+
+
+function formatDateForStorage(
+    date
+) {
+
+    const year =
+        date.getFullYear();
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+
+    return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+    );
+
+}
+
+
+function setupDateButtonClicks() {
+
+    const dateButtons =
+        document.querySelectorAll(
+            ".date-button"
+        );
+
+
+    dateButtons.forEach(
+        function (button) {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    dateButtons.forEach(
+                        function (item) {
+
+                            item.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    localStorage.setItem(
+                        "selectedDate",
+                        button.dataset.date
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   19. PAYMENT FORMAT
    ========================================================= */
 
 function formatPaymentMethod(
     payment
 ) {
 
-    if (payment === "upi") {
+    if (
+        payment === "upi"
+    ) {
         return "UPI";
     }
 
-    if (payment === "card") {
+
+    if (
+        payment === "card"
+    ) {
         return "Credit / Debit Card";
     }
 
-    if (payment === "cash") {
+
+    if (
+        payment === "cash"
+    ) {
         return "Cash at Cinema";
     }
 
-    return "UPI";
+
+    return "Cash at Cinema";
 }
 
 
 /* =========================================================
-   17. GENERAL MESSAGE
+   20. GENERAL MESSAGE
    ========================================================= */
 
 function showMessage(
@@ -2458,46 +3670,21 @@ function showMessage(
                 "div"
             );
 
+
         existing.id =
             "siteMessage";
+
+
+        existing.setAttribute(
+            "role",
+            "status"
+        );
+
 
         document.body.appendChild(
             existing
         );
 
-
-        existing.style.position =
-            "fixed";
-
-        existing.style.left =
-            "50%";
-
-        existing.style.bottom =
-            "25px";
-
-        existing.style.zIndex =
-            "2000";
-
-        existing.style.transform =
-            "translateX(-50%)";
-
-        existing.style.maxWidth =
-            "calc(100% - 30px)";
-
-        existing.style.padding =
-            "13px 18px";
-
-        existing.style.borderRadius =
-            "8px";
-
-        existing.style.fontSize =
-            "13px";
-
-        existing.style.fontWeight =
-            "700";
-
-        existing.style.boxShadow =
-            "0 10px 30px rgba(0,0,0,0.18)";
     }
 
 
@@ -2505,10 +3692,55 @@ function showMessage(
         message;
 
 
+    existing.style.position =
+        "fixed";
+
+
+    existing.style.left =
+        "50%";
+
+
+    existing.style.bottom =
+        "25px";
+
+
+    existing.style.transform =
+        "translateX(-50%)";
+
+
+    existing.style.zIndex =
+        "99999";
+
+
+    existing.style.maxWidth =
+        "calc(100% - 30px)";
+
+
+    existing.style.padding =
+        "13px 18px";
+
+
+    existing.style.borderRadius =
+        "8px";
+
+
+    existing.style.fontSize =
+        "13px";
+
+
+    existing.style.fontWeight =
+        "700";
+
+
+    existing.style.boxShadow =
+        "0 10px 30px rgba(0,0,0,0.18)";
+
+
     existing.style.background =
         type === "error"
             ? "#fff0f0"
             : "#eaf8f0";
+
 
     existing.style.color =
         type === "error"
@@ -2522,9 +3754,364 @@ function showMessage(
 
 
     existing.messageTimer =
-        setTimeout(() => {
+        setTimeout(
+            function () {
 
-            existing.remove();
+                existing.remove();
 
-        }, 2800);
+            },
+            2800
+        );
+
 }
+
+
+/* =========================================================
+   21. HEADER LOGIN / PROFILE
+   ========================================================= */
+
+function initializeHeaderAccount() {
+
+    const loginButton =
+        document.querySelector(
+            ".header-actions .login-button"
+        );
+
+
+    if (!loginButton) {
+        return;
+    }
+
+
+    const savedLogin =
+        localStorage.getItem(
+            "thashowbookLoggedIn"
+        );
+
+
+    if (!savedLogin) {
+
+        loginButton.textContent =
+            "Login";
+
+
+        loginButton.href =
+            "login.html";
+
+
+        loginButton.classList.remove(
+            "profile-button"
+        );
+
+
+        return;
+    }
+
+
+    let user =
+        null;
+
+
+    try {
+
+        user =
+            JSON.parse(
+                savedLogin
+            );
+
+    } catch (error) {
+
+        user = null;
+
+    }
+
+
+    if (
+        user &&
+        user.loggedIn === true
+    ) {
+
+        loginButton.textContent =
+            "Profile";
+
+
+        loginButton.href =
+            "profile.html";
+
+
+        loginButton.classList.add(
+            "profile-button"
+        );
+
+    } else {
+
+        localStorage.removeItem(
+            "thashowbookLoggedIn"
+        );
+
+
+        loginButton.textContent =
+            "Login";
+
+
+        loginButton.href =
+            "login.html";
+
+
+        loginButton.classList.remove(
+            "profile-button"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   22. PROFILE PAGE
+   ========================================================= */
+
+function initializeProfilePage() {
+
+    const profileName =
+        document.getElementById(
+            "profileName"
+        );
+
+
+    if (!profileName) {
+        return;
+    }
+
+
+    const profileEmail =
+        document.getElementById(
+            "profileEmail"
+        );
+
+
+    const profileNameRow =
+        document.getElementById(
+            "profileNameRow"
+        );
+
+
+    const profileEmailRow =
+        document.getElementById(
+            "profileEmailRow"
+        );
+
+
+    const profileAvatar =
+        document.getElementById(
+            "profileAvatar"
+        );
+
+
+    const logoutButton =
+        document.getElementById(
+            "logoutButton"
+        );
+
+
+    const savedLogin =
+        localStorage.getItem(
+            "thashowbookLoggedIn"
+        );
+
+
+    if (!savedLogin) {
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    let user =
+        null;
+
+
+    try {
+
+        user =
+            JSON.parse(
+                savedLogin
+            );
+
+    } catch (error) {
+
+        localStorage.removeItem(
+            "thashowbookLoggedIn"
+        );
+
+
+        window.location.href =
+            "login.html";
+
+        return;
+
+    }
+
+
+    if (
+        !user ||
+        user.loggedIn !== true
+    ) {
+
+        localStorage.removeItem(
+            "thashowbookLoggedIn"
+        );
+
+
+        window.location.href =
+            "login.html";
+
+        return;
+    }
+
+
+    const name =
+        user.name ||
+        "thashowbook User";
+
+
+    const email =
+        user.email ||
+        "";
+
+
+    profileName.textContent =
+        name;
+
+
+    if (profileEmail) {
+
+        profileEmail.textContent =
+            email;
+
+    }
+
+
+    if (profileNameRow) {
+
+        profileNameRow.textContent =
+            name;
+
+    }
+
+
+    if (profileEmailRow) {
+
+        profileEmailRow.textContent =
+            email;
+
+    }
+
+
+    if (profileAvatar) {
+
+        profileAvatar.textContent =
+            name
+                .charAt(0)
+                .toUpperCase();
+
+    }
+
+
+    if (logoutButton) {
+
+        logoutButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                localStorage.removeItem(
+                    "thashowbookLoggedIn"
+                );
+
+
+                localStorage.removeItem(
+                    "thashowbookRememberMe"
+                );
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   23. PAGE INITIALIZATION
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        /* HEADER */
+
+        initializeHeaderAccount();
+
+        initializeProfilePage();
+
+
+        /* MOVIES */
+
+        initializeMovieFilters();
+
+        initializeMovieSelection();
+
+        loadMovieDetails();
+
+
+        /* SHOW / BOOKING */
+
+        setupDynamicDates();
+
+        setupShowtimeSelection();
+
+        setupCinemaSelection();
+
+        setupContinueButton();
+
+
+        /* SEATS */
+
+        initializeSeatSelection();
+
+
+        /* CHECKOUT */
+
+        initializeCheckout();
+
+        initializePaymentMethods();
+
+
+        /* LOGIN */
+
+        initializeLogin();
+
+
+        /* BOOKINGS */
+
+        initializeBookingTabs();
+
+        loadBookingData();
+
+
+        /* CONFIRMATION */
+
+        updateConfirmationPage();
+
+    }
+);

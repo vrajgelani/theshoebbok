@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Movies | thashowbook</title>
 
-    <meta
-        name="description"
-        content="Explore movies and book your cinema tickets with thashowbook."
-    >
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Header -->
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
     <header class="site-header">
+
         <div class="header-container">
 
-            <a href="index.html" class="brand">
+            <a href="index.html" class="brand" aria-label="thashowbook Home">
+
                 <img
                     src="images/logo/logo.png"
                     alt="thashowbook"
                     class="brand-logo"
                 >
+
             </a>
 
+
             <nav class="main-navigation" aria-label="Main Navigation">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="movies.html" class="nav-link active">Movies</a>
-                <a href="bookings.html" class="nav-link">My Bookings</a>
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="movies.html" class="nav-link active">
+                    Movies
+                </a>
+
+                <a href="bookings.html" class="nav-link">
+                    My Bookings
+                </a>
+
             </nav>
 
+
             <div class="header-actions">
-                <a href="login.html" class="login-button">Login</a>
+
+                <a
+                    href="login.html"
+                    class="login-button"
+                >
+                    Login
+                </a>
+
             </div>
 
         </div>
+
     </header>
 
 
-    <!-- Main -->
+    <!-- =========================================================
+         MAIN CONTENT
+         ========================================================= -->
+
     <main>
 
-        <!-- Page Hero -->
+
+        <!-- =====================================================
+             MOVIES HERO
+             ===================================================== -->
+
         <section class="movies-page-hero">
 
             <div class="page-hero-content">
 
-                <p class="hero-label">EXPLORE THE SHOWS</p>
+                <p class="hero-label">
+                    NOW SHOWING
+                </p>
 
-                <h1>Find Your Movie</h1>
+                <h1>
+                    Movies
+                </h1>
 
                 <p>
-                    Browse movies, discover new stories and choose your
-                    perfect cinema experience.
+                    Discover movies, explore genres and book
+                    your favourite cinema experience.
                 </p>
 
             </div>
@@ -64,31 +97,42 @@
         </section>
 
 
-        <!-- Movies Content -->
+
+        <!-- =====================================================
+             ALL MOVIES
+             ===================================================== -->
+
         <section class="all-movies-section">
 
             <div class="movies-toolbar">
 
-                <div class="section-heading compact-heading">
+                <div>
 
-                    <div>
-                        <p class="section-label">MOVIE COLLECTION</p>
-                        <h2>Now Showing</h2>
-                    </div>
+                    <p class="section-label">
+                        EXPLORE
+                    </p>
+
+                    <h2>
+                        All Movies
+                    </h2>
 
                 </div>
 
 
+                <!-- SEARCH -->
+
                 <div class="movie-search">
 
-                    <label for="movieSearch" class="visually-hidden">
+                    <label
+                        for="movieSearch"
+                        class="visually-hidden"
+                    >
                         Search movies
                     </label>
 
                     <input
                         type="search"
                         id="movieSearch"
-                        name="movieSearch"
                         placeholder="Search movies..."
                         autocomplete="off"
                     >
@@ -98,8 +142,12 @@
             </div>
 
 
-            <!-- Genre Filters -->
-            <div class="movie-filters" aria-label="Movie filters">
+
+            <!-- =================================================
+                 MOVIE FILTERS
+                 ================================================= -->
+
+            <div class="movie-filters">
 
                 <button
                     type="button"
@@ -109,90 +157,154 @@
                     All
                 </button>
 
+
                 <button
                     type="button"
                     class="filter-button"
-                    data-filter="action"
+                    data-filter="Action"
                 >
                     Action
                 </button>
 
-                <button
-                    type="button"
-                    class="filter-button"
-                    data-filter="drama"
-                >
-                    Drama
-                </button>
 
                 <button
                     type="button"
                     class="filter-button"
-                    data-filter="comedy"
-                >
-                    Comedy
-                </button>
-
-                <button
-                    type="button"
-                    class="filter-button"
-                    data-filter="thriller"
+                    data-filter="Thriller"
                 >
                     Thriller
                 </button>
 
+
                 <button
                     type="button"
                     class="filter-button"
-                    data-filter="romance"
+                    data-filter="Romantic Drama"
                 >
                     Romance
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Comedy"
+                >
+                    Comedy
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Science Fiction"
+                >
+                    Sci-Fi
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Family Drama"
+                >
+                    Family
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Mystery"
+                >
+                    Mystery
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Adventure"
+                >
+                    Adventure
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Sports Drama"
+                >
+                    Sports
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-button"
+                    data-filter="Horror Mystery"
+                >
+                    Horror
                 </button>
 
             </div>
 
 
-            <!-- Movie Grid -->
-            <div class="movie-grid all-movie-grid" id="movieGrid">
+
+            <!-- =================================================
+                 MOVIE GRID
+                 ================================================= -->
+
+            <div
+                class="movie-grid all-movie-grid"
+                id="movieGrid"
+            >
+
+
+                <!-- =================================================
+                     01 - AAGAAZ
+                     ================================================= -->
 
                 <article
                     class="movie-card movie-item"
-                    data-title="Movie Title 01"
-                    data-genre="action drama"
+                    data-genre="Action"
+                    data-title="AAGAAZ"
+                    data-movie="AAGAAZ"
                 >
 
                     <a
-                        href="movie-details.html"
+                        href="movie-details.html?movie=AAGAAZ"
                         class="movie-poster-link"
                     >
+
                         <img
                             src="images/movies/movie-01.jpg"
-                            alt="Movie Title 01 poster"
+                            alt="AAGAAZ movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <div class="movie-status">
-                            NOW SHOWING
-                        </div>
-
-                        <h3>Movie Title 01</h3>
+                        <h3>
+                            AAGAAZ
+                        </h3>
 
                         <p class="movie-meta">
-                            Action · Drama · Hindi
+                            Action
                         </p>
 
                         <p class="movie-duration">
-                            2h 20m
+                            2h 24m
                         </p>
 
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=AAGAAZ"
                             class="card-book-button"
                         >
-                            Book Now
+                            Book Tickets
                         </a>
 
                     </div>
@@ -200,33 +312,144 @@
                 </article>
 
 
+
+                <!-- =================================================
+                     02 - RAAZ
+                     ================================================= -->
+
                 <article
                     class="movie-card movie-item"
-                    data-title="Movie Title 02"
-                    data-genre="thriller"
+                    data-genre="Thriller"
+                    data-title="RAAZ"
+                    data-movie="RAAZ"
                 >
 
                     <a
-                        href="movie-details.html"
+                        href="movie-details.html?movie=RAAZ"
                         class="movie-poster-link"
                     >
+
                         <img
                             src="images/movies/movie-02.jpg"
-                            alt="Movie Title 02 poster"
+                            alt="RAAZ movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <div class="movie-status">
-                            NOW SHOWING
-                        </div>
-
-                        <h3>Movie Title 02</h3>
+                        <h3>
+                            RAAZ
+                        </h3>
 
                         <p class="movie-meta">
-                            Thriller · Mystery · Hindi
+                            Thriller
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 16m
+                        </p>
+
+                        <a
+                            href="movie-details.html?movie=RAAZ"
+                            class="card-book-button"
+                        >
+                            Book Tickets
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     03 - DIL SE DIL TAK
+                     ================================================= -->
+
+                <article
+                    class="movie-card movie-item"
+                    data-genre="Romantic Drama"
+                    data-title="DIL SE DIL TAK"
+                    data-movie="DIL SE DIL TAK"
+                >
+
+                    <a
+                        href="movie-details.html?movie=DIL%20SE%20DIL%20TAK"
+                        class="movie-poster-link"
+                    >
+
+                        <img
+                            src="images/movies/movie-03.jpg"
+                            alt="DIL SE DIL TAK movie poster"
+                            class="movie-poster"
+                        >
+
+                    </a>
+
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            DIL SE DIL TAK
+                        </h3>
+
+                        <p class="movie-meta">
+                            Romantic Drama
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 18m
+                        </p>
+
+                        <a
+                            href="movie-details.html?movie=DIL%20SE%20DIL%20TAK"
+                            class="card-book-button"
+                        >
+                            Book Tickets
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     04 - HASO TOH JIVO
+                     ================================================= -->
+
+                <article
+                    class="movie-card movie-item"
+                    data-genre="Comedy"
+                    data-title="HASO TOH JIVO"
+                    data-movie="HASO TOH JIVO"
+                >
+
+                    <a
+                        href="movie-details.html?movie=HASO%20TOH%20JIVO"
+                        class="movie-poster-link"
+                    >
+
+                        <img
+                            src="images/movies/movie-04.jpg"
+                            alt="HASO TOH JIVO movie poster"
+                            class="movie-poster"
+                        >
+
+                    </a>
+
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            HASO TOH JIVO
+                        </h3>
+
+                        <p class="movie-meta">
+                            Comedy
                         </p>
 
                         <p class="movie-duration">
@@ -234,10 +457,10 @@
                         </p>
 
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=HASO%20TOH%20JIVO"
                             class="card-book-button"
                         >
-                            Book Now
+                            Book Tickets
                         </a>
 
                     </div>
@@ -245,33 +468,92 @@
                 </article>
 
 
+
+                <!-- =================================================
+                     05 - ANTARIKSH
+                     ================================================= -->
+
                 <article
                     class="movie-card movie-item"
-                    data-title="Movie Title 03"
-                    data-genre="comedy drama"
+                    data-genre="Science Fiction"
+                    data-title="ANTARIKSH"
+                    data-movie="ANTARIKSH"
                 >
 
                     <a
-                        href="movie-details.html"
+                        href="movie-details.html?movie=ANTARIKSH"
                         class="movie-poster-link"
                     >
+
                         <img
-                            src="images/movies/movie-03.jpg"
-                            alt="Movie Title 03 poster"
+                            src="images/movies/movie-05.jpg"
+                            alt="ANTARIKSH movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <div class="movie-status">
-                            NOW SHOWING
-                        </div>
-
-                        <h3>Movie Title 03</h3>
+                        <h3>
+                            ANTARIKSH
+                        </h3>
 
                         <p class="movie-meta">
-                            Comedy · Family · Gujarati
+                            Science Fiction
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 32m
+                        </p>
+
+                        <a
+                            href="movie-details.html?movie=ANTARIKSH"
+                            class="card-book-button"
+                        >
+                            Book Tickets
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     06 - APNO GHAR
+                     ================================================= -->
+
+                <article
+                    class="movie-card movie-item"
+                    data-genre="Family Drama"
+                    data-title="APNO GHAR"
+                    data-movie="APNO GHAR"
+                >
+
+                    <a
+                        href="movie-details.html?movie=APNO%20GHAR"
+                        class="movie-poster-link"
+                    >
+
+                        <img
+                            src="images/movies/movie-06.jpg"
+                            alt="APNO GHAR movie poster"
+                            class="movie-poster"
+                        >
+
+                    </a>
+
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            APNO GHAR
+                        </h3>
+
+                        <p class="movie-meta">
+                            Family Drama
                         </p>
 
                         <p class="movie-duration">
@@ -279,180 +561,245 @@
                         </p>
 
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=APNO%20GHAR"
                             class="card-book-button"
                         >
-                            Book Now
+                            Book Tickets
                         </a>
 
                     </div>
 
                 </article>
 
+
+
+                <!-- =================================================
+                     07 - RAHASYA
+                     ================================================= -->
 
                 <article
                     class="movie-card movie-item"
-                    data-title="Movie Title 04"
-                    data-genre="romance drama"
+                    data-genre="Mystery"
+                    data-title="RAHASYA"
+                    data-movie="RAHASYA"
                 >
 
                     <a
-                        href="movie-details.html"
+                        href="movie-details.html?movie=RAHASYA"
                         class="movie-poster-link"
                     >
+
                         <img
-                            src="images/movies/movie-04.jpg"
-                            alt="Movie Title 04 poster"
+                            src="images/movies/movie-07.jpg"
+                            alt="RAHASYA movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <div class="movie-status">
-                            NOW SHOWING
-                        </div>
-
-                        <h3>Movie Title 04</h3>
+                        <h3>
+                            RAHASYA
+                        </h3>
 
                         <p class="movie-meta">
-                            Romance · Drama · Hindi
+                            Mystery
                         </p>
 
                         <p class="movie-duration">
-                            2h 15m
+                            2h 20m
                         </p>
 
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=RAHASYA"
                             class="card-book-button"
                         >
-                            Book Now
+                            Book Tickets
                         </a>
 
                     </div>
 
                 </article>
+
+
+
+                <!-- =================================================
+                     08 - SAFAR
+                     ================================================= -->
+
+                <article
+                    class="movie-card movie-item"
+                    data-genre="Adventure"
+                    data-title="SAFAR"
+                    data-movie="SAFAR"
+                >
+
+                    <a
+                        href="movie-details.html?movie=SAFAR"
+                        class="movie-poster-link"
+                    >
+
+                        <img
+                            src="images/movies/movie-08.jpg"
+                            alt="SAFAR movie poster"
+                            class="movie-poster"
+                        >
+
+                    </a>
+
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            SAFAR
+                        </h3>
+
+                        <p class="movie-meta">
+                            Adventure
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 27m
+                        </p>
+
+                        <a
+                            href="movie-details.html?movie=SAFAR"
+                            class="card-book-button"
+                        >
+                            Book Tickets
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     09 - JOSH
+                     ================================================= -->
+
+                <article
+                    class="movie-card movie-item"
+                    data-genre="Sports Drama"
+                    data-title="JOSH"
+                    data-movie="JOSH"
+                >
+
+                    <a
+                        href="movie-details.html?movie=JOSH"
+                        class="movie-poster-link"
+                    >
+
+                        <img
+                            src="images/movies/movie-09.jpg"
+                            alt="JOSH movie poster"
+                            class="movie-poster"
+                        >
+
+                    </a>
+
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            JOSH
+                        </h3>
+
+                        <p class="movie-meta">
+                            Sports Drama
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 22m
+                        </p>
+
+                        <a
+                            href="movie-details.html?movie=JOSH"
+                            class="card-book-button"
+                        >
+                            Book Tickets
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     10 - ANDHERI RAAT
+                     ================================================= -->
+
+                <article
+                    class="movie-card movie-item"
+                    data-genre="Horror Mystery"
+                    data-title="ANDHERI RAAT"
+                    data-movie="ANDHERI RAAT"
+                >
+
+                    <a
+                        href="movie-details.html?movie=ANDHERI%20RAAT"
+                        class="movie-poster-link"
+                    >
+
+                        <img
+                            src="images/movies/movie-10.jpg"
+                            alt="ANDHERI RAAT movie poster"
+                            class="movie-poster"
+                        >
+
+                    </a>
+
+
+                    <div class="movie-card-content">
+
+                        <h3>
+                            ANDHERI RAAT
+                        </h3>
+
+                        <p class="movie-meta">
+                            Horror Mystery
+                        </p>
+
+                        <p class="movie-duration">
+                            2h 14m
+                        </p>
+
+                        <a
+                            href="movie-details.html?movie=ANDHERI%20RAAT"
+                            class="card-book-button"
+                        >
+                            Book Tickets
+                        </a>
+
+                    </div>
+
+                </article>
+
 
             </div>
 
 
-            <!-- No Search Result -->
+
+            <!-- =================================================
+                 EMPTY STATE
+                 ================================================= -->
+
             <div
                 class="empty-state"
                 id="movieEmptyState"
                 hidden
             >
-                <h3>No Movies Found</h3>
-                <p>
-                    Try another movie name or choose a different genre.
-                </p>
-            </div>
 
-        </section>
-
-
-        <!-- Coming Soon -->
-        <section class="coming-soon-section movies-coming-section">
-
-            <div class="section-heading">
-
-                <div>
-                    <p class="section-label">COMING SOON</p>
-                    <h2>Coming Soon</h2>
-                </div>
-
-            </div>
-
-
-            <div class="coming-soon-grid">
-
-                <article class="coming-movie-card">
-
-                    <img
-                        src="images/movies/movie-05.jpg"
-                        alt="Upcoming Movie 01 poster"
-                    >
-
-                    <div class="coming-movie-info">
-
-                        <span>COMING SOON</span>
-
-                        <h3>Upcoming Movie 01</h3>
-
-                        <p>
-                            Releasing Soon
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="coming-movie-card">
-
-                    <img
-                        src="images/movies/movie-06.jpg"
-                        alt="Upcoming Movie 02 poster"
-                    >
-
-                    <div class="coming-movie-info">
-
-                        <span>COMING SOON</span>
-
-                        <h3>Upcoming Movie 02</h3>
-
-                        <p>
-                            Releasing Soon
-                        </p>
-
-                    </div>
-
-                </article>
-
-
-                <article class="coming-movie-card">
-
-                    <img
-                        src="images/movies/movie-07.jpg"
-                        alt="Upcoming Movie 03 poster"
-                    >
-
-                    <div class="coming-movie-info">
-
-                        <span>COMING SOON</span>
-
-                        <h3>Upcoming Movie 03</h3>
-
-                        <p>
-                            Releasing Soon
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- CTA -->
-        <section class="cta-section">
-
-            <div class="cta-content">
-
-                <p class="section-label">
-                    FIND YOUR NEXT SHOW
-                </p>
-
-                <h2>
-                    One movie. One seat. One great experience.
-                </h2>
+                <h3>
+                    No Movies Found
+                </h3>
 
                 <p>
-                    Select your favourite movie and continue to choose
-                    your cinema and showtime.
+                    Try searching with another movie name or genre.
                 </p>
 
             </div>
@@ -462,23 +809,32 @@
     </main>
 
 
-    <!-- Footer -->
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
     <footer class="site-footer">
 
         <div class="footer-container">
 
+
             <div class="footer-brand">
 
-                <a href="index.html">
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+
                     <img
                         src="images/logo/logo.png"
                         alt="thashowbook"
-                        class="footer-logo"
                     >
+
                 </a>
 
                 <p>
-                    Pick. Book. Watch.
+                    Your simple way to pick, book and watch.
                 </p>
 
             </div>
@@ -486,9 +842,12 @@
 
             <div class="footer-links">
 
+
                 <div class="footer-column">
 
-                    <h3>Explore</h3>
+                    <h3>
+                        Explore
+                    </h3>
 
                     <a href="index.html">
                         Home
@@ -507,17 +866,20 @@
 
                 <div class="footer-column">
 
-                    <h3>Account</h3>
+                    <h3>
+                        Account
+                    </h3>
 
                     <a href="login.html">
                         Login
                     </a>
 
-                    <a href="bookings.html">
-                        Bookings
+                    <a href="login.html">
+                        Register
                     </a>
 
                 </div>
+
 
             </div>
 
@@ -539,7 +901,13 @@
     </footer>
 
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
     <script src="js/script.js"></script>
 
 </body>
+
 </html>

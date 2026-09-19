@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Login | thashowbook</title>
 
-    <meta
-        name="description"
-        content="Login to your thashowbook customer account."
+    <link
+        rel="stylesheet"
+        href="css/style.css"
     >
 
-    <link rel="stylesheet" href="css/style.css">
 </head>
+
 
 <body>
 
-    <!-- Header -->
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
     <header class="site-header">
+
         <div class="header-container">
 
-            <a href="index.html" class="brand">
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="thashowbook Home"
+            >
+
                 <img
                     src="images/logo/logo.png"
                     alt="thashowbook"
                     class="brand-logo"
                 >
+
             </a>
 
-            <nav class="main-navigation" aria-label="Main Navigation">
-                <a href="index.html" class="nav-link">
+
+            <nav
+                class="main-navigation"
+                aria-label="Main Navigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
                     Home
                 </a>
 
-                <a href="movies.html" class="nav-link">
+
+                <a
+                    href="movies.html"
+                    class="nav-link"
+                >
                     Movies
                 </a>
 
-                <a href="bookings.html" class="nav-link">
+
+                <a
+                    href="bookings.html"
+                    class="nav-link"
+                >
                     My Bookings
                 </a>
+
             </nav>
+
 
             <div class="header-actions">
 
@@ -54,328 +90,342 @@
             </div>
 
         </div>
+
     </header>
 
 
-    <!-- Main -->
+
+    <!-- =========================================================
+         LOGIN PAGE
+         ========================================================= -->
+
     <main>
+
 
         <section class="login-section">
 
+
             <div class="login-container">
 
-                <!-- Login Intro -->
+
+                <!-- =================================================
+                     LEFT SIDE
+                     ================================================= -->
+
                 <div class="login-intro">
+
 
                     <p class="section-label">
                         WELCOME TO THASHOWBOOK
                     </p>
+
 
                     <h1>
                         Your movie night
                         starts here.
                     </h1>
 
+
                     <p>
                         Login to manage your bookings and continue
                         your cinema experience.
                     </p>
 
+
                     <div class="login-image">
 
                         <img
                             src="images/cinemas/cinema-01.jpg"
-                            alt="Thashow cinema"
+                            alt="Premium cinema experience"
                         >
 
                     </div>
+
 
                 </div>
 
 
-                <!-- Login Card -->
+
+                <!-- =================================================
+                     RIGHT SIDE
+                     ================================================= -->
+
                 <div class="login-card">
 
-                    <div class="login-card-header">
 
-                        <h2>
-                            Login
-                        </h2>
+                    <!-- =================================================
+                         LOGIN FORM
+                         ================================================= -->
 
-                        <p>
-                            Enter your details to continue.
-                        </p>
-
-                    </div>
-
-
-                    <form
-                        id="loginForm"
-                        class="auth-form"
-                        novalidate
-                    >
-
-                        <!-- Email -->
-                        <div class="form-group">
-
-                            <label for="loginEmail">
-                                Email Address
-                            </label>
-
-                            <input
-                                type="email"
-                                id="loginEmail"
-                                name="email"
-                                placeholder="Enter your email"
-                                autocomplete="email"
-                                required
-                            >
-
-                            <small
-                                class="form-error"
-                                id="loginEmailError"
-                            ></small>
-
-                        </div>
-
-
-                        <!-- Password -->
-                        <div class="form-group">
-
-                            <div class="form-label-row">
-
-                                <label for="loginPassword">
-                                    Password
-                                </label>
-
-                                <button
-                                    type="button"
-                                    class="text-button"
-                                    id="togglePassword"
-                                >
-                                    Show
-                                </button>
-
-                            </div>
-
-                            <input
-                                type="password"
-                                id="loginPassword"
-                                name="password"
-                                placeholder="Enter your password"
-                                autocomplete="current-password"
-                                required
-                            >
-
-                            <small
-                                class="form-error"
-                                id="loginPasswordError"
-                            ></small>
-
-                        </div>
-
-
-                        <!-- Remember -->
-                        <div class="login-options">
-
-                            <label class="checkbox-label">
-
-                                <input
-                                    type="checkbox"
-                                    id="rememberMe"
-                                    name="rememberMe"
-                                >
-
-                                <span>
-                                    Remember me
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <!-- Submit -->
-                        <button
-                            type="submit"
-                            class="primary-button login-submit"
-                        >
-                            Login to thashowbook
-                        </button>
-
-
-                        <!-- Login Message -->
-                        <div
-                            class="auth-message"
-                            id="loginMessage"
-                            role="alert"
-                            hidden
-                        ></div>
-
-                    </form>
-
-
-                    <!-- Register -->
-                    <div class="register-prompt">
-
-                        <p>
-                            Don't have an account?
-                        </p>
-
-                        <button
-                            type="button"
-                            class="register-button"
-                            id="showRegister"
-                        >
-                            Create Account
-                        </button>
-
-                    </div>
-
-
-                    <!-- Register Form -->
                     <div
-                        class="register-section"
-                        id="registerSection"
-                        hidden
+                        id="loginPanel"
                     >
 
-                        <div class="register-divider">
-                            <span>
-                                CREATE ACCOUNT
-                            </span>
+                        <div class="login-card-header">
+
+                            <h2>
+                                Login
+                            </h2>
+
+
+                            <p>
+                                Enter your details to continue.
+                            </p>
+
                         </div>
+
 
 
                         <form
-                            id="registerForm"
-                            class="auth-form"
+                            id="loginForm"
                             novalidate
                         >
 
-                            <!-- Name -->
+
+                            <!-- EMAIL -->
+
                             <div class="form-group">
 
-                                <label for="registerName">
-                                    Full Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="registerName"
-                                    name="name"
-                                    placeholder="Enter your full name"
-                                    autocomplete="name"
-                                    required
-                                >
-
-                                <small
-                                    class="form-error"
-                                    id="registerNameError"
-                                ></small>
-
-                            </div>
-
-
-                            <!-- Email -->
-                            <div class="form-group">
-
-                                <label for="registerEmail">
+                                <label for="loginEmail">
                                     Email Address
                                 </label>
 
+
                                 <input
                                     type="email"
-                                    id="registerEmail"
+                                    id="loginEmail"
                                     name="email"
                                     placeholder="Enter your email"
                                     autocomplete="email"
                                     required
                                 >
 
-                                <small
-                                    class="form-error"
-                                    id="registerEmailError"
-                                ></small>
-
                             </div>
 
 
-                            <!-- Mobile -->
+
+                            <!-- PASSWORD -->
+
                             <div class="form-group">
 
-                                <label for="registerPhone">
-                                    Mobile Number
-                                </label>
+                                <div class="form-label-row">
+
+                                    <label for="loginPassword">
+                                        Password
+                                    </label>
+
+
+                                    <button
+                                        type="button"
+                                        id="togglePassword"
+                                        class="text-button"
+                                    >
+                                        Show
+                                    </button>
+
+                                </div>
+
 
                                 <input
-                                    type="tel"
-                                    id="registerPhone"
-                                    name="phone"
-                                    placeholder="Enter 10-digit mobile number"
-                                    inputmode="numeric"
-                                    maxlength="10"
-                                    autocomplete="tel"
+                                    type="password"
+                                    id="loginPassword"
+                                    name="password"
+                                    placeholder="Enter your password"
+                                    autocomplete="current-password"
                                     required
                                 >
 
-                                <small
-                                    class="form-error"
-                                    id="registerPhoneError"
-                                ></small>
+                            </div>
+
+
+
+                            <!-- REMEMBER ME -->
+
+                            <div class="login-options">
+
+                                <label class="checkbox-label">
+
+                                    <input
+                                        type="checkbox"
+                                        id="rememberMe"
+                                    >
+
+                                    <span>
+                                        Remember me
+                                    </span>
+
+                                </label>
 
                             </div>
 
 
-                            <!-- Password -->
+
+                            <!-- LOGIN BUTTON -->
+
+                            <button
+                                type="submit"
+                                id="loginSubmit"
+                                class="primary-button login-submit"
+                            >
+                                Login to thashowbook
+                            </button>
+
+
+                            <!-- MESSAGE -->
+
+                            <div
+                                id="loginMessage"
+                                class="auth-message"
+                                hidden
+                            >
+                            </div>
+
+
+                        </form>
+
+
+
+                        <!-- CREATE ACCOUNT -->
+
+                        <div class="register-prompt">
+
+                            <p>
+                                Don't have an account?
+                            </p>
+
+
+                            <button
+                                type="button"
+                                id="openRegister"
+                                class="register-button"
+                            >
+                                Create Account
+                            </button>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         REGISTER FORM
+                         ================================================= -->
+
+                    <div
+                        id="registerPanel"
+                        hidden
+                    >
+
+
+                        <div class="login-card-header">
+
+                            <h2>
+                                Create Account
+                            </h2>
+
+
+                            <p>
+                                Create your thashowbook demo account.
+                            </p>
+
+                        </div>
+
+
+
+                        <form
+                            id="registerForm"
+                            novalidate
+                        >
+
+
+                            <!-- NAME -->
+
+                            <div class="form-group">
+
+                                <label for="registerName">
+                                    Full Name
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    placeholder="Enter your name"
+                                    autocomplete="name"
+                                    required
+                                >
+
+                            </div>
+
+
+
+                            <!-- EMAIL -->
+
+                            <div class="form-group">
+
+                                <label for="registerEmail">
+                                    Email Address
+                                </label>
+
+
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="Enter your email"
+                                    autocomplete="email"
+                                    required
+                                >
+
+                            </div>
+
+
+
+                            <!-- PASSWORD -->
+
                             <div class="form-group">
 
                                 <label for="registerPassword">
                                     Password
                                 </label>
 
+
                                 <input
                                     type="password"
                                     id="registerPassword"
-                                    name="password"
                                     placeholder="Create a password"
                                     autocomplete="new-password"
                                     required
                                 >
 
-                                <small
-                                    class="form-error"
-                                    id="registerPasswordError"
-                                ></small>
-
                             </div>
 
 
-                            <!-- Confirm Password -->
+
+                            <!-- CONFIRM PASSWORD -->
+
                             <div class="form-group">
 
-                                <label for="confirmPassword">
+                                <label for="registerConfirmPassword">
                                     Confirm Password
                                 </label>
 
+
                                 <input
                                     type="password"
-                                    id="confirmPassword"
-                                    name="confirmPassword"
+                                    id="registerConfirmPassword"
                                     placeholder="Confirm your password"
                                     autocomplete="new-password"
                                     required
                                 >
 
-                                <small
-                                    class="form-error"
-                                    id="confirmPasswordError"
-                                ></small>
-
                             </div>
 
 
-                            <!-- Register Submit -->
+
+                            <!-- REGISTER -->
+
                             <button
                                 type="submit"
                                 class="primary-button register-submit"
@@ -384,32 +434,63 @@
                             </button>
 
 
+                            <!-- REGISTER MESSAGE -->
+
                             <div
-                                class="auth-message"
                                 id="registerMessage"
-                                role="alert"
+                                class="auth-message"
                                 hidden
-                            ></div>
+                            >
+                            </div>
+
 
                         </form>
+
+
+
+                        <!-- BACK TO LOGIN -->
+
+                        <div class="register-prompt">
+
+                            <p>
+                                Already have an account?
+                            </p>
+
+
+                            <button
+                                type="button"
+                                id="backToLogin"
+                                class="register-button"
+                            >
+                                Login
+                            </button>
+
+                        </div>
+
 
                     </div>
 
 
-                    <!-- Demo Notice -->
+
+                    <!-- =================================================
+                         FRONTEND DEMO NOTICE
+                         ================================================= -->
+
                     <div class="login-demo-notice">
 
                         <strong>
                             Frontend Demo
                         </strong>
 
+
                         <p>
-                            This website uses browser storage for the
-                            demo account. No real payment or server
-                            authentication is connected.
+                            This website uses browser storage for
+                            the demo account. No real payment or
+                            server authentication is connected.
                         </p>
 
                     </div>
+
 
                 </div>
 
@@ -420,29 +501,42 @@
     </main>
 
 
-    <!-- Footer -->
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
     <footer class="site-footer">
+
 
         <div class="footer-container">
 
+
             <div class="footer-brand">
 
-                <a href="index.html">
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+
                     <img
                         src="images/logo/logo.png"
                         alt="thashowbook"
-                        class="footer-logo"
                     >
+
                 </a>
 
+
                 <p>
-                    Pick. Book. Watch.
+                    Your simple way to pick, book and watch.
                 </p>
 
             </div>
 
 
+
             <div class="footer-links">
+
 
                 <div class="footer-column">
 
@@ -450,13 +544,16 @@
                         Explore
                     </h3>
 
+
                     <a href="index.html">
                         Home
                     </a>
 
+
                     <a href="movies.html">
                         Movies
                     </a>
+
 
                     <a href="bookings.html">
                         My Bookings
@@ -465,25 +562,30 @@
                 </div>
 
 
+
                 <div class="footer-column">
 
                     <h3>
                         Account
                     </h3>
 
+
                     <a href="login.html">
                         Login
                     </a>
 
-                    <a href="bookings.html">
-                        Bookings
+
+                    <a href="login.html">
+                        Register
                     </a>
 
                 </div>
 
+
             </div>
 
         </div>
+
 
 
         <div class="footer-bottom">
@@ -492,16 +594,32 @@
                 © 2026 thashowbook. All rights reserved.
             </p>
 
+
             <p>
                 Pick. Book. Watch.
             </p>
 
         </div>
 
+
     </footer>
 
 
+
+    <!-- =========================================================
+         EXISTING MAIN JAVASCRIPT
+         ========================================================= -->
+
     <script src="js/script.js"></script>
 
+
+    <!-- =========================================================
+         LOGIN PAGE JAVASCRIPT
+         ========================================================= -->
+
+    <script src="js/login.js"></script>
+
+
 </body>
+
 </html>

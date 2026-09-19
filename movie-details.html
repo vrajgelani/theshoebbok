@@ -1,692 +1,976 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Movie Details | thashowbook</title>
+<head>
+
+    <meta charset="UTF-8">
 
     <meta
-        name="description"
-        content="View movie details, cinemas and showtimes on thashowbook."
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>
+        Movie Details | thashowbook
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
     <header class="site-header">
+
         <div class="header-container">
 
-            <a href="index.html" class="brand">
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="thashowbook Home"
+            >
+
                 <img
                     src="images/logo/logo.png"
                     alt="thashowbook"
                     class="brand-logo"
                 >
+
             </a>
 
-            <nav class="main-navigation" aria-label="Main Navigation">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="movies.html" class="nav-link">Movies</a>
-                <a href="bookings.html" class="nav-link">My Bookings</a>
+
+
+            <!-- NAVIGATION -->
+
+            <nav
+                class="main-navigation"
+                aria-label="Main Navigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+
+                <a
+                    href="movies.html"
+                    class="nav-link active"
+                >
+                    Movies
+                </a>
+
+
+                <a
+                    href="bookings.html"
+                    class="nav-link"
+                >
+                    My Bookings
+                </a>
+
             </nav>
 
+
+
+            <!-- LOGIN -->
+
             <div class="header-actions">
-                <a href="login.html" class="login-button">Login</a>
+
+                <a
+                    href="login.html"
+                    class="login-button"
+                >
+                    Login
+                </a>
+
             </div>
 
+
         </div>
+
     </header>
 
 
-    <!-- Main Content -->
-    <main>
 
-        <!-- Movie Details Hero -->
-        <section class="movie-details-hero">
+    <!-- =========================================================
+         MOVIE DETAILS HERO
+         ========================================================= -->
 
-            <div class="movie-details-container">
+    <section class="movie-details-hero">
 
-                <div class="movie-details-poster">
+        <div class="movie-details-container">
 
-                    <img
-                        src="images/movies/movie-01.jpg"
-                        alt="Movie Title 01 poster"
-                    >
 
-                </div>
+            <!-- MOVIE POSTER -->
 
+            <div class="movie-details-poster">
 
-                <div class="movie-details-content">
-
-                    <p class="section-label">
-                        NOW SHOWING
-                    </p>
-
-                    <h1>
-                        Movie Title 01
-                    </h1>
-
-                    <div class="movie-info-row">
-
-                        <span>
-                            Action
-                        </span>
-
-                        <span>
-                            Drama
-                        </span>
-
-                        <span>
-                            Hindi
-                        </span>
-
-                        <span>
-                            2h 20m
-                        </span>
-
-                    </div>
-
-
-                    <p class="movie-description">
-                        Experience an exciting cinematic journey filled with
-                        action, emotion and unforgettable moments. Choose your
-                        preferred cinema, date and showtime to continue your
-                        booking.
-                    </p>
-
-
-                    <div class="movie-extra-info">
-
-                        <div class="info-item">
-                            <span class="info-label">
-                                Language
-                            </span>
-
-                            <strong>
-                                Hindi
-                            </strong>
-                        </div>
-
-
-                        <div class="info-item">
-                            <span class="info-label">
-                                Duration
-                            </span>
-
-                            <strong>
-                                2h 20m
-                            </strong>
-                        </div>
-
-
-                        <div class="info-item">
-                            <span class="info-label">
-                                Format
-                            </span>
-
-                            <strong>
-                                2D
-                            </strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Booking Selection -->
-        <section class="show-selection-section">
-
-            <div class="section-heading">
-
-                <div>
-                    <p class="section-label">
-                        BOOK YOUR TICKETS
-                    </p>
-
-                    <h2>
-                        Choose Your Show
-                    </h2>
-                </div>
-
-            </div>
-
-
-            <!-- Date Selection -->
-            <div class="selection-block">
-
-                <div class="selection-title">
-
-                    <h3>
-                        Select Date
-                    </h3>
-
-                    <p>
-                        Choose your preferred movie date.
-                    </p>
-
-                </div>
-
-
-                <div class="date-selection">
-
-                    <button
-                        type="button"
-                        class="date-button active"
-                        data-date="today"
-                    >
-                        <span class="date-day">
-                            TODAY
-                        </span>
-
-                        <strong>
-                            18
-                        </strong>
-
-                        <span class="date-month">
-                            SEP
-                        </span>
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="date-button"
-                        data-date="tomorrow"
-                    >
-                        <span class="date-day">
-                            TOM
-                        </span>
-
-                        <strong>
-                            19
-                        </strong>
-
-                        <span class="date-month">
-                            SEP
-                        </span>
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="date-button"
-                        data-date="day3"
-                    >
-                        <span class="date-day">
-                            SAT
-                        </span>
-
-                        <strong>
-                            20
-                        </strong>
-
-                        <span class="date-month">
-                            SEP
-                        </span>
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="date-button"
-                        data-date="day4"
-                    >
-                        <span class="date-day">
-                            SUN
-                        </span>
-
-                        <strong>
-                            21
-                        </strong>
-
-                        <span class="date-month">
-                            SEP
-                        </span>
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="date-button"
-                        data-date="day5"
-                    >
-                        <span class="date-day">
-                            MON
-                        </span>
-
-                        <strong>
-                            22
-                        </strong>
-
-                        <span class="date-month">
-                            SEP
-                        </span>
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- Cinema Selection -->
-            <div class="selection-block">
-
-                <div class="selection-title">
-
-                    <h3>
-                        Select Cinema
-                    </h3>
-
-                    <p>
-                        Choose a cinema near you.
-                    </p>
-
-                </div>
-
-
-                <div class="cinema-selection">
-
-                    <article class="show-cinema-card">
-
-                        <div class="show-cinema-image">
-
-                            <img
-                                src="images/cinemas/cinema-01.jpg"
-                                alt="Thashow Central Cinema"
-                            >
-
-                        </div>
-
-
-                        <div class="show-cinema-content">
-
-                            <h4>
-                                Thashow Central Cinema
-                            </h4>
-
-                            <p>
-                                Premium cinema experience
-                            </p>
-
-                            <span>
-                                2D
-                            </span>
-
-                        </div>
-
-
-                        <div class="cinema-select-control">
-
-                            <input
-                                type="radio"
-                                id="cinemaCentral"
-                                name="cinema"
-                                value="central"
-                                checked
-                            >
-
-                            <label for="cinemaCentral">
-                                Select
-                            </label>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="show-cinema-card">
-
-                        <div class="show-cinema-image">
-
-                            <img
-                                src="images/cinemas/cinema-02.jpg"
-                                alt="Thashow Royal Cinema"
-                            >
-
-                        </div>
-
-
-                        <div class="show-cinema-content">
-
-                            <h4>
-                                Thashow Royal Cinema
-                            </h4>
-
-                            <p>
-                                Luxury movie experience
-                            </p>
-
-                            <span>
-                                2D
-                            </span>
-
-                        </div>
-
-
-                        <div class="cinema-select-control">
-
-                            <input
-                                type="radio"
-                                id="cinemaRoyal"
-                                name="cinema"
-                                value="royal"
-                            >
-
-                            <label for="cinemaRoyal">
-                                Select
-                            </label>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="show-cinema-card">
-
-                        <div class="show-cinema-image">
-
-                            <img
-                                src="images/cinemas/cinema-03.jpg"
-                                alt="Thashow Galaxy Cinema"
-                            >
-
-                        </div>
-
-
-                        <div class="show-cinema-content">
-
-                            <h4>
-                                Thashow Galaxy Cinema
-                            </h4>
-
-                            <p>
-                                Modern cinema experience
-                            </p>
-
-                            <span>
-                                2D
-                            </span>
-
-                        </div>
-
-
-                        <div class="cinema-select-control">
-
-                            <input
-                                type="radio"
-                                id="cinemaGalaxy"
-                                name="cinema"
-                                value="galaxy"
-                            >
-
-                            <label for="cinemaGalaxy">
-                                Select
-                            </label>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-
-            <!-- Showtime Selection -->
-            <div class="selection-block">
-
-                <div class="selection-title">
-
-                    <h3>
-                        Select Showtime
-                    </h3>
-
-                    <p>
-                        Choose a convenient showtime.
-                    </p>
-
-                </div>
-
-
-                <div class="showtime-groups">
-
-                    <div class="showtime-group">
-
-                        <h4>
-                            Morning
-                        </h4>
-
-                        <div class="showtime-list">
-
-                            <button
-                                type="button"
-                                class="showtime-button"
-                                data-time="10:00 AM"
-                            >
-                                10:00 AM
-                            </button>
-
-                            <button
-                                type="button"
-                                class="showtime-button"
-                                data-time="11:30 AM"
-                            >
-                                11:30 AM
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="showtime-group">
-
-                        <h4>
-                            Afternoon
-                        </h4>
-
-                        <div class="showtime-list">
-
-                            <button
-                                type="button"
-                                class="showtime-button"
-                                data-time="1:30 PM"
-                            >
-                                1:30 PM
-                            </button>
-
-                            <button
-                                type="button"
-                                class="showtime-button"
-                                data-time="3:30 PM"
-                            >
-                                3:30 PM
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="showtime-group">
-
-                        <h4>
-                            Evening
-                        </h4>
-
-                        <div class="showtime-list">
-
-                            <button
-                                type="button"
-                                class="showtime-button"
-                                data-time="6:30 PM"
-                            >
-                                6:30 PM
-                            </button>
-
-                            <button
-                                type="button"
-                                class="showtime-button"
-                                data-time="9:00 PM"
-                            >
-                                9:00 PM
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Continue -->
-            <div class="booking-continue">
-
-                <a
-                    href="seats.html"
-                    class="primary-button"
+                <img
+                    id="movieDetailsPoster"
+                    src="images/movies/movie-01.jpg"
+                    alt="AAGAAZ movie poster"
                 >
-                    Continue to Seat Selection
-                </a>
 
             </div>
 
-        </section>
 
 
-        <!-- Movie Information -->
-        <section class="movie-information-section">
+            <!-- MOVIE CONTENT -->
 
-            <div class="movie-information-container">
+            <div class="movie-details-content">
 
-                <div class="information-content">
 
-                    <p class="section-label">
-                        ABOUT THE MOVIE
-                    </p>
+                <p class="section-label">
+                    NOW SHOWING
+                </p>
 
-                    <h2>
-                        Movie Information
-                    </h2>
 
-                    <p>
-                        Get ready for an entertaining cinema experience.
-                        Select your preferred show and reserve your seats
-                        before the show begins.
-                    </p>
+                <h1 id="movieDetailsTitle">
+                    AAGAAZ
+                </h1>
+
+
+
+                <!-- MOVIE TAGS -->
+
+                <div class="movie-info-row">
+
+                    <span id="movieDetailsGenre">
+                        Action
+                    </span>
+
+
+                    <span id="movieDetailsLanguage">
+                        Hindi
+                    </span>
+
+
+                    <span id="movieDetailsDuration">
+                        2h 24m
+                    </span>
+
+
+                    <span>
+                        U/A
+                    </span>
 
                 </div>
 
 
-                <div class="information-table">
 
-                    <div class="information-row">
+                <!-- DESCRIPTION -->
 
-                        <span>
-                            Movie
+                <p
+                    class="movie-description"
+                    id="movieDetailsDescription"
+                >
+                    A gripping Indian action drama filled with
+                    intense moments, powerful characters and an
+                    unforgettable cinematic journey.
+                </p>
+
+
+
+                <!-- EXTRA INFORMATION -->
+
+                <div class="movie-extra-info">
+
+
+                    <div class="info-item">
+
+                        <span class="info-label">
+                            RELEASE
                         </span>
 
-                        <strong>
-                            Movie Title 01
+                        <strong id="movieDetailsRelease">
+                            2026
                         </strong>
 
                     </div>
 
 
-                    <div class="information-row">
 
-                        <span>
-                            Genre
+                    <div class="info-item">
+
+                        <span class="info-label">
+                            RUNTIME
                         </span>
 
-                        <strong>
-                            Action, Drama
+                        <strong id="movieDetailsRuntime">
+                            2h 24m
                         </strong>
 
                     </div>
 
 
-                    <div class="information-row">
 
-                        <span>
-                            Language
+                    <div class="info-item">
+
+                        <span class="info-label">
+                            LANGUAGE
                         </span>
 
-                        <strong>
+                        <strong id="movieDetailsLanguageInfo">
                             Hindi
                         </strong>
 
                     </div>
 
 
-                    <div class="information-row">
-
-                        <span>
-                            Duration
-                        </span>
-
-                        <strong>
-                            2h 20m
-                        </strong>
-
-                    </div>
-
-
-                    <div class="information-row">
-
-                        <span>
-                            Format
-                        </span>
-
-                        <strong>
-                            2D
-                        </strong>
-
-                    </div>
-
                 </div>
+
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
 
 
-    <!-- Footer -->
-    <footer class="site-footer">
 
-        <div class="footer-container">
+    <!-- =========================================================
+         SHOW SELECTION
+         ========================================================= -->
 
-            <div class="footer-brand">
+    <section class="show-selection-section">
 
-                <a href="index.html">
-                    <img
-                        src="images/logo/logo.png"
-                        alt="thashowbook"
-                        class="footer-logo"
-                    >
-                </a>
+        <div class="section-heading">
+
+            <div>
+
+                <p class="section-label">
+                    BOOK YOUR TICKETS
+                </p>
+
+
+                <h2>
+                    Choose Your Show
+                </h2>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             DATE SELECTION
+             ===================================================== -->
+
+        <div class="selection-block">
+
+
+            <div class="selection-title">
+
+                <h3>
+                    Select Date
+                </h3>
+
 
                 <p>
-                    Pick. Book. Watch.
+                    Choose your preferred movie date.
                 </p>
 
             </div>
 
 
+
+            <div
+                class="date-selection"
+                id="dateSelection"
+            >
+
+
+                <!-- DATE 01 -->
+
+                <button
+                    type="button"
+                    class="date-button active"
+                    id="dateButton1"
+                >
+
+                    <span
+                        class="date-day"
+                        id="dateDay1"
+                    >
+                        SAT
+                    </span>
+
+
+                    <strong id="dateNumber1">
+                        19
+                    </strong>
+
+
+                    <span
+                        class="date-month"
+                        id="dateMonth1"
+                    >
+                        SEP
+                    </span>
+
+                </button>
+
+
+
+                <!-- DATE 02 -->
+
+                <button
+                    type="button"
+                    class="date-button"
+                    id="dateButton2"
+                >
+
+                    <span
+                        class="date-day"
+                        id="dateDay2"
+                    >
+                        SUN
+                    </span>
+
+
+                    <strong id="dateNumber2">
+                        20
+                    </strong>
+
+
+                    <span
+                        class="date-month"
+                        id="dateMonth2"
+                    >
+                        SEP
+                    </span>
+
+                </button>
+
+
+
+                <!-- DATE 03 -->
+
+                <button
+                    type="button"
+                    class="date-button"
+                    id="dateButton3"
+                >
+
+                    <span
+                        class="date-day"
+                        id="dateDay3"
+                    >
+                        MON
+                    </span>
+
+
+                    <strong id="dateNumber3">
+                        21
+                    </strong>
+
+
+                    <span
+                        class="date-month"
+                        id="dateMonth3"
+                    >
+                        SEP
+                    </span>
+
+                </button>
+
+
+
+                <!-- DATE 04 -->
+
+                <button
+                    type="button"
+                    class="date-button"
+                    id="dateButton4"
+                >
+
+                    <span
+                        class="date-day"
+                        id="dateDay4"
+                    >
+                        TUE
+                    </span>
+
+
+                    <strong id="dateNumber4">
+                        22
+                    </strong>
+
+
+                    <span
+                        class="date-month"
+                        id="dateMonth4"
+                    >
+                        SEP
+                    </span>
+
+                </button>
+
+
+
+                <!-- DATE 05 -->
+
+                <button
+                    type="button"
+                    class="date-button"
+                    id="dateButton5"
+                >
+
+                    <span
+                        class="date-day"
+                        id="dateDay5"
+                    >
+                        WED
+                    </span>
+
+
+                    <strong id="dateNumber5">
+                        23
+                    </strong>
+
+
+                    <span
+                        class="date-month"
+                        id="dateMonth5"
+                    >
+                        SEP
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             CINEMA SELECTION
+             ===================================================== -->
+
+        <div class="selection-block">
+
+
+            <div class="selection-title">
+
+                <h3>
+                    Select Cinema
+                </h3>
+
+
+                <p>
+                    Choose your preferred cinema.
+                </p>
+
+            </div>
+
+
+
+            <div class="cinema-selection">
+
+
+                <!-- CINEMA 01 -->
+
+                <article class="show-cinema-card">
+
+
+                    <div class="show-cinema-image">
+
+                        <img
+                            src="images/cinemas/cinema-01.jpg"
+                            alt="Thashow Central Cinema"
+                        >
+
+                    </div>
+
+
+                    <div class="show-cinema-content">
+
+                        <h4>
+                            Thashow Central Cinema
+                        </h4>
+
+
+                        <p>
+                            Premium cinema experience
+                        </p>
+
+
+                        <span>
+                            City Center
+                        </span>
+
+                    </div>
+
+
+                    <div class="cinema-select-control">
+
+                        <input
+                            type="radio"
+                            name="cinema"
+                            id="cinema01"
+                            value="Thashow Central Cinema"
+                        >
+
+
+                        <label for="cinema01">
+                            Select Cinema
+                        </label>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- CINEMA 02 -->
+
+                <article class="show-cinema-card">
+
+
+                    <div class="show-cinema-image">
+
+                        <img
+                            src="images/cinemas/cinema-02.jpg"
+                            alt="Thashow Royal Cinema"
+                        >
+
+                    </div>
+
+
+                    <div class="show-cinema-content">
+
+                        <h4>
+                            Thashow Royal Cinema
+                        </h4>
+
+
+                        <p>
+                            Luxury movie experience
+                        </p>
+
+
+                        <span>
+                            Ring Road
+                        </span>
+
+                    </div>
+
+
+                    <div class="cinema-select-control">
+
+                        <input
+                            type="radio"
+                            name="cinema"
+                            id="cinema02"
+                            value="Thashow Royal Cinema"
+                        >
+
+
+                        <label for="cinema02">
+                            Select Cinema
+                        </label>
+
+                    </div>
+
+
+                </article>
+
+
+
+                <!-- CINEMA 03 -->
+
+                <article class="show-cinema-card">
+
+
+                    <div class="show-cinema-image">
+
+                        <img
+                            src="images/cinemas/cinema-03.jpg"
+                            alt="Thashow Galaxy Cinema"
+                        >
+
+                    </div>
+
+
+                    <div class="show-cinema-content">
+
+                        <h4>
+                            Thashow Galaxy Cinema
+                        </h4>
+
+
+                        <p>
+                            Modern entertainment experience
+                        </p>
+
+
+                        <span>
+                            Downtown
+                        </span>
+
+                    </div>
+
+
+                    <div class="cinema-select-control">
+
+                        <input
+                            type="radio"
+                            name="cinema"
+                            id="cinema03"
+                            value="Thashow Galaxy Cinema"
+                        >
+
+
+                        <label for="cinema03">
+                            Select Cinema
+                        </label>
+
+                    </div>
+
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             SHOWTIME SELECTION
+             ===================================================== -->
+
+        <div class="selection-block">
+
+
+            <div class="selection-title">
+
+                <h3>
+                    Select Showtime
+                </h3>
+
+
+                <p>
+                    Choose your preferred showtime.
+                </p>
+
+            </div>
+
+
+
+            <div class="showtime-groups">
+
+
+                <!-- MORNING -->
+
+                <div class="showtime-group">
+
+                    <h4>
+                        Morning
+                    </h4>
+
+
+                    <div class="showtime-list">
+
+                        <button
+                            type="button"
+                            class="showtime-button"
+                            data-time="10:00 AM"
+                        >
+                            10:00 AM
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="showtime-button"
+                            data-time="11:30 AM"
+                        >
+                            11:30 AM
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AFTERNOON -->
+
+                <div class="showtime-group">
+
+                    <h4>
+                        Afternoon
+                    </h4>
+
+
+                    <div class="showtime-list">
+
+                        <button
+                            type="button"
+                            class="showtime-button"
+                            data-time="1:30 PM"
+                        >
+                            1:30 PM
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="showtime-button"
+                            data-time="4:00 PM"
+                        >
+                            4:00 PM
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EVENING -->
+
+                <div class="showtime-group">
+
+                    <h4>
+                        Evening
+                    </h4>
+
+
+                    <div class="showtime-list">
+
+                        <button
+                            type="button"
+                            class="showtime-button"
+                            data-time="6:30 PM"
+                        >
+                            6:30 PM
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="showtime-button"
+                            data-time="9:00 PM"
+                        >
+                            9:00 PM
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             CONTINUE
+             ===================================================== -->
+
+        <div class="booking-continue">
+
+            <a
+                href="seats.html"
+                class="primary-button"
+                id="continueToSeats"
+            >
+                Continue to Seat Selection
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================================================
+         MOVIE INFORMATION
+         ========================================================= -->
+
+    <section class="movie-information-section">
+
+
+        <div class="movie-information-container">
+
+
+            <!-- INFORMATION TEXT -->
+
+            <div class="information-content">
+
+
+                <p class="section-label">
+                    ABOUT THE MOVIE
+                </p>
+
+
+                <h2>
+                    Movie Information
+                </h2>
+
+
+                <p id="movieInformationDescription">
+                    Get ready for an entertaining cinematic experience.
+                    Select your preferred show and reserve your seats
+                    before the show begins.
+                </p>
+
+
+            </div>
+
+
+
+            <!-- INFORMATION TABLE -->
+
+            <div class="information-table">
+
+
+                <div class="information-row">
+
+                    <span>
+                        Movie
+                    </span>
+
+
+                    <strong id="informationMovieName">
+                        AAGAAZ
+                    </strong>
+
+                </div>
+
+
+
+                <div class="information-row">
+
+                    <span>
+                        Genre
+                    </span>
+
+
+                    <strong id="informationGenre">
+                        Action
+                    </strong>
+
+                </div>
+
+
+
+                <div class="information-row">
+
+                    <span>
+                        Language
+                    </span>
+
+
+                    <strong id="informationLanguage">
+                        Hindi
+                    </strong>
+
+                </div>
+
+
+
+                <div class="information-row">
+
+                    <span>
+                        Duration
+                    </span>
+
+
+                    <strong id="informationDuration">
+                        2h 24m
+                    </strong>
+
+                </div>
+
+
+
+                <div class="information-row">
+
+                    <span>
+                        Format
+                    </span>
+
+
+                    <strong>
+                        2D
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="site-footer">
+
+
+        <div class="footer-container">
+
+
+            <!-- FOOTER BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+
+                    <img
+                        src="images/logo/logo.png"
+                        alt="thashowbook"
+                    >
+
+                </a>
+
+
+                <p>
+                    Your simple way to pick, book and watch.
+                </p>
+
+            </div>
+
+
+
+            <!-- FOOTER LINKS -->
+
             <div class="footer-links">
+
 
                 <div class="footer-column">
 
@@ -694,13 +978,16 @@
                         Explore
                     </h3>
 
+
                     <a href="index.html">
                         Home
                     </a>
 
+
                     <a href="movies.html">
                         Movies
                     </a>
+
 
                     <a href="bookings.html">
                         My Bookings
@@ -709,26 +996,34 @@
                 </div>
 
 
+
                 <div class="footer-column">
 
                     <h3>
                         Account
                     </h3>
 
+
                     <a href="login.html">
                         Login
                     </a>
 
-                    <a href="bookings.html">
-                        Bookings
+
+                    <a href="login.html">
+                        Register
                     </a>
 
                 </div>
 
+
             </div>
+
 
         </div>
 
+
+
+        <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
 
@@ -736,16 +1031,25 @@
                 © 2026 thashowbook. All rights reserved.
             </p>
 
+
             <p>
                 Pick. Book. Watch.
             </p>
 
         </div>
 
+
     </footer>
 
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
     <script src="js/script.js"></script>
 
+
 </body>
+
 </html>

@@ -1,75 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>thashowbook | Pick. Book. Watch.</title>
 
-    <meta
-        name="description"
-        content="thashowbook - Pick your movie, book your seats and enjoy the show."
-    >
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- Header -->
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
     <header class="site-header">
+
         <div class="header-container">
 
-            <a href="index.html" class="brand">
+            <a
+                href="index.html"
+                class="brand"
+                aria-label="thashowbook Home"
+            >
+
                 <img
                     src="images/logo/logo.png"
                     alt="thashowbook"
                     class="brand-logo"
                 >
+
             </a>
 
-            <nav class="main-navigation" aria-label="Main Navigation">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="movies.html" class="nav-link">Movies</a>
-                <a href="bookings.html" class="nav-link">My Bookings</a>
+
+            <nav
+                class="main-navigation"
+                aria-label="Main Navigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link active"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="movies.html"
+                    class="nav-link"
+                >
+                    Movies
+                </a>
+
+                <a
+                    href="bookings.html"
+                    class="nav-link"
+                >
+                    My Bookings
+                </a>
+
             </nav>
 
+
             <div class="header-actions">
-                <a href="login.html" class="login-button">Login</a>
+
+                <a
+                    href="login.html"
+                    class="login-button"
+                >
+                    Login
+                </a>
+
             </div>
 
         </div>
+
     </header>
 
 
-    <!-- Main Content -->
+
+    <!-- =========================================================
+         MAIN CONTENT
+         ========================================================= -->
+
     <main>
 
-        <!-- Hero Section -->
+
+        <!-- =====================================================
+             HERO
+             ===================================================== -->
+
         <section class="hero-section">
 
             <div class="hero-content">
 
-                <p class="hero-label">YOUR MOVIE. YOUR SHOW. YOUR SEAT.</p>
+                <p class="section-label">
+                    YOUR CINEMA EXPERIENCE
+                </p>
 
                 <h1>
-                    Pick. Book.<br>
-                    Watch.
+                    Pick. Book. Watch.
                 </h1>
 
                 <p class="hero-description">
-                    Discover movies, choose your favourite showtime,
-                    select your seats and enjoy the cinema experience.
+                    Discover movies, choose your favourite show,
+                    select your seats and enjoy the big screen.
                 </p>
 
+
                 <div class="hero-buttons">
-                    <a href="movies.html" class="primary-button">
+
+                    <a
+                        href="movies.html"
+                        class="primary-button"
+                    >
                         Explore Movies
                     </a>
 
-                    <a href="bookings.html" class="secondary-button">
+                    <a
+                        href="bookings.html"
+                        class="secondary-button"
+                    >
                         My Bookings
                     </a>
+
                 </div>
 
             </div>
@@ -77,17 +134,32 @@
         </section>
 
 
-        <!-- Now Showing -->
+
+        <!-- =====================================================
+             MOVIES YOU CAN WATCH
+             ===================================================== -->
+
         <section class="movies-section">
 
             <div class="section-heading">
 
                 <div>
-                    <p class="section-label">NOW SHOWING</p>
-                    <h2>Movies You Can Watch</h2>
+
+                    <p class="section-label">
+                        NOW SHOWING
+                    </p>
+
+                    <h2>
+                        Movies You Can Watch
+                    </h2>
+
                 </div>
 
-                <a href="movies.html" class="view-all-link">
+
+                <a
+                    href="movies.html"
+                    class="view-all-link"
+                >
                     View All Movies
                 </a>
 
@@ -96,26 +168,44 @@
 
             <div class="movie-grid">
 
+
+                <!-- =================================================
+                     AAGAAZ
+                     ================================================= -->
+
                 <article class="movie-card">
 
-                    <a href="movie-details.html" class="movie-poster-link">
+                    <a
+                        href="movie-details.html?movie=AAGAAZ"
+                        class="movie-poster-link"
+                    >
+
                         <img
                             src="images/movies/movie-01.jpg"
-                            alt="Movie poster"
+                            alt="AAGAAZ movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <h3>Movie Title 01</h3>
+                        <h3>
+                            AAGAAZ
+                        </h3>
 
                         <p class="movie-meta">
                             Action · Drama · Hindi
                         </p>
 
+                        <p class="movie-duration">
+                            2h 24m
+                        </p>
+
+
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=AAGAAZ"
                             class="card-book-button"
                         >
                             Book Now
@@ -126,26 +216,44 @@
                 </article>
 
 
+
+                <!-- =================================================
+                     RAAZ
+                     ================================================= -->
+
                 <article class="movie-card">
 
-                    <a href="movie-details.html" class="movie-poster-link">
+                    <a
+                        href="movie-details.html?movie=RAAZ"
+                        class="movie-poster-link"
+                    >
+
                         <img
                             src="images/movies/movie-02.jpg"
-                            alt="Movie poster"
+                            alt="RAAZ movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <h3>Movie Title 02</h3>
+                        <h3>
+                            RAAZ
+                        </h3>
 
                         <p class="movie-meta">
                             Thriller · Mystery · Hindi
                         </p>
 
+                        <p class="movie-duration">
+                            2h 16m
+                        </p>
+
+
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=RAAZ"
                             class="card-book-button"
                         >
                             Book Now
@@ -156,26 +264,44 @@
                 </article>
 
 
+
+                <!-- =================================================
+                     DIL SE DIL TAK
+                     ================================================= -->
+
                 <article class="movie-card">
 
-                    <a href="movie-details.html" class="movie-poster-link">
+                    <a
+                        href="movie-details.html?movie=DIL%20SE%20DIL%20TAK"
+                        class="movie-poster-link"
+                    >
+
                         <img
                             src="images/movies/movie-03.jpg"
-                            alt="Movie poster"
+                            alt="DIL SE DIL TAK movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <h3>Movie Title 03</h3>
+                        <h3>
+                            DIL SE DIL TAK
+                        </h3>
 
                         <p class="movie-meta">
-                            Comedy · Family · Gujarati
+                            Romance · Family · Gujarati
                         </p>
 
+                        <p class="movie-duration">
+                            2h 18m
+                        </p>
+
+
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=DIL%20SE%20DIL%20TAK"
                             class="card-book-button"
                         >
                             Book Now
@@ -185,27 +311,45 @@
 
                 </article>
 
+
+
+                <!-- =================================================
+                     HASO TOH JIVO
+                     ================================================= -->
 
                 <article class="movie-card">
 
-                    <a href="movie-details.html" class="movie-poster-link">
+                    <a
+                        href="movie-details.html?movie=HASO%20TOH%20JIVO"
+                        class="movie-poster-link"
+                    >
+
                         <img
                             src="images/movies/movie-04.jpg"
-                            alt="Movie poster"
+                            alt="HASO TOH JIVO movie poster"
                             class="movie-poster"
                         >
+
                     </a>
+
 
                     <div class="movie-card-content">
 
-                        <h3>Movie Title 04</h3>
+                        <h3>
+                            HASO TOH JIVO
+                        </h3>
 
                         <p class="movie-meta">
-                            Romance · Drama · Hindi
+                            Comedy · Drama · Hindi
                         </p>
 
+                        <p class="movie-duration">
+                            2h 05m
+                        </p>
+
+
                         <a
-                            href="movie-details.html"
+                            href="movie-details.html?movie=HASO%20TOH%20JIVO"
                             class="card-book-button"
                         >
                             Book Now
@@ -214,20 +358,32 @@
                     </div>
 
                 </article>
+
 
             </div>
 
         </section>
 
 
-        <!-- Coming Soon -->
+
+        <!-- =====================================================
+             UPCOMING MOVIES
+             ===================================================== -->
+
         <section class="coming-soon-section">
 
             <div class="section-heading">
 
                 <div>
-                    <p class="section-label">COMING SOON</p>
-                    <h2>Upcoming Movies</h2>
+
+                    <p class="section-label">
+                        COMING SOON
+                    </p>
+
+                    <h2>
+                        Upcoming Movies
+                    </h2>
+
                 </div>
 
             </div>
@@ -235,66 +391,126 @@
 
             <div class="coming-soon-grid">
 
+
+                <!-- =================================================
+                     ANTARIKSH
+                     ================================================= -->
+
                 <article class="coming-movie-card">
 
                     <img
                         src="images/movies/movie-05.jpg"
-                        alt="Upcoming movie poster"
+                        alt="ANTARIKSH movie poster"
                     >
 
+
                     <div class="coming-movie-info">
-                        <span>COMING SOON</span>
-                        <h3>Upcoming Movie 01</h3>
-                        <p>Releasing Soon</p>
+
+                        <span>
+                            COMING SOON
+                        </span>
+
+                        <h3>
+                            ANTARIKSH
+                        </h3>
+
+                        <p>
+                            Science Fiction
+                        </p>
+
                     </div>
 
                 </article>
 
+
+
+                <!-- =================================================
+                     APNO GHAR
+                     ================================================= -->
 
                 <article class="coming-movie-card">
 
                     <img
                         src="images/movies/movie-06.jpg"
-                        alt="Upcoming movie poster"
+                        alt="APNO GHAR movie poster"
                     >
 
+
                     <div class="coming-movie-info">
-                        <span>COMING SOON</span>
-                        <h3>Upcoming Movie 02</h3>
-                        <p>Releasing Soon</p>
+
+                        <span>
+                            COMING SOON
+                        </span>
+
+                        <h3>
+                            APNO GHAR
+                        </h3>
+
+                        <p>
+                            Family Drama
+                        </p>
+
                     </div>
 
                 </article>
 
+
+
+                <!-- =================================================
+                     RAHASYA
+                     ================================================= -->
 
                 <article class="coming-movie-card">
 
                     <img
                         src="images/movies/movie-07.jpg"
-                        alt="Upcoming movie poster"
+                        alt="RAHASYA movie poster"
                     >
 
+
                     <div class="coming-movie-info">
-                        <span>COMING SOON</span>
-                        <h3>Upcoming Movie 03</h3>
-                        <p>Releasing Soon</p>
+
+                        <span>
+                            COMING SOON
+                        </span>
+
+                        <h3>
+                            RAHASYA
+                        </h3>
+
+                        <p>
+                            Mystery
+                        </p>
+
                     </div>
 
                 </article>
+
 
             </div>
 
         </section>
 
 
-        <!-- Cinema Section -->
+
+        <!-- =====================================================
+             CINEMAS
+             ===================================================== -->
+
         <section class="cinema-section">
 
             <div class="section-heading">
 
                 <div>
-                    <p class="section-label">OUR CINEMAS</p>
-                    <h2>Find Your Cinema</h2>
+
+                    <p class="section-label">
+                        OUR CINEMAS
+                    </p>
+
+                    <h2>
+                        Find Your Cinema
+                    </h2>
+
                 </div>
 
             </div>
@@ -302,124 +518,215 @@
 
             <div class="cinema-grid">
 
+
+                <!-- =================================================
+                     CINEMA 01
+                     ================================================= -->
+
                 <article class="cinema-card">
 
                     <img
                         src="images/cinemas/cinema-01.jpg"
-                        alt="Thashow Central Cinema"
+                        alt="Cinema 01"
                     >
 
+
                     <div class="cinema-card-content">
-                        <h3>Thashow Central Cinema</h3>
-                        <p>Premium cinema experience</p>
+
+                        <h3>
+                            Thashow Platinum Cinema
+                        </h3>
+
+                        <p>
+                            Premium cinema experience
+                        </p>
+
                     </div>
 
                 </article>
 
+
+
+                <!-- =================================================
+                     CINEMA 02
+                     ================================================= -->
 
                 <article class="cinema-card">
 
                     <img
                         src="images/cinemas/cinema-02.jpg"
-                        alt="Thashow Royal Cinema"
+                        alt="Cinema 02"
                     >
 
+
                     <div class="cinema-card-content">
-                        <h3>Thashow Royal Cinema</h3>
-                        <p>Luxury movie experience</p>
+
+                        <h3>
+                            Thashow Galaxy Cinema
+                        </h3>
+
+                        <p>
+                            Modern entertainment experience
+                        </p>
+
                     </div>
 
                 </article>
 
+
+
+                <!-- =================================================
+                     CINEMA 03
+                     ================================================= -->
 
                 <article class="cinema-card">
 
                     <img
                         src="images/cinemas/cinema-03.jpg"
-                        alt="Thashow Galaxy Cinema"
+                        alt="Cinema 03"
                     >
 
+
                     <div class="cinema-card-content">
-                        <h3>Thashow Galaxy Cinema</h3>
-                        <p>Modern cinema experience</p>
+
+                        <h3>
+                            Thashow Royal Cinema
+                        </h3>
+
+                        <p>
+                            Luxury movie experience
+                        </p>
+
                     </div>
 
                 </article>
 
+
             </div>
 
         </section>
 
 
-        <!-- Call To Action -->
+
+        <!-- =====================================================
+             CTA
+             ===================================================== -->
+
         <section class="cta-section">
 
             <div class="cta-content">
 
-                <p class="section-label">READY FOR THE SHOW?</p>
-
-                <h2>Your next movie night starts here.</h2>
-
-                <p>
-                    Choose a movie, pick your seats and book your tickets
-                    in just a few simple steps.
+                <p class="section-label">
+                    READY FOR THE BIG SCREEN?
                 </p>
 
-                <a href="movies.html" class="primary-button">
-                    Book Your Movie
+                <h2>
+                    Your next movie starts here.
+                </h2>
+
+                <p>
+                    Choose a movie, select your cinema,
+                    pick your seats and book your tickets.
+                </p>
+
+
+                <a
+                    href="movies.html"
+                    class="primary-button"
+                >
+                    Browse Movies
                 </a>
 
             </div>
 
         </section>
 
+
     </main>
 
 
-    <!-- Footer -->
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
     <footer class="site-footer">
 
         <div class="footer-container">
 
+
             <div class="footer-brand">
 
-                <a href="index.html">
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+
                     <img
                         src="images/logo/logo.png"
                         alt="thashowbook"
-                        class="footer-logo"
                     >
+
                 </a>
 
                 <p>
-                    Pick. Book. Watch.
+                    Your simple way to pick, book and watch.
                 </p>
 
             </div>
 
 
+
             <div class="footer-links">
 
+
                 <div class="footer-column">
-                    <h3>Explore</h3>
-                    <a href="index.html">Home</a>
-                    <a href="movies.html">Movies</a>
-                    <a href="bookings.html">My Bookings</a>
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="movies.html">
+                        Movies
+                    </a>
+
+                    <a href="bookings.html">
+                        My Bookings
+                    </a>
+
                 </div>
 
 
+
                 <div class="footer-column">
-                    <h3>Account</h3>
-                    <a href="login.html">Login</a>
-                    <a href="bookings.html">Bookings</a>
+
+                    <h3>
+                        Account
+                    </h3>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                    <a href="login.html">
+                        Register
+                    </a>
+
                 </div>
+
 
             </div>
 
         </div>
 
 
+
         <div class="footer-bottom">
+
             <p>
                 © 2026 thashowbook. All rights reserved.
             </p>
@@ -427,12 +734,19 @@
             <p>
                 Pick. Book. Watch.
             </p>
+
         </div>
 
     </footer>
 
 
+
+    <!-- =========================================================
+         JAVASCRIPT
+         ========================================================= -->
+
     <script src="js/script.js"></script>
 
 </body>
+
 </html>
