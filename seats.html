@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Select Seats | thashowbook</title>
+
+    <meta
+        name="description"
+        content="Select your cinema seats and continue your movie ticket booking with thashowbook."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="brand">
+                <img
+                    src="images/logo/logo.png"
+                    alt="thashowbook"
+                    class="brand-logo"
+                >
+            </a>
+
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="movies.html" class="nav-link">Movies</a>
+                <a href="bookings.html" class="nav-link">My Bookings</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="login-button">Login</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+        <!-- Page Heading -->
+        <section class="seat-page-header">
+
+            <div class="page-header-container">
+
+                <p class="section-label">
+                    STEP 2 OF 3
+                </p>
+
+                <h1>
+                    Select Your Seats
+                </h1>
+
+                <p>
+                    Choose your preferred seats for the selected show.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Booking Details -->
+        <section class="seat-booking-details">
+
+            <div class="seat-details-container">
+
+                <div class="selected-movie-mini">
+
+                    <img
+                        src="images/movies/movie-01.jpg"
+                        alt="Movie Title 01 poster"
+                    >
+
+                    <div>
+                        <span class="mini-label">
+                            MOVIE
+                        </span>
+
+                        <h2>
+                            Movie Title 01
+                        </h2>
+
+                        <p>
+                            Thashow Central Cinema
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="show-summary">
+
+                    <div class="summary-item">
+
+                        <span>
+                            DATE
+                        </span>
+
+                        <strong>
+                            18 Sep 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            SHOWTIME
+                        </span>
+
+                        <strong>
+                            6:30 PM
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-item">
+
+                        <span>
+                            FORMAT
+                        </span>
+
+                        <strong>
+                            2D
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Seat Selection -->
+        <section class="seat-selection-section">
+
+            <div class="seat-layout-container">
+
+                <!-- Screen -->
+                <div class="screen-area">
+
+                    <div class="cinema-screen">
+                        SCREEN
+                    </div>
+
+                    <p>
+                        All eyes this way
+                    </p>
+
+                </div>
+
+
+                <!-- Seat Legend -->
+                <div class="seat-legend">
+
+                    <div class="legend-item">
+
+                        <span class="seat-demo available"></span>
+
+                        <span>
+                            Available
+                        </span>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="seat-demo selected"></span>
+
+                        <span>
+                            Selected
+                        </span>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="seat-demo booked"></span>
+
+                        <span>
+                            Booked
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Seats -->
+                <div class="seat-map" id="seatMap">
+
+                    <!-- Premium Row A -->
+                    <div class="seat-row">
+
+                        <span class="row-label">
+                            A
+                        </span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A1"
+                            data-price="220"
+                            aria-label="Seat A1"
+                        >
+                            A1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A2"
+                            data-price="220"
+                            aria-label="Seat A2"
+                        >
+                            A2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="A3"
+                            data-price="220"
+                            disabled
+                            aria-label="Seat A3 booked"
+                        >
+                            A3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A4"
+                            data-price="220"
+                            aria-label="Seat A4"
+                        >
+                            A4
+                        </button>
+
+                        <span class="seat-gap"></span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A5"
+                            data-price="220"
+                            aria-label="Seat A5"
+                        >
+                            A5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A6"
+                            data-price="220"
+                            aria-label="Seat A6"
+                        >
+                            A6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A7"
+                            data-price="220"
+                            aria-label="Seat A7"
+                        >
+                            A7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="A8"
+                            data-price="220"
+                            aria-label="Seat A8"
+                        >
+                            A8
+                        </button>
+
+                    </div>
+
+
+                    <!-- Premium Row B -->
+                    <div class="seat-row">
+
+                        <span class="row-label">
+                            B
+                        </span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="B1"
+                            data-price="220"
+                        >
+                            B1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="B2"
+                            data-price="220"
+                            disabled
+                        >
+                            B2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="B3"
+                            data-price="220"
+                        >
+                            B3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="B4"
+                            data-price="220"
+                        >
+                            B4
+                        </button>
+
+                        <span class="seat-gap"></span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="B5"
+                            data-price="220"
+                        >
+                            B5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="B6"
+                            data-price="220"
+                        >
+                            B6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="B7"
+                            data-price="220"
+                        >
+                            B7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="B8"
+                            data-price="220"
+                            disabled
+                        >
+                            B8
+                        </button>
+
+                    </div>
+
+
+                    <!-- Premium Row C -->
+                    <div class="seat-row">
+
+                        <span class="row-label">
+                            C
+                        </span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C1"
+                            data-price="220"
+                        >
+                            C1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C2"
+                            data-price="220"
+                        >
+                            C2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C3"
+                            data-price="220"
+                        >
+                            C3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C4"
+                            data-price="220"
+                        >
+                            C4
+                        </button>
+
+                        <span class="seat-gap"></span>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="C5"
+                            data-price="220"
+                            disabled
+                        >
+                            C5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C6"
+                            data-price="220"
+                        >
+                            C6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C7"
+                            data-price="220"
+                        >
+                            C7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="C8"
+                            data-price="220"
+                        >
+                            C8
+                        </button>
+
+                    </div>
+
+
+                    <!-- Regular Row D -->
+                    <div class="seat-row regular-row">
+
+                        <span class="row-label">
+                            D
+                        </span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D1"
+                            data-price="180"
+                        >
+                            D1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D2"
+                            data-price="180"
+                        >
+                            D2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="D3"
+                            data-price="180"
+                            disabled
+                        >
+                            D3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D4"
+                            data-price="180"
+                        >
+                            D4
+                        </button>
+
+                        <span class="seat-gap"></span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D5"
+                            data-price="180"
+                        >
+                            D5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D6"
+                            data-price="180"
+                        >
+                            D6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D7"
+                            data-price="180"
+                        >
+                            D7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="D8"
+                            data-price="180"
+                        >
+                            D8
+                        </button>
+
+                    </div>
+
+
+                    <!-- Regular Row E -->
+                    <div class="seat-row regular-row">
+
+                        <span class="row-label">
+                            E
+                        </span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="E1"
+                            data-price="180"
+                        >
+                            E1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="E2"
+                            data-price="180"
+                            disabled
+                        >
+                            E2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="E3"
+                            data-price="180"
+                        >
+                            E3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="E4"
+                            data-price="180"
+                        >
+                            E4
+                        </button>
+
+                        <span class="seat-gap"></span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="E5"
+                            data-price="180"
+                        >
+                            E5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat booked"
+                            data-seat="E6"
+                            data-price="180"
+                            disabled
+                        >
+                            E6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="E7"
+                            data-price="180"
+                        >
+                            E7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="E8"
+                            data-price="180"
+                        >
+                            E8
+                        </button>
+
+                    </div>
+
+
+                    <!-- Regular Row F -->
+                    <div class="seat-row regular-row">
+
+                        <span class="row-label">
+                            F
+                        </span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F1"
+                            data-price="180"
+                        >
+                            F1
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F2"
+                            data-price="180"
+                        >
+                            F2
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F3"
+                            data-price="180"
+                        >
+                            F3
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F4"
+                            data-price="180"
+                        >
+                            F4
+                        </button>
+
+                        <span class="seat-gap"></span>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F5"
+                            data-price="180"
+                        >
+                            F5
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F6"
+                            data-price="180"
+                        >
+                            F6
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F7"
+                            data-price="180"
+                        >
+                            F7
+                        </button>
+
+                        <button
+                            type="button"
+                            class="seat"
+                            data-seat="F8"
+                            data-price="180"
+                        >
+                            F8
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Seat Summary -->
+                <div class="seat-summary">
+
+                    <div class="seat-summary-info">
+
+                        <span class="summary-label">
+                            SELECTED SEATS
+                        </span>
+
+                        <strong id="selectedSeats">
+                            No seats selected
+                        </strong>
+
+                    </div>
+
+
+                    <div class="seat-summary-info">
+
+                        <span class="summary-label">
+                            TICKETS
+                        </span>
+
+                        <strong id="ticketCount">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="seat-summary-info">
+
+                        <span class="summary-label">
+                            TOTAL
+                        </span>
+
+                        <strong id="seatTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Continue Button -->
+                <div class="seat-continue">
+
+                    <a
+                        href="checkout.html"
+                        class="primary-button"
+                        id="continueToCheckout"
+                    >
+                        Continue to Checkout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+                    <img
+                        src="images/logo/logo.png"
+                        alt="thashowbook"
+                        class="footer-logo"
+                    >
+                </a>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="movies.html">
+                        Movies
+                    </a>
+
+                    <a href="bookings.html">
+                        My Bookings
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Account
+                    </h3>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                    <a href="bookings.html">
+                        Bookings
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 thashowbook. All rights reserved.
+            </p>
+
+            <p>
+                Pick. Book. Watch.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

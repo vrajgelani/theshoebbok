@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | thashowbook</title>
+
+    <meta
+        name="description"
+        content="Complete your movie ticket booking on thashowbook."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="brand">
+                <img
+                    src="images/logo/logo.png"
+                    alt="thashowbook"
+                    class="brand-logo"
+                >
+            </a>
+
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="movies.html" class="nav-link">Movies</a>
+                <a href="bookings.html" class="nav-link">My Bookings</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="login-button">Login</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+        <!-- Page Header -->
+        <section class="checkout-page-header">
+
+            <div class="page-header-container">
+
+                <p class="section-label">
+                    STEP 3 OF 3
+                </p>
+
+                <h1>
+                    Complete Your Booking
+                </h1>
+
+                <p>
+                    Review your booking details and enter your information.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Checkout -->
+        <section class="checkout-section">
+
+            <div class="checkout-container">
+
+                <!-- Left Column -->
+                <div class="checkout-main">
+
+                    <!-- Contact Details -->
+                    <div class="checkout-card">
+
+                        <div class="checkout-card-header">
+
+                            <p class="section-label">
+                                CUSTOMER DETAILS
+                            </p>
+
+                            <h2>
+                                Contact Information
+                            </h2>
+
+                            <p>
+                                Your ticket confirmation will be associated
+                                with these details.
+                            </p>
+
+                        </div>
+
+
+                        <form id="checkoutForm" novalidate>
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="fullName">
+                                        Full Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="fullName"
+                                        name="fullName"
+                                        placeholder="Enter your full name"
+                                        autocomplete="name"
+                                        required
+                                    >
+
+                                    <small
+                                        class="form-error"
+                                        id="fullNameError"
+                                    ></small>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="email">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Enter your email"
+                                        autocomplete="email"
+                                        required
+                                    >
+
+                                    <small
+                                        class="form-error"
+                                        id="emailError"
+                                    ></small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="phone">
+                                        Mobile Number
+                                    </label>
+
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        placeholder="Enter mobile number"
+                                        inputmode="numeric"
+                                        maxlength="10"
+                                        autocomplete="tel"
+                                        required
+                                    >
+
+                                    <small
+                                        class="form-error"
+                                        id="phoneError"
+                                    ></small>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="city">
+                                        City
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="city"
+                                        name="city"
+                                        placeholder="Enter your city"
+                                        autocomplete="address-level2"
+                                        required
+                                    >
+
+                                    <small
+                                        class="form-error"
+                                        id="cityError"
+                                    ></small>
+
+                                </div>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- Payment -->
+                    <div class="checkout-card">
+
+                        <div class="checkout-card-header">
+
+                            <p class="section-label">
+                                PAYMENT
+                            </p>
+
+                            <h2>
+                                Choose Payment Method
+                            </h2>
+
+                            <p>
+                                Select your preferred payment option.
+                            </p>
+
+                        </div>
+
+
+                        <div class="payment-methods">
+
+                            <!-- UPI -->
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="upi"
+                                    checked
+                                >
+
+                                <span class="payment-option-content">
+
+                                    <span class="payment-option-title">
+                                        UPI
+                                    </span>
+
+                                    <span class="payment-option-description">
+                                        Pay using a UPI app
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+                            <!-- Card -->
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="card"
+                                >
+
+                                <span class="payment-option-content">
+
+                                    <span class="payment-option-title">
+                                        Credit / Debit Card
+                                    </span>
+
+                                    <span class="payment-option-description">
+                                        Pay securely using your card
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+
+                            <!-- Cash -->
+                            <label class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="paymentMethod"
+                                    value="cash"
+                                >
+
+                                <span class="payment-option-content">
+
+                                    <span class="payment-option-title">
+                                        Cash at Cinema
+                                    </span>
+
+                                    <span class="payment-option-description">
+                                        Pay at the cinema counter
+                                    </span>
+
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- UPI Details -->
+                        <div
+                            class="payment-extra"
+                            id="upiPayment"
+                        >
+
+                            <div class="form-group">
+
+                                <label for="upiId">
+                                    UPI ID
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="upiId"
+                                    name="upiId"
+                                    placeholder="example@upi"
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Card Details -->
+                        <div
+                            class="payment-extra"
+                            id="cardPayment"
+                            hidden
+                        >
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="cardNumber">
+                                        Card Number
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cardNumber"
+                                        name="cardNumber"
+                                        placeholder="XXXX XXXX XXXX XXXX"
+                                        inputmode="numeric"
+                                        maxlength="19"
+                                        autocomplete="cc-number"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="cardName">
+                                        Name on Card
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cardName"
+                                        name="cardName"
+                                        placeholder="Enter cardholder name"
+                                        autocomplete="cc-name"
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="cardExpiry">
+                                        Expiry
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="cardExpiry"
+                                        name="cardExpiry"
+                                        placeholder="MM/YY"
+                                        maxlength="5"
+                                        autocomplete="cc-exp"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="cardCvv">
+                                        CVV
+                                    </label>
+
+                                    <input
+                                        type="password"
+                                        id="cardCvv"
+                                        name="cardCvv"
+                                        placeholder="CVV"
+                                        inputmode="numeric"
+                                        maxlength="4"
+                                        autocomplete="cc-csc"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Booking Note -->
+                    <div class="checkout-note">
+
+                        <strong>
+                            Secure Booking
+                        </strong>
+
+                        <p>
+                            Your booking details will be saved locally in
+                            this frontend demo for viewing in My Bookings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Right Column -->
+                <aside class="booking-summary-card">
+
+                    <div class="booking-summary-header">
+
+                        <p class="section-label">
+                            BOOKING SUMMARY
+                        </p>
+
+                        <h2>
+                            Your Tickets
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Movie -->
+                    <div class="summary-movie">
+
+                        <img
+                            src="images/movies/movie-01.jpg"
+                            alt="Movie Title 01 poster"
+                        >
+
+                        <div>
+
+                            <h3>
+                                Movie Title 01
+                            </h3>
+
+                            <p>
+                                Action · Drama · Hindi
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Show Details -->
+                    <div class="booking-summary-details">
+
+                        <div class="booking-summary-row">
+
+                            <span>
+                                Cinema
+                            </span>
+
+                            <strong>
+                                Thashow Central Cinema
+                            </strong>
+
+                        </div>
+
+
+                        <div class="booking-summary-row">
+
+                            <span>
+                                Date
+                            </span>
+
+                            <strong>
+                                18 Sep 2026
+                            </strong>
+
+                        </div>
+
+
+                        <div class="booking-summary-row">
+
+                            <span>
+                                Showtime
+                            </span>
+
+                            <strong>
+                                6:30 PM
+                            </strong>
+
+                        </div>
+
+
+                        <div class="booking-summary-row">
+
+                            <span>
+                                Seats
+                            </span>
+
+                            <strong id="checkoutSeats">
+                                A1, A2
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Price -->
+                    <div class="price-breakdown">
+
+                        <div class="price-row">
+
+                            <span>
+                                Tickets
+                            </span>
+
+                            <strong id="ticketPrice">
+                                ₹440
+                            </strong>
+
+                        </div>
+
+
+                        <div class="price-row">
+
+                            <span>
+                                Convenience Fee
+                            </span>
+
+                            <strong id="convenienceFee">
+                                ₹40
+                            </strong>
+
+                        </div>
+
+
+                        <div class="price-row">
+
+                            <span>
+                                Taxes
+                            </span>
+
+                            <strong id="taxAmount">
+                                ₹24
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="total-price-row">
+
+                        <span>
+                            Total Amount
+                        </span>
+
+                        <strong id="checkoutTotal">
+                            ₹504
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="primary-button checkout-button"
+                        id="confirmBookingButton"
+                    >
+                        Confirm Booking
+                    </button>
+
+
+                    <p class="summary-disclaimer">
+                        By confirming, you agree to the booking details
+                        shown above.
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+                    <img
+                        src="images/logo/logo.png"
+                        alt="thashowbook"
+                        class="footer-logo"
+                    >
+                </a>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="movies.html">
+                        Movies
+                    </a>
+
+                    <a href="bookings.html">
+                        My Bookings
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Account
+                    </h3>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                    <a href="bookings.html">
+                        Bookings
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 thashowbook. All rights reserved.
+            </p>
+
+            <p>
+                Pick. Book. Watch.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

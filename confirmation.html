@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking Confirmed | thashowbook</title>
+
+    <meta
+        name="description"
+        content="Your movie ticket booking confirmation on thashowbook."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="brand">
+                <img
+                    src="images/logo/logo.png"
+                    alt="thashowbook"
+                    class="brand-logo"
+                >
+            </a>
+
+            <nav class="main-navigation" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="movies.html" class="nav-link">Movies</a>
+                <a href="bookings.html" class="nav-link active">
+                    My Bookings
+                </a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="login.html" class="login-button">
+                    Login
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- Main -->
+    <main>
+
+        <!-- Success Header -->
+        <section class="confirmation-header">
+
+            <div class="confirmation-header-content">
+
+                <div class="success-mark" aria-hidden="true">
+                    ✓
+                </div>
+
+                <p class="section-label">
+                    BOOKING CONFIRMED
+                </p>
+
+                <h1>
+                    Your Movie Ticket is Ready!
+                </h1>
+
+                <p>
+                    Your booking has been successfully confirmed.
+                    Keep your booking details handy when you visit
+                    the cinema.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Ticket -->
+        <section class="ticket-section">
+
+            <div class="ticket-container">
+
+                <div class="movie-ticket" id="movieTicket">
+
+                    <!-- Ticket Main -->
+                    <div class="ticket-main">
+
+                        <!-- Movie -->
+                        <div class="ticket-movie">
+
+                            <img
+                                src="images/movies/movie-01.jpg"
+                                alt="Movie Title 01 poster"
+                            >
+
+                            <div class="ticket-movie-content">
+
+                                <span class="ticket-label">
+                                    MOVIE
+                                </span>
+
+                                <h2>
+                                    Movie Title 01
+                                </h2>
+
+                                <p>
+                                    Action · Drama · Hindi
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Booking ID -->
+                        <div class="ticket-booking-id">
+
+                            <span>
+                                BOOKING ID
+                            </span>
+
+                            <strong id="bookingId">
+                                TSB-20260918-001
+                            </strong>
+
+                        </div>
+
+
+                        <!-- Ticket Details -->
+                        <div class="ticket-details-grid">
+
+                            <div class="ticket-detail">
+
+                                <span>
+                                    CINEMA
+                                </span>
+
+                                <strong>
+                                    Thashow Central Cinema
+                                </strong>
+
+                            </div>
+
+
+                            <div class="ticket-detail">
+
+                                <span>
+                                    DATE
+                                </span>
+
+                                <strong>
+                                    18 Sep 2026
+                                </strong>
+
+                            </div>
+
+
+                            <div class="ticket-detail">
+
+                                <span>
+                                    SHOWTIME
+                                </span>
+
+                                <strong>
+                                    6:30 PM
+                                </strong>
+
+                            </div>
+
+
+                            <div class="ticket-detail">
+
+                                <span>
+                                    FORMAT
+                                </span>
+
+                                <strong>
+                                    2D
+                                </strong>
+
+                            </div>
+
+
+                            <div class="ticket-detail">
+
+                                <span>
+                                    SEATS
+                                </span>
+
+                                <strong id="confirmedSeats">
+                                    A1, A2
+                                </strong>
+
+                            </div>
+
+
+                            <div class="ticket-detail">
+
+                                <span>
+                                    TICKETS
+                                </span>
+
+                                <strong id="confirmedTicketCount">
+                                    2
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Customer -->
+                        <div class="ticket-customer">
+
+                            <div>
+
+                                <span>
+                                    BOOKED BY
+                                </span>
+
+                                <strong id="confirmedCustomerName">
+                                    Movie Guest
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    PAYMENT
+                                </span>
+
+                                <strong id="confirmedPayment">
+                                    UPI
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Total -->
+                        <div class="ticket-total">
+
+                            <span>
+                                TOTAL PAID
+                            </span>
+
+                            <strong id="confirmedTotal">
+                                ₹504
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ticket Divider -->
+                    <div class="ticket-divider">
+
+                        <span class="ticket-cut ticket-cut-left"></span>
+
+                        <div class="ticket-dashes"></div>
+
+                        <span class="ticket-cut ticket-cut-right"></span>
+
+                    </div>
+
+
+                    <!-- Ticket Side -->
+                    <div class="ticket-side">
+
+                        <div class="ticket-side-content">
+
+                            <span>
+                                THASHOWBOOK
+                            </span>
+
+                            <strong>
+                                PICK. BOOK. WATCH.
+                            </strong>
+
+                            <p>
+                                Please arrive at the cinema before
+                                the showtime.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Confirmation Actions -->
+                <div class="confirmation-actions">
+
+                    <a
+                        href="bookings.html"
+                        class="primary-button"
+                    >
+                        View My Bookings
+                    </a>
+
+                    <a
+                        href="movies.html"
+                        class="secondary-button"
+                    >
+                        Book Another Movie
+                    </a>
+
+                </div>
+
+
+                <!-- Important Information -->
+                <div class="confirmation-info">
+
+                    <div class="confirmation-info-item">
+
+                        <h3>
+                            Before You Visit
+                        </h3>
+
+                        <p>
+                            Keep your booking ID available and reach
+                            the cinema a little before your showtime.
+                        </p>
+
+                    </div>
+
+
+                    <div class="confirmation-info-item">
+
+                        <h3>
+                            Your Ticket
+                        </h3>
+
+                        <p>
+                            Your booking information is saved locally
+                            in this frontend demo and can be viewed
+                            from My Bookings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-brand">
+
+                <a href="index.html">
+                    <img
+                        src="images/logo/logo.png"
+                        alt="thashowbook"
+                        class="footer-logo"
+                    >
+                </a>
+
+                <p>
+                    Pick. Book. Watch.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div class="footer-column">
+
+                    <h3>
+                        Explore
+                    </h3>
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="movies.html">
+                        Movies
+                    </a>
+
+                    <a href="bookings.html">
+                        My Bookings
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        Account
+                    </h3>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                    <a href="bookings.html">
+                        Bookings
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 thashowbook. All rights reserved.
+            </p>
+
+            <p>
+                Pick. Book. Watch.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
