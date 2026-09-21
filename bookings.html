@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>My Bookings | thashowbook</title>
 
@@ -11,88 +17,106 @@
         content="View your movie bookings and tickets on thashowbook."
     >
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
+
     <!-- =====================================================
-     HEADER
-===================================================== -->
+         HEADER
+         ===================================================== -->
 
-<header class="site-header">
+    <header class="site-header">
 
-    <div class="header-container">
+        <div class="header-container">
 
-        <!-- LOGO -->
-        <a
-            href="index.html"
-            class="brand"
-        >
-            <img
-                src="images/logo/logo.png"
-                alt="thashowbook"
-                class="brand-logo"
-            >
-        </a>
-
-
-        <!-- NAVIGATION -->
-        <nav
-            class="main-navigation"
-            aria-label="Main navigation"
-        >
+            <!-- LOGO -->
 
             <a
                 href="index.html"
-                class="active"
+                class="brand"
             >
-                Home
+
+                <img
+                    src="images/logo/logo.png"
+                    alt="thashowbook"
+                    class="brand-logo"
+                >
+
             </a>
 
-            <a
-                href="movies.html"
+
+            <!-- NAVIGATION -->
+
+            <nav
+                class="main-navigation"
+                aria-label="Main navigation"
             >
-                Movies
-            </a>
 
-            <a
-                href="bookings.html"
-            >
-                My Bookings
-            </a>
+                <a
+                    href="index.html"
+                >
+                    Home
+                </a>
 
-            <!-- ABOUT -->
-            <a
-                href="about.html"
-            >
-                About
-            </a>
+                <a
+                    href="movies.html"
+                >
+                    Movies
+                </a>
 
-        </nav>
+                <a
+                    href="bookings.html"
+                    class="active"
+                >
+                    My Bookings
+                </a>
+
+                <a
+                    href="about.html"
+                >
+                    About
+                </a>
+
+            </nav>
 
 
-        <!-- HEADER ACTION -->
-        <div class="header-actions">
+            <!-- HEADER ACTION -->
 
-            <a
-                href="login.html"
-                class="login-button"
-            >
-                Login
-            </a>
+            <div class="header-actions">
+
+                <a
+                    href="login.html"
+                    class="login-button"
+                >
+                    Login
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
-
-</header>
+    </header>
 
 
-    <!-- Main -->
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
     <main>
 
-        <!-- Page Header -->
+
+        <!-- =====================================================
+             PAGE HEADER
+             ===================================================== -->
+
         <section class="bookings-page-header">
 
             <div class="page-header-container">
@@ -115,12 +139,18 @@
         </section>
 
 
-        <!-- Booking Content -->
+
+        <!-- =====================================================
+             BOOKING CONTENT
+             ===================================================== -->
+
         <section class="bookings-section">
 
             <div class="bookings-container">
 
-                <!-- Booking Tabs -->
+
+                <!-- BOOKING TABS -->
+
                 <div
                     class="booking-tabs"
                     role="tablist"
@@ -146,7 +176,11 @@
                 </div>
 
 
-                <!-- Upcoming Bookings -->
+
+                <!-- =================================================
+                     UPCOMING BOOKINGS
+                     ================================================= -->
+
                 <div
                     class="booking-panel active"
                     id="upcomingBookings"
@@ -157,7 +191,9 @@
                         id="upcomingBookingList"
                     >
 
-                        <!-- Booking Card -->
+
+                        <!-- BOOKING CARD -->
+
                         <article class="booking-card">
 
                             <div class="booking-card-poster">
@@ -189,6 +225,7 @@
                                         </p>
 
                                     </div>
+
 
                                     <div class="booking-id">
 
@@ -293,10 +330,13 @@
 
                         </article>
 
+
                     </div>
 
 
-                    <!-- Empty Upcoming State -->
+
+                    <!-- EMPTY UPCOMING STATE -->
+
                     <div
                         class="booking-empty-state"
                         id="upcomingEmptyState"
@@ -332,7 +372,11 @@
                 </div>
 
 
-                <!-- Past Bookings -->
+
+                <!-- =================================================
+                     PAST BOOKINGS
+                     ================================================= -->
+
                 <div
                     class="booking-panel"
                     id="pastBookings"
@@ -344,7 +388,9 @@
                         id="pastBookingList"
                     >
 
-                        <!-- Past Booking Card -->
+
+                        <!-- PAST BOOKING CARD -->
+
                         <article class="booking-card past-booking">
 
                             <div class="booking-card-poster">
@@ -376,6 +422,7 @@
                                         </p>
 
                                     </div>
+
 
                                     <div class="booking-id">
 
@@ -480,10 +527,13 @@
 
                         </article>
 
+
                     </div>
 
 
-                    <!-- Empty Past State -->
+
+                    <!-- EMPTY PAST STATE -->
+
                     <div
                         class="booking-empty-state"
                         id="pastEmptyState"
@@ -519,7 +569,11 @@
                 </div>
 
 
-                <!-- Booking Help -->
+
+                <!-- =================================================
+                     BOOKING HELP
+                     ================================================= -->
+
                 <div class="booking-help">
 
                     <div class="booking-help-content">
@@ -548,6 +602,7 @@
 
                 </div>
 
+
             </div>
 
         </section>
@@ -555,7 +610,11 @@
     </main>
 
 
-    <!-- Footer -->
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
     <footer class="site-footer">
 
         <div class="footer-container">
@@ -563,11 +622,13 @@
             <div class="footer-brand">
 
                 <a href="index.html">
+
                     <img
                         src="images/logo/logo.png"
                         alt="thashowbook"
                         class="footer-logo"
                     >
+
                 </a>
 
                 <p>
@@ -597,6 +658,10 @@
                         My Bookings
                     </a>
 
+                    <a href="about.html">
+                        About
+                    </a>
+
                 </div>
 
 
@@ -608,6 +673,10 @@
 
                     <a href="login.html">
                         Login
+                    </a>
+
+                    <a href="profile.html">
+                        Profile
                     </a>
 
                     <a href="bookings.html">
@@ -636,7 +705,9 @@
     </footer>
 
 
+
     <script src="js/script.js"></script>
 
 </body>
+
 </html>

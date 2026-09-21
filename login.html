@@ -12,6 +12,11 @@
 
     <title>Login | thashowbook</title>
 
+    <meta
+        name="description"
+        content="Login or create your thashowbook account."
+    >
+
     <link
         rel="stylesheet"
         href="css/style.css"
@@ -19,19 +24,18 @@
 
 </head>
 
-
 <body>
 
 
     <!-- =========================================================
          HEADER
-         ========================================================= -->
+    ========================================================= -->
 
     <header class="site-header">
 
         <div class="header-container">
 
-
+            <!-- LOGO -->
             <a
                 href="index.html"
                 class="brand"
@@ -47,6 +51,7 @@
             </a>
 
 
+            <!-- NAVIGATION -->
             <nav
                 class="main-navigation"
                 aria-label="Main Navigation"
@@ -59,14 +64,12 @@
                     Home
                 </a>
 
-
                 <a
                     href="movies.html"
                     class="nav-link"
                 >
                     Movies
                 </a>
-
 
                 <a
                     href="bookings.html"
@@ -75,9 +78,17 @@
                     My Bookings
                 </a>
 
+                <a
+                    href="about.html"
+                    class="nav-link"
+                >
+                    About
+                </a>
+
             </nav>
 
 
+            <!-- HEADER ACTION -->
             <div class="header-actions">
 
                 <a
@@ -97,23 +108,20 @@
 
     <!-- =========================================================
          LOGIN PAGE
-         ========================================================= -->
+    ========================================================= -->
 
     <main>
 
-
         <section class="login-section">
-
 
             <div class="login-container">
 
 
                 <!-- =================================================
                      LEFT SIDE
-                     ================================================= -->
+                ================================================= -->
 
                 <div class="login-intro">
-
 
                     <p class="section-label">
                         WELCOME TO THASHOWBOOK
@@ -141,32 +149,32 @@
 
                     </div>
 
-
                 </div>
 
 
 
                 <!-- =================================================
                      RIGHT SIDE
-                     ================================================= -->
+                ================================================= -->
 
                 <div class="login-card">
 
 
                     <!-- =================================================
-                         LOGIN FORM
-                         ================================================= -->
+                         LOGIN PANEL
+                    ================================================= -->
 
-                    <div
-                        id="loginPanel"
-                    >
+                    <div id="loginPanel">
 
                         <div class="login-card-header">
+
+                            <p class="section-label">
+                                ACCOUNT
+                            </p>
 
                             <h2>
                                 Login
                             </h2>
-
 
                             <p>
                                 Enter your details to continue.
@@ -175,12 +183,12 @@
                         </div>
 
 
+                        <!-- LOGIN FORM -->
 
                         <form
                             id="loginForm"
                             novalidate
                         >
-
 
                             <!-- EMAIL -->
 
@@ -189,7 +197,6 @@
                                 <label for="loginEmail">
                                     Email Address
                                 </label>
-
 
                                 <input
                                     type="email"
@@ -203,7 +210,6 @@
                             </div>
 
 
-
                             <!-- PASSWORD -->
 
                             <div class="form-group">
@@ -213,7 +219,6 @@
                                     <label for="loginPassword">
                                         Password
                                     </label>
-
 
                                     <button
                                         type="button"
@@ -238,7 +243,6 @@
                             </div>
 
 
-
                             <!-- REMEMBER ME -->
 
                             <div class="login-options">
@@ -259,7 +263,6 @@
                             </div>
 
 
-
                             <!-- LOGIN BUTTON -->
 
                             <button
@@ -271,18 +274,15 @@
                             </button>
 
 
-                            <!-- MESSAGE -->
+                            <!-- LOGIN MESSAGE -->
 
                             <div
                                 id="loginMessage"
                                 class="auth-message"
                                 hidden
-                            >
-                            </div>
-
+                            ></div>
 
                         </form>
-
 
 
                         <!-- CREATE ACCOUNT -->
@@ -292,7 +292,6 @@
                             <p>
                                 Don't have an account?
                             </p>
-
 
                             <button
                                 type="button"
@@ -304,27 +303,28 @@
 
                         </div>
 
-
                     </div>
 
 
 
                     <!-- =================================================
-                         REGISTER FORM
-                         ================================================= -->
+                         REGISTER PANEL
+                    ================================================= -->
 
                     <div
                         id="registerPanel"
                         hidden
                     >
 
-
                         <div class="login-card-header">
+
+                            <p class="section-label">
+                                JOIN THASHOWBOOK
+                            </p>
 
                             <h2>
                                 Create Account
                             </h2>
-
 
                             <p>
                                 Create your thashowbook demo account.
@@ -333,12 +333,12 @@
                         </div>
 
 
+                        <!-- REGISTER FORM -->
 
                         <form
                             id="registerForm"
                             novalidate
                         >
-
 
                             <!-- NAME -->
 
@@ -347,7 +347,6 @@
                                 <label for="registerName">
                                     Full Name
                                 </label>
-
 
                                 <input
                                     type="text"
@@ -360,7 +359,6 @@
                             </div>
 
 
-
                             <!-- EMAIL -->
 
                             <div class="form-group">
@@ -368,7 +366,6 @@
                                 <label for="registerEmail">
                                     Email Address
                                 </label>
-
 
                                 <input
                                     type="email"
@@ -381,7 +378,6 @@
                             </div>
 
 
-
                             <!-- PASSWORD -->
 
                             <div class="form-group">
@@ -389,7 +385,6 @@
                                 <label for="registerPassword">
                                     Password
                                 </label>
-
 
                                 <input
                                     type="password"
@@ -402,7 +397,6 @@
                             </div>
 
 
-
                             <!-- CONFIRM PASSWORD -->
 
                             <div class="form-group">
@@ -410,7 +404,6 @@
                                 <label for="registerConfirmPassword">
                                     Confirm Password
                                 </label>
-
 
                                 <input
                                     type="password"
@@ -423,8 +416,7 @@
                             </div>
 
 
-
-                            <!-- REGISTER -->
+                            <!-- REGISTER BUTTON -->
 
                             <button
                                 type="submit"
@@ -440,12 +432,9 @@
                                 id="registerMessage"
                                 class="auth-message"
                                 hidden
-                            >
-                            </div>
-
+                            ></div>
 
                         </form>
-
 
 
                         <!-- BACK TO LOGIN -->
@@ -455,7 +444,6 @@
                             <p>
                                 Already have an account?
                             </p>
-
 
                             <button
                                 type="button"
@@ -467,21 +455,19 @@
 
                         </div>
 
-
                     </div>
 
 
 
                     <!-- =================================================
                          FRONTEND DEMO NOTICE
-                         ================================================= -->
+                    ================================================= -->
 
                     <div class="login-demo-notice">
 
                         <strong>
                             Frontend Demo
                         </strong>
-
 
                         <p>
                             This website uses browser storage for
@@ -490,7 +476,6 @@
                         </p>
 
                     </div>
-
 
                 </div>
 
@@ -504,13 +489,13 @@
 
     <!-- =========================================================
          FOOTER
-         ========================================================= -->
+    ========================================================= -->
 
     <footer class="site-footer">
 
-
         <div class="footer-container">
 
+            <!-- FOOTER BRAND -->
 
             <div class="footer-brand">
 
@@ -526,17 +511,16 @@
 
                 </a>
 
-
                 <p>
-                    Your simple way to pick, book and watch.
+                    Pick. Book. Watch.
                 </p>
 
             </div>
 
 
+            <!-- FOOTER LINKS -->
 
             <div class="footer-links">
-
 
                 <div class="footer-column">
 
@@ -544,23 +528,23 @@
                         Explore
                     </h3>
 
-
                     <a href="index.html">
                         Home
                     </a>
-
 
                     <a href="movies.html">
                         Movies
                     </a>
 
-
                     <a href="bookings.html">
                         My Bookings
                     </a>
 
-                </div>
+                    <a href="about.html">
+                        About
+                    </a>
 
+                </div>
 
 
                 <div class="footer-column">
@@ -569,11 +553,9 @@
                         Account
                     </h3>
 
-
                     <a href="login.html">
                         Login
                     </a>
-
 
                     <a href="login.html">
                         Register
@@ -581,12 +563,12 @@
 
                 </div>
 
-
             </div>
 
         </div>
 
 
+        <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
 
@@ -594,28 +576,21 @@
                 © 2026 thashowbook. All rights reserved.
             </p>
 
-
             <p>
                 Pick. Book. Watch.
             </p>
 
         </div>
 
-
     </footer>
 
 
 
     <!-- =========================================================
-         EXISTING MAIN JAVASCRIPT
-         ========================================================= -->
+         JAVASCRIPT
+    ========================================================= -->
 
     <script src="js/script.js"></script>
-
-
-    <!-- =========================================================
-         LOGIN PAGE JAVASCRIPT
-         ========================================================= -->
 
     <script src="js/login.js"></script>
 
